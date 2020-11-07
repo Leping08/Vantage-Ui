@@ -1,0 +1,49 @@
+<template>
+  <span
+    :class="
+      `inline-flex items-center justify-center h-8 w-8 rounded-full bg-${avatarColor}-500`
+    "
+  >
+    <span class="text-sm font-medium leading-none text-gray-100">{{
+      initals
+    }}</span>
+  </span>
+</template>
+
+<script>
+import theme from "./theme";
+export default {
+  name: "Avatar",
+  props: {
+    name: {
+      type: String,
+      required: true,
+      example: "John Doe"
+    },
+    color: {
+      type: String,
+      required: false,
+      example: "blue"
+    }
+  },
+  computed: {
+    initals() {
+      return this.name
+        ? this.name
+            .split(" ")
+            .map(word => {
+              return word[0];
+            })
+            .join("")
+        : "";
+    },
+    avatarColor() {
+      if (this.color) {
+        return this.color;
+      } else {
+        return theme.color;
+      }
+    }
+  }
+};
+</script>
