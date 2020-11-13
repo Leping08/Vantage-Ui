@@ -1,4 +1,4 @@
-![Vantage Ui](./dev/vantage-ui-logo.png)
+![Vantage Ui](./dev/vantage-ui-logo.svg)
 
 Vantage UI is a set of Vue 3 compnents themed by Tailwind css
 

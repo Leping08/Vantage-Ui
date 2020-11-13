@@ -1,6 +1,5 @@
 import { mount } from "@vue/test-utils";
 import Badge from "@/lib-components/badge.vue";
-import store from "@/store/index";
 
 it("renders the badge with the slot content", async () => {
   expect(true).toBe(true);
@@ -9,9 +8,6 @@ it("renders the badge with the slot content", async () => {
 describe("Badge.vue", () => {
   it("renders the badge with the slot content", async () => {
     const wrapper = mount(Badge, {
-      global: {
-        plugins: [store]
-      },
       slots: {
         default: "John"
       },
@@ -25,9 +21,6 @@ describe("Badge.vue", () => {
 
   it("changes color via a prop", async () => {
     const wrapper = mount(Badge, {
-      global: {
-        plugins: [store]
-      },
       slots: {
         default: "John"
       },
