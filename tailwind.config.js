@@ -8,9 +8,10 @@ module.exports = {
       './src/**/*.html',
       './src/**/*.vue',
       './src/**/*.jsx',
+      './dev/*.vue',
     ],
     options: {
-      whitelist: ['bg-red-500', 'px-4'],
+      whitelist: [],
     }
   },
   theme: {

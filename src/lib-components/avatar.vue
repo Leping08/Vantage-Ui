@@ -38,11 +38,7 @@ export default {
         : "";
     },
     avatarColor() {
-      if (this.color) {
-        return this.color;
-      } else {
-        return theme.color;
-      }
+      return this.color || theme.color;
     }
   }
 };

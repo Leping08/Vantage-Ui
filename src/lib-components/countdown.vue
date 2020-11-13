@@ -89,11 +89,7 @@ export default {
       return Math.floor((this.distance % (1000 * 60)) / 1000);
     },
     timerColor() {
-      if (this.color) {
-        return this.color;
-      } else {
-        return theme.color;
-      }
+      return this.color || theme.color;
     }
   },
   created() {
