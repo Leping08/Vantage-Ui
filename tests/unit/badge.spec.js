@@ -1,10 +1,6 @@
 import { mount } from "@vue/test-utils";
 import Badge from "@/lib-components/badge.vue";
 
-it("renders the badge with the slot content", async () => {
-  expect(true).toBe(true);
-});
-
 describe("Badge.vue", () => {
   it("renders the badge with the slot content", async () => {
     const wrapper = mount(Badge, {

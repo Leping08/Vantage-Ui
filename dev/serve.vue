@@ -34,22 +34,22 @@
       </div>
       <div class="container mx-auto">
         <div class="m-4">
-          <v-card heading="Avatar" :headingBorder="true">
+          <v-card heading="Avatar" :headingBorder="true" :padding="true">
             <v-avatar name="John Doe"></v-avatar>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Badge" :headingBorder="true">
+          <v-card heading="Badge" :headingBorder="true" :padding="true">
             <v-badge>This is the badge</v-badge>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Badge" :headingBorder="true">
+          <v-card heading="Badge" :headingBorder="true" :padding="true">
             <v-button>Submit Me</v-button>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Card" :headingBorder="true">
+          <v-card heading="Card" :headingBorder="true" :padding="true">
             This is a card content.
           </v-card>
         </div>

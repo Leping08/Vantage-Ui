@@ -48,8 +48,7 @@ export default {
   props: {
     heading: {
       type: String,
-      required: false,
-      default: "Heading"
+      required: false
     },
     subheading: {
       type: String,
@@ -57,13 +56,11 @@ export default {
     },
     padding: {
       type: Boolean,
-      required: false,
-      default: true
+      required: false
     },
     headingBorder: {
       type: Boolean,
-      required: false,
-      default: false
+      required: false
     }
   },
   computed: {

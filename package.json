@@ -1,12 +1,13 @@
 {
   "name": "vantage-ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A vuejs uikit",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e --mode=dev",
+    "test:watch": "vue-cli-service test:unit --watch --mode=dev",
     "lint": "eslint --ext js,vue src",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
