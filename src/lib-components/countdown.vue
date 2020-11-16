@@ -46,8 +46,8 @@
       </div>
     </div>
   </div>
-  <div v-if="expired" class="p-2 text-2xl font-semibold text-indigo-600">
-    Expired
+  <div v-if="expired" :class="`p-2 text-2xl font-semibold text-${timerColor}-600`">
+    {{ expiredMessage }}
   </div>
 </template>
 
@@ -58,11 +58,15 @@ export default {
   props: {
     time: {
       type: Date,
-      required: true,
-      default: new Date(new Date().getUTCFullYear() + 1, 1, 1)
+      required: true
     },
     color: {
       type: String,
+      required: false
+    },
+    expiredMessage: {
+      type: String,
+      default: 'Expired',
       required: false
     }
   },
@@ -95,6 +99,16 @@ export default {
   created() {
     //Set the end time for use later
     this.end = new Date(this.time).getTime();
+
+    //TODO Dont duplicate the logic to check if the time has expired
+    // Dertmine the difference between now and the end time prop
+    this.distance = this.end - new Date().getTime();
+
+    //Check if the count down is finished
+    if (this.distance < 0) {
+      clearInterval();
+      this.expired = true;
+    }
 
     setInterval(() => {
       // Dertmine the difference between now and the end time prop
