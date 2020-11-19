@@ -2,9 +2,7 @@ import { mount } from "@vue/test-utils";
 import DescriptionList from "@/lib-components/descriptionList.vue";
 
 describe("DescriptionList.vue", () => {
-
   it("renders the description list items through the items prop", async () => {
-
     const items = [
       {
         key: "First Item",
@@ -22,7 +20,7 @@ describe("DescriptionList.vue", () => {
         key: "Fourth Item",
         value: "Number 4 is the best."
       }
-    ]
+    ];
 
     const wrapper = mount(DescriptionList, {
       props: {
@@ -41,18 +39,17 @@ describe("DescriptionList.vue", () => {
   });
 
   it("renders the items with a different item key through a prop", async () => {
-
     const items = [
       {
-        newKeyName: 'Testing',
-        value: 56 
+        newKeyName: "Testing",
+        value: 56
       }
     ];
 
     const wrapper = mount(DescriptionList, {
       props: {
         items: items,
-        itemKey: 'newKeyName'
+        itemKey: "newKeyName"
       }
     });
 
@@ -61,10 +58,9 @@ describe("DescriptionList.vue", () => {
   });
 
   it("renders the items with a different value key through a prop", async () => {
-
     const items = [
       {
-        key: 'Testing',
+        key: "Testing",
         newValueName: 56
       }
     ];
@@ -72,7 +68,7 @@ describe("DescriptionList.vue", () => {
     const wrapper = mount(DescriptionList, {
       props: {
         items: items,
-        itemValue: 'newValueName'
+        itemValue: "newValueName"
       }
     });
 

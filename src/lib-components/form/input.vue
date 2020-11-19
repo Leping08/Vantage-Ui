@@ -100,7 +100,6 @@ export default {
   },
   watch: {
     value() {
-      console.log("test");
       this.validationObjects.map(element => {
         //Call the function of the name of the validation object and input any args
         return this[element.name](element);
@@ -110,11 +109,11 @@ export default {
   methods: {
     min(element) {
       element.valid = element.args <= this.modelValue.length;
-      element.message = `${this.label} requires at least ${element.args} characters`;
+      element.message = `${this.label} must be ${element.args} characters or more`;
     },
     max(element) {
       element.valid = element.args >= this.modelValue.length;
-      element.message = `${this.label} can only have ${element.args} characters`;
+      element.message = `${this.label} must be ${element.args} characters or less`;
     },
     required(element) {
       element.valid = this.modelValue.length >= 1;

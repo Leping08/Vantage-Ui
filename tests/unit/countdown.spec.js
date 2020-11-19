@@ -5,11 +5,11 @@ describe("Countdown.vue", () => {
   it("shows NaN when a time is not given", async () => {
     const wrapper = mount(Countdown, {
       props: {
-        time: null,
+        time: null
       }
     });
 
-    expect(wrapper.html()).not.toContain("Na")
+    expect(wrapper.html()).not.toContain("Na");
   });
 
   it("changes color via a prop", async () => {
@@ -20,9 +20,9 @@ describe("Countdown.vue", () => {
       }
     });
 
-    expect(wrapper.html()).toContain("red")
+    expect(wrapper.html()).toContain("red");
   });
-  
+
   it("shows the expired message prop when th timer is expired", async () => {
     const wrapper = mount(Countdown, {
       props: {
@@ -31,8 +31,8 @@ describe("Countdown.vue", () => {
       }
     });
 
-    expect(wrapper.html()).toContain("Testing")
-    expect(wrapper.html()).not.toContain("Seconds")
+    expect(wrapper.html()).toContain("Testing");
+    expect(wrapper.html()).not.toContain("Seconds");
   });
 
   it("does not show the expired message prop when th timer is not expired", async () => {
@@ -43,17 +43,17 @@ describe("Countdown.vue", () => {
       }
     });
 
-    expect(wrapper.html()).not.toContain("Testing")
-    expect(wrapper.html()).toContain("Seconds")
+    expect(wrapper.html()).not.toContain("Testing");
+    expect(wrapper.html()).toContain("Seconds");
   });
 
   it("has Expired as the default message for a timer that has expired", async () => {
     const wrapper = mount(Countdown, {
       props: {
-        time: new Date(new Date().getUTCFullYear() - 1, 1, 1),
+        time: new Date(new Date().getUTCFullYear() - 1, 1, 1)
       }
     });
 
-    expect(wrapper.html()).toContain("Expired")
+    expect(wrapper.html()).toContain("Expired");
   });
 });

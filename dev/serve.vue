@@ -55,7 +55,9 @@
         </div>
         <div class="m-4">
           <v-card heading="Countdown" :headingBorder="true">
-            <v-countdown :time="new Date(new Date().getUTCFullYear() + 1, 1, 1)"></v-countdown>
+            <v-countdown
+              :time="new Date(new Date().getUTCFullYear() + 1, 1, 1)"
+            ></v-countdown>
           </v-card>
         </div>
         <div class="m-4">

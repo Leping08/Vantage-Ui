@@ -8,11 +8,11 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e --mode=dev",
     "test:watch": "vue-cli-service test:unit --watch --mode=dev",
-    "lint": "eslint --ext js,vue src",
+    "lint": "eslint --ext js,vue src dev tests",
+    "lint:fix": "eslint --ext js,vue src dev tests --fix",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "fix": "eslint --ext js,vue src dev --fix"
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "main": "dist/vantage-ui.ssr.js",
   "module": "dist/vantage-ui.esm.js",

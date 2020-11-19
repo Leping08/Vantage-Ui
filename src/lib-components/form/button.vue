@@ -34,6 +34,9 @@ export default {
     },
     rounded() {
       return theme.rounded || "";
+    },
+    shadow() {
+      return theme.shadow || "";
     }
   }
 };

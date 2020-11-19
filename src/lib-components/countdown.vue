@@ -46,7 +46,10 @@
       </div>
     </div>
   </div>
-  <div v-if="expired" :class="`p-2 text-2xl font-semibold text-${timerColor}-600`">
+  <div
+    v-if="expired"
+    :class="`p-2 text-2xl font-semibold text-${timerColor}-600`"
+  >
     {{ expiredMessage }}
   </div>
 </template>
@@ -66,7 +69,7 @@ export default {
     },
     expiredMessage: {
       type: String,
-      default: 'Expired',
+      default: "Expired",
       required: false
     }
   },
