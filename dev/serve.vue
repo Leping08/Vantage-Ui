@@ -93,6 +93,16 @@
             ></v-search-select>
           </v-card>
         </div>
+        <div class="m-4">
+          <v-card heading="Accordion" :padding="false" :headingBorder="false">
+            <v-accordion :items="questionandAnswers"></v-accordion>
+          </v-card>
+        </div>
+        <div class="m-4">
+          <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
+            <v-progress-bar v-model="progressBarValue"></v-progress-bar>
+          </v-card>
+        </div>
       </div>
     </div>
   </div>
@@ -105,6 +115,7 @@ export default {
     return {
       input: "",
       searchSelected: "",
+      progressBarValue: 75,
       searchItems: [
         "gray",
         "red",
@@ -137,6 +148,24 @@ export default {
         {
           key: "Fourth Item",
           value: "Number 4 is the best."
+        }
+      ],
+      questionandAnswers: [
+        {
+          key: "What's the best thing about Switzerland?",
+          value: "I don't know, but the flag is a big plus."
+        },
+        {
+          key: "How do you make holy water?",
+          value: "You boil the hell out of it."
+        },
+        {
+          key: "What do you call someone with no body and no nose?",
+          value: "Nobody knows."
+        },
+        {
+          key: "Why do you never see elephants hiding in trees?",
+          value: "Because they're so good at it."
         }
       ]
     };
