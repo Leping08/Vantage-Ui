@@ -34,6 +34,11 @@
       </div>
       <div class="container mx-auto">
         <div class="m-4">
+          <v-card heading="Accordion" :padding="false" :headingBorder="false">
+            <v-accordion :items="questionandAnswers"></v-accordion>
+          </v-card>
+        </div>
+        <div class="m-4">
           <v-card heading="Avatar" :headingBorder="true" :padding="true">
             <v-avatar name="John Doe"></v-avatar>
           </v-card>
@@ -80,8 +85,17 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Toggle" :padding="true" :headingBorder="true">
-            <v-toggle v-model="toggle"></v-toggle>
+          <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
+            <v-progress-bar v-model="progressBarValue"></v-progress-bar>
+          </v-card>
+        </div>
+        <div class="m-4">
+          <v-card
+            heading="Progress Spinner"
+            :padding="true"
+            :headingBorder="true"
+          >
+            <v-progress-spinner size="8" />
           </v-card>
         </div>
         <div class="m-4">
@@ -94,22 +108,8 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Accordion" :padding="false" :headingBorder="false">
-            <v-accordion :items="questionandAnswers"></v-accordion>
-          </v-card>
-        </div>
-        <div class="m-4">
-          <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
-            <v-progress-bar v-model="progressBarValue"></v-progress-bar>
-          </v-card>
-        </div>
-        <div class="m-4">
-          <v-card
-            heading="Progress Spinner"
-            :padding="true"
-            :headingBorder="true"
-          >
-            <v-progress-spinner size="8" />
+          <v-card heading="Toggle" :padding="true" :headingBorder="true">
+            <v-toggle v-model="toggle"></v-toggle>
           </v-card>
         </div>
       </div>
