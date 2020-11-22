@@ -103,6 +103,15 @@
             <v-progress-bar v-model="progressBarValue"></v-progress-bar>
           </v-card>
         </div>
+        <div class="m-4">
+          <v-card
+            heading="Progress Spinner"
+            :padding="true"
+            :headingBorder="true"
+          >
+            <v-progress-spinner size="8" />
+          </v-card>
+        </div>
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ import Input from "./form/input.vue";
 import Toggle from "./form/toggle.vue";
 import SearchSelect from "./form/searchSelect.vue";
 import ProgressBar from "./progressBar.vue";
+import ProgressSpinner from "./progressSpinner.vue";
 
 export {
   Accordion as VAccordion,
@@ -21,5 +22,6 @@ export {
   Input as VInput,
   Toggle as VToggle,
   SearchSelect as VSearchSelect,
-  ProgressBar as VProgressBar
+  ProgressBar as VProgressBar,
+  ProgressSpinner as VProgressSpinner
 };
