@@ -44,7 +44,7 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Badge" :headingBorder="true" :padding="true">
+          <v-card heading="Button" :headingBorder="true" :padding="true">
             <v-button>Submit Me</v-button>
           </v-card>
         </div>
@@ -85,12 +85,12 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Toggle" :padding="true" :headingBorder="true">
+          <v-card heading="Search Select" :padding="true" :headingBorder="true">
             <v-search-select
               v-model="searchSelected"
               :items="searchItems"
+              placeholder="Search Color"
             ></v-search-select>
-            <div>Value: {{ searchSelected }}</div>
           </v-card>
         </div>
       </div>

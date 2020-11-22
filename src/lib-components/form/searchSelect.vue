@@ -5,100 +5,103 @@
       class="block text-sm font-medium leading-5 text-gray-700"
       >{{ label }}</label
     >
-    <div :class="`mt-1 relative ${themeRounded} shadow-sm flex items-center`">
-      <svg
-        v-if="!dropdownOpen"
-        class="absolute right-0 mr-2  text-gray-600"
-        style="width:24px;height:24px"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-        />
-      </svg>
-      <svg
-        v-if="dropdownOpen"
-        class="absolute right-0 mr-2 text-gray-600"
-        style="width:24px;height:24px"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
-        />
-      </svg>
-      <input
-        v-model="input"
-        :id="label"
-        @focus="dropdownOpen = true"
-        @blur="blurFunc()"
-        :class="[
-          error
-            ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red'
-            : 'text-gray-900'
-        ]"
-        class="form-input block w-full pr-10 text-sm leading-5"
-        :placeholder="placeholder"
-      />
-    </div>
-
-    <div
-      v-if="dropdownOpen"
-      :class="
-        `absolute mt-1 w-full ${themeRounded} bg-white shadow-lg z-10 overflow-y-auto`
-      "
-    >
-      <ul
-        v-for="item in filtered()"
-        :key="item"
-        tabindex="-1"
-        role="listbox"
-        aria-labelledby="listbox-label"
-        aria-activedescendant="listbox-item-3"
-        class="max-h-60 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5"
-      >
-        <!--
-          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-
-          Highlighted: "text-white bg-${themeColor}-600", Not Highlighted: "text-gray-900"
-        -->
-        <li
-          @click="select(item)"
-          :class="[
-            item === selectedItem ? 'text-gray-900 font-bold' : '',
-            `hover:bg-${themeColor}-600`
-          ]"
-          id="listbox-option-0"
-          role="option"
-          class="select-none relative py-2 pl-3 pr-9 hover:text-white text-gray-900 cursor-pointer"
+    <div :class="`mt-1 relative ${themeRounded} shadow-sm`">
+      <div class="flex items-center relative">
+        <svg
+          v-if="!dropdownOpen"
+          class="absolute right-0 mr-2  text-gray-600"
+          style="width:24px;height:24px"
+          viewBox="0 0 24 24"
         >
-          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-          <span class="font-normal block truncate">
-            {{ itemText ? item[itemText] : item }}
-          </span>
+          <path
+            fill="currentColor"
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          />
+        </svg>
+        <svg
+          v-if="dropdownOpen"
+          class="absolute right-0 mr-2 text-gray-600"
+          style="width:24px;height:24px"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+          />
+        </svg>
+        <input
+          v-model="input"
+          :id="label"
+          @focus="focusFunc()"
+          @click="focusFunc()"
+          @blur="blurFunc()"
+          :class="[
+            error
+              ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red'
+              : 'text-gray-900'
+          ]"
+          class="form-input w-full pr-10 text-sm leading-5"
+          :placeholder="placeholderText"
+        />
+      </div>
 
+      <div
+        v-if="dropdownOpen"
+        :class="
+          `absolute mt-1 w-full ${themeRounded} bg-white shadow-lg z-10 max-h-56 overflow-auto`
+        "
+      >
+        <ul
+          v-for="(item, index) in filtered()"
+          :key="item"
+          tabindex="-1"
+          role="listbox"
+          aria-labelledby="listbox-label"
+          aria-activedescendant="listbox-item-3"
+          class="text-base leading-6 focus:outline-none sm:text-sm sm:leading-5"
+        >
           <!--
-            Checkmark, only display for selected option.
+            Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
 
-            Highlighted: "text-white", Not Highlighted: "text-${themeColor}-600"
+            Highlighted: "text-white bg-${themeColor}-600", Not Highlighted: "text-gray-900"
           -->
-          <span
-            v-if="item === selectedItem"
-            class="hover:text-white absolute inset-y-0 right-0 flex items-center pr-4"
+          <li
+            @click="select(item)"
+            :class="[
+              item === selectedItem ? 'text-gray-900 font-bold' : '',
+              `hover:bg-${themeColor}-600`
+            ]"
+            :id="`listbox-option-${index}`"
+            role="option"
+            class="select-none relative py-2 pl-3 pr-9 hover:text-white text-gray-900 cursor-pointer"
           >
-            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </li>
+            <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+            <span class="font-normal block truncate">
+              {{ itemText ? item[itemText] : item }}
+            </span>
 
-        <!-- More options... -->
-      </ul>
+            <!--
+              Checkmark, only display for selected option.
+
+              Highlighted: "text-white", Not Highlighted: "text-${themeColor}-600"
+            -->
+            <span
+              v-if="item === selectedItem"
+              class="hover:text-white absolute inset-y-0 right-0 flex items-center pr-4"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </li>
+
+          <!-- More options... -->
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -112,6 +115,7 @@ export default {
       dropdownOpen: false,
       loading: false,
       selectedItem: null,
+      placeholderText: null,
       input: ""
     };
   },
@@ -137,7 +141,14 @@ export default {
     itemText: {
       type: String,
       required: false
+    },
+    color: {
+      type: String,
+      required: false
     }
+  },
+  created() {
+    this.placeholderText = this.placeholder;
   },
   watch: {
     input() {
@@ -146,6 +157,9 @@ export default {
   },
   methods: {
     filtered: function() {
+      if (!this.input) {
+        return this.items;
+      }
       this.dropdownOpen = true;
       if (this.itemText) {
         return this.items.filter(item => {
@@ -177,6 +191,12 @@ export default {
       setTimeout(() => {
         this.dropdownOpen = false;
       }, 200);
+    },
+    focusFunc: function() {
+      //TODO: Make sure this deals with object keys as the text
+      this.placeholderText = this.selectedItem;
+      this.input = null;
+      this.dropdownOpen = true;
     }
   },
   computed: {
