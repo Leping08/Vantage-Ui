@@ -100,11 +100,5 @@
   "gitHooks": {
     "pre-commit": "npm run lint:fix"
   },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "npm run lint --fix",
-      "git add"
-    ]
-  },
   "sideEffects": false
 }
