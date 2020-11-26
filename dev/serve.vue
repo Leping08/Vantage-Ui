@@ -66,15 +66,13 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Data Table" :headingBorder="true">
-            <v-data-table :items="dataTableItems" title="Classes">
-              <template v-slot:price="{ item }">
-                <v-badge :color="item > 700 ? 'red' : 'green'"
-                  >$ {{ item }}</v-badge
-                >
-              </template>
-            </v-data-table>
-          </v-card>
+          <v-data-table :items="dataTableItems" title="Data Table">
+            <template v-slot:price="{ item }">
+              <v-badge :color="item > 700 ? 'red' : 'green'"
+                >$ {{ item }}</v-badge
+              >
+            </template>
+          </v-data-table>
         </div>
         <div class="m-4">
           <v-card
@@ -216,44 +214,37 @@ export default {
         {
           title: "Intro to CSS",
           name: "Derek",
-          price: 858,
-          edit: ""
+          price: 858
         },
         {
           title: "Backend API's",
           name: "Adam",
-          price: 112,
-          edit: ""
+          price: 112
         },
         {
           title: "Intro to JavaScript",
           name: "Chris",
-          price: 1280,
-          edit: ""
+          price: 1280
         },
         {
           title: "Learning SQL",
           name: "John",
-          price: 858,
-          edit: ""
+          price: 858
         },
         {
           title: "ASP",
           name: "Joe",
-          price: 1078,
-          edit: ""
+          price: 1078
         },
         {
           title: "Its GO time",
           name: "Lee",
-          price: 645,
-          edit: ""
+          price: 645
         },
         {
           title: "Rust 101",
           name: "Mac",
-          price: 90,
-          edit: ""
+          price: 90
         }
       ]
     };
