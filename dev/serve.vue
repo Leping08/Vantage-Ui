@@ -95,16 +95,8 @@
         </div>
         <div class="m-4">
           <v-card heading="Radio" :padding="true" :headingBorder="true">
-            <v-radio
-              label="Vue"
-              value="Vue"
-              v-model="radio"
-            ></v-radio>
-            <v-radio
-              label="React"
-              value="React"
-              v-model="radio"
-            ></v-radio>
+            <v-radio label="Vue" value="Vue" v-model="radio"></v-radio>
+            <v-radio label="React" value="React" v-model="radio"></v-radio>
           </v-card>
         </div>
         <div class="m-4">

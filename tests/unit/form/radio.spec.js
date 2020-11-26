@@ -25,7 +25,7 @@ describe("Input.vue", () => {
 
     await wrapper.find("input").trigger("click");
 
-    expect(wrapper.emitted("update:modelValue")).toEqual([[ 123 ]]);
+    expect(wrapper.emitted("update:modelValue")).toEqual([[123]]);
   });
 
   it("changes color through the color prop", async () => {
