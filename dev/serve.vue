@@ -66,6 +66,17 @@
           </v-card>
         </div>
         <div class="m-4">
+          <v-card heading="Data Table" :headingBorder="true">
+            <v-data-table :items="dataTableItems" title="Classes">
+              <template v-slot:price="{ item }">
+                <v-badge :color="item > 700 ? 'red' : 'green'"
+                  >$ {{ item }}</v-badge
+                >
+              </template>
+            </v-data-table>
+          </v-card>
+        </div>
+        <div class="m-4">
           <v-card
             heading="Description List"
             :padding="false"
@@ -199,6 +210,50 @@ export default {
         {
           key: "Why do you never see elephants hiding in trees?",
           value: "Because they're so good at it."
+        }
+      ],
+      dataTableItems: [
+        {
+          title: "Intro to CSS",
+          name: "Derek",
+          price: 858,
+          edit: ""
+        },
+        {
+          title: "Backend API's",
+          name: "Adam",
+          price: 112,
+          edit: ""
+        },
+        {
+          title: "Intro to JavaScript",
+          name: "Chris",
+          price: 1280,
+          edit: ""
+        },
+        {
+          title: "Learning SQL",
+          name: "John",
+          price: 858,
+          edit: ""
+        },
+        {
+          title: "ASP",
+          name: "Joe",
+          price: 1078,
+          edit: ""
+        },
+        {
+          title: "Its GO time",
+          name: "Lee",
+          price: 645,
+          edit: ""
+        },
+        {
+          title: "Rust 101",
+          name: "Mac",
+          price: 90,
+          edit: ""
         }
       ]
     };
