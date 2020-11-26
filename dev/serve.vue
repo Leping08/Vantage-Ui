@@ -94,6 +94,20 @@
           </v-card>
         </div>
         <div class="m-4">
+          <v-card heading="Radio" :padding="true" :headingBorder="true">
+            <v-radio
+              label="Vue"
+              value="Vue"
+              v-model="radio"
+            ></v-radio>
+            <v-radio
+              label="React"
+              value="React"
+              v-model="radio"
+            ></v-radio>
+          </v-card>
+        </div>
+        <div class="m-4">
           <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
             <v-progress-bar v-model="progressBarValue"></v-progress-bar>
           </v-card>
@@ -156,6 +170,7 @@ export default {
   data() {
     return {
       input: "",
+      radio: "Vue",
       searchSelected: "",
       progressBarValue: 75,
       searchItems: [

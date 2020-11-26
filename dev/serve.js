@@ -7,4 +7,4 @@ import "../src/assets/tailwind.css";
 
 const app = createApp(Index);
 
-app.use(VantageUi, { color: "red" }).mount("#app");
+app.use(VantageUi, { color: "blue" }).mount("#app");

@@ -7,6 +7,7 @@ import Countdown from "./countdown.vue";
 import DataTable from "./dataTable.vue";
 import DescriptionList from "./descriptionList.vue";
 import Input from "./form/input.vue";
+import Radio from './form/radio.vue';
 import Toggle from "./form/toggle.vue";
 import SearchSelect from "./form/searchSelect.vue";
 import ProgressBar from "./progressBar.vue";
@@ -23,6 +24,7 @@ export {
   DataTable as VDataTable,
   DescriptionList as VDescriptionList,
   Input as VInput,
+  Radio as VRadio,
   Toggle as VToggle,
   SearchSelect as VSearchSelect,
   ProgressBar as VProgressBar,
