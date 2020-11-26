@@ -112,6 +112,30 @@
             <v-toggle v-model="toggle"></v-toggle>
           </v-card>
         </div>
+        <div class="m-4">
+          <v-card heading="Stats" :padding="true" :headingBorder="true">
+            <div class="flex w-full my-4">
+              <v-stats
+                class="m-2 flex-1"
+                heading="Users"
+                :first-metric="4"
+                :second-metric="1"
+              ></v-stats>
+              <v-stats
+                class="m-2 flex-1"
+                heading="Followers"
+                :first-metric="50.34"
+                :second-metric="3.29"
+              ></v-stats>
+              <v-stats
+                class="m-2 flex-1"
+                heading="Subscribers"
+                :first-metric="5"
+                :second-metric="10"
+              ></v-stats>
+            </div>
+          </v-card>
+        </div>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@ import Toggle from "./form/toggle.vue";
 import SearchSelect from "./form/searchSelect.vue";
 import ProgressBar from "./progressBar.vue";
 import ProgressSpinner from "./progressSpinner.vue";
+import Stats from "./stats.vue";
 
 export {
   Accordion as VAccordion,
@@ -23,5 +24,6 @@ export {
   Toggle as VToggle,
   SearchSelect as VSearchSelect,
   ProgressBar as VProgressBar,
-  ProgressSpinner as VProgressSpinner
+  ProgressSpinner as VProgressSpinner,
+  Stats as VStats
 };
