@@ -1,40 +1,53 @@
 import { mount } from "@vue/test-utils";
-import Radio from "@/lib-components/form/radio.vue";
+import CheckBox from "@/lib-components/form/checkBox.vue";
 
 describe("Input.vue", () => {
   it("shows the label through the label prop", async () => {
-    const wrapper = mount(Radio, {
+    const wrapper = mount(CheckBox, {
       props: {
         label: "test",
         value: 123,
-        modelValue: ""
+        modelValue: []
       }
     });
 
     expect(wrapper.html()).toContain("test");
   });
 
+  it("shows the subtitle through the subtitle prop", async () => {
+    const wrapper = mount(CheckBox, {
+      props: {
+        label: "test",
+        subtitle: "This is the test subtitle",
+        value: 123,
+        modelValue: []
+      }
+    });
+
+    expect(wrapper.html()).toContain("This is the test subtitle");
+  });
+
   it("shows allows the user to select the radio and emits the model value event", async () => {
-    const wrapper = mount(Radio, {
+    const wrapper = mount(CheckBox, {
       props: {
         label: "test",
         value: 123,
-        modelValue: ""
+        modelValue: []
       }
     });
 
     await wrapper.find("input").trigger("click");
 
-    expect(wrapper.emitted("update:modelValue")).toEqual([[123]]);
+    expect(wrapper.emitted("update:modelValue")).toEqual([[[123]]]);
   });
 
   it("changes color through the color prop", async () => {
-    const wrapper = mount(Radio, {
+    const wrapper = mount(CheckBox, {
       props: {
         label: "test",
         value: 123,
-        modelValue: "",
-        color: "red"
+        color: "red",
+        modelValue: []
       }
     });
 

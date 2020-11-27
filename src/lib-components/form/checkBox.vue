@@ -1,0 +1,63 @@
+<template>
+  <div class="flex items-start">
+    <div class="flex items-center h-5">
+      <input
+        :value="value"
+        v-model="radioValue"
+        :id="label"
+        :name="label"
+        type="checkbox"
+        :class="
+          `form-checkbox h-4 w-4 text-${checkBoxColor}-600 transition duration-150 ease-in-out`
+        "
+      />
+    </div>
+    <div class="ml-3 text-sm leading-5">
+      <label for="comments" class="font-medium text-gray-700">{{
+        label
+      }}</label>
+      <p v-if="subTitle" class="text-gray-500">{{ subTitle }}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+import theme from "./../theme";
+export default {
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+    subTitle: {
+      type: String,
+      required: false
+    },
+    modelValue: {
+      type: Array,
+      required: true
+    },
+    value: {
+      type: [String, Number, Boolean, Array, Object, Date],
+      required: true
+    },
+    color: {
+      type: String,
+      required: false
+    }
+  },
+  computed: {
+    checkBoxColor() {
+      return this.color || theme.color;
+    },
+    radioValue: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit("update:modelValue", value);
+      }
+    }
+  }
+};
+</script>

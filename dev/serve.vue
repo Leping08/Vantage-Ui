@@ -59,6 +59,20 @@
           </v-card>
         </div>
         <div class="m-4">
+          <v-card heading="Checkbox" :padding="true" :headingBorder="true">
+            <v-check-box
+              label="Vue"
+              value="vue"
+              v-model="checkBoxItems"
+            ></v-check-box>
+            <v-check-box
+              label="React"
+              value="react"
+              v-model="checkBoxItems"
+            ></v-check-box>
+          </v-card>
+        </div>
+        <div class="m-4">
           <v-card heading="Countdown" :headingBorder="true">
             <v-countdown
               :time="new Date(new Date().getUTCFullYear() + 1, 1, 1)"
@@ -95,8 +109,8 @@
         </div>
         <div class="m-4">
           <v-card heading="Radio" :padding="true" :headingBorder="true">
-            <v-radio label="Vue" value="Vue" v-model="radio"></v-radio>
-            <v-radio label="React" value="React" v-model="radio"></v-radio>
+            <v-radio label="Vue" value="vue" v-model="radio"></v-radio>
+            <v-radio label="React" value="react" v-model="radio"></v-radio>
           </v-card>
         </div>
         <div class="m-4">
@@ -163,6 +177,7 @@ export default {
     return {
       input: "",
       radio: "Vue",
+      checkBoxItems: [],
       searchSelected: "",
       progressBarValue: 75,
       searchItems: [

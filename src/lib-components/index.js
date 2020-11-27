@@ -3,6 +3,7 @@ import Accordion from "./accordion.vue";
 import Badge from "./badge.vue";
 import Button from "./form/button.vue";
 import Card from "./card.vue";
+import CheckBox from "./form/checkBox.vue";
 import Countdown from "./countdown.vue";
 import DataTable from "./dataTable.vue";
 import DescriptionList from "./descriptionList.vue";
@@ -20,6 +21,7 @@ export {
   Badge as VBadge,
   Button as VButton,
   Card as VCard,
+  CheckBox as VCheckBox,
   Countdown as VCountdown,
   DataTable as VDataTable,
   DescriptionList as VDescriptionList,

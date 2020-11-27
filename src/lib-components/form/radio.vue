@@ -24,7 +24,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: false
+      required: true
     },
     modelValue: {
       type: String,
