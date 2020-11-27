@@ -86,8 +86,8 @@
 </template>
 
 <script>
-import themeInput from "./form/input";
-import card from "./card";
+import themeInput from "./form/input.vue";
+import card from "./card.vue";
 export default {
   name: "DataTable",
   components: {
