@@ -129,7 +129,7 @@
             :padding="true"
             :headingBorder="true"
           >
-            <v-progress-spinner size="8" />
+            <v-progress-spinner :size="8" />
           </v-card>
         </div>
         <div class="m-4">
