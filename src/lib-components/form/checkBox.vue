@@ -24,6 +24,7 @@
 <script>
 import theme from "./../theme";
 export default {
+  name: "CheckBox",
   props: {
     label: {
       type: String,

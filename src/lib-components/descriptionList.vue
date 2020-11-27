@@ -24,9 +24,6 @@
 <script>
 export default {
   name: "DescriptionList",
-  data() {
-    return {};
-  },
   props: {
     items: {
       type: Array,

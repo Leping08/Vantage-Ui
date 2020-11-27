@@ -21,6 +21,7 @@
 <script>
 import theme from "./../theme";
 export default {
+  name: "Radio",
   props: {
     label: {
       type: String,

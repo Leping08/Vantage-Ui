@@ -11,6 +11,7 @@ import Input from "./form/input.vue";
 import Radio from "./form/radio.vue";
 import Toggle from "./form/toggle.vue";
 import SearchSelect from "./form/searchSelect.vue";
+import Ping from "./ping.vue";
 import ProgressBar from "./progressBar.vue";
 import ProgressSpinner from "./progressSpinner.vue";
 import Stats from "./stats.vue";
@@ -29,6 +30,7 @@ export {
   Radio as VRadio,
   Toggle as VToggle,
   SearchSelect as VSearchSelect,
+  Ping as VPing,
   ProgressBar as VProgressBar,
   ProgressSpinner as VProgressSpinner,
   Stats as VStats

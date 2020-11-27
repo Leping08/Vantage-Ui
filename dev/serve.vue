@@ -114,6 +114,11 @@
           </v-card>
         </div>
         <div class="m-4">
+          <v-card heading="Ping" :padding="true" :headingBorder="true">
+            <v-ping color="pink"></v-ping>
+          </v-card>
+        </div>
+        <div class="m-4">
           <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
             <v-progress-bar v-model="progressBarValue"></v-progress-bar>
           </v-card>
