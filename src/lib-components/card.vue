@@ -21,22 +21,9 @@
     </slot>
     <div
       class="text-gray-600"
-      :class="[
-        padding ? 'p-4' : '',
-        headingBorder ? 'border-t border-gray-200' : ''
-      ]"
+      :class="[padding ? 'p-4' : '', border ? 'border-t border-gray-200' : '']"
     >
-      <slot>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis
-        justo quis lectus posuere, interdum scelerisque enim tempus. Maecenas
-        molestie vulputate elit non bibendum. Morbi in blandit ante. Phasellus
-        placerat pulvinar tortor vitae tempus. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia curae; Nulla euismod
-        nisi ut ligula vulputate, at malesuada mauris bibendum. Donec porta ac
-        dui ac ullamcorper. Phasellus commodo porttitor ante, ut porttitor ipsum
-        pulvinar sed. Duis malesuada ipsum quis ornare porttitor. Suspendisse
-        potenti. Integer aliquam leo ac gravida hendrerit.
-      </slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -56,11 +43,13 @@ export default {
     },
     padding: {
       type: Boolean,
-      required: false
+      required: false,
+      default: true
     },
-    headingBorder: {
+    border: {
       type: Boolean,
-      required: false
+      required: false,
+      default: true
     }
   },
   computed: {
