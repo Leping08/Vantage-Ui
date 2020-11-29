@@ -1,6 +1,5 @@
 import { mount } from "@vue/test-utils";
-import Tabs from './tabs.vue';
-
+import Tabs from "./tabs.vue";
 
 describe("Stats.vue", () => {
   it("renders the tabs and shows the first tab by default", async () => {
@@ -41,4 +40,3 @@ describe("Stats.vue", () => {
     expect(wrapper.html()).toContain("Third content");
   });
 });
-

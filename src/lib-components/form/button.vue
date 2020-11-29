@@ -22,7 +22,7 @@ export default {
     color: {
       type: String,
       required: false,
-      default: 'blue'
+      default: "blue"
     },
     fullWidth: {
       type: Boolean,

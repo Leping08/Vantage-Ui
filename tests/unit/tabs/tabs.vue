@@ -11,22 +11,22 @@
 </template>
 
 <script>
-  import { 
-    Tab as VTab, 
-    Tabs as VTabs, 
-    TabContent as VTabContent
-  } from '@/lib-components/tabs/tabs.js';
+import {
+  Tab as VTab,
+  Tabs as VTabs,
+  TabContent as VTabContent
+} from "@/lib-components/tabs/tabs.js";
 
-  export default {
-    components: {
-      VTab, 
-      VTabs, 
-      VTabContent
-    },
-    data() {
-      return {
-        activeTab: 1
-      }
-    }
+export default {
+  components: {
+    VTab,
+    VTabs,
+    VTabContent
+  },
+  data() {
+    return {
+      activeTab: 1
+    };
   }
+};
 </script>
