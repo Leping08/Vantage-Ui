@@ -21,10 +21,12 @@ export default {
   props: {
     color: {
       type: String,
-      required: false
+      required: false,
+      default: 'blue'
     },
     fullWidth: {
       type: Boolean,
+      required: false,
       default: false
     }
   },

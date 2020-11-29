@@ -78,7 +78,7 @@ describe("Card.vue", () => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       },
       props: {
-        headingBorder: true
+        border: true
       }
     });
 
@@ -92,7 +92,7 @@ describe("Card.vue", () => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       },
       props: {
-        headingBorder: false
+        border: false
       }
     });
 

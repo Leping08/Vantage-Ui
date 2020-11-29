@@ -15,6 +15,7 @@ import Ping from "./ping.vue";
 import ProgressBar from "./progressBar.vue";
 import ProgressSpinner from "./progressSpinner.vue";
 import Stats from "./stats.vue";
+import { Tab, Tabs, TabContent } from './tabs/tabs.js';
 
 export {
   Accordion as VAccordion,
@@ -33,5 +34,8 @@ export {
   Ping as VPing,
   ProgressBar as VProgressBar,
   ProgressSpinner as VProgressSpinner,
-  Stats as VStats
+  Stats as VStats,
+  Tab as VTab,
+  Tabs as VTabs,
+  TabContent as VTabContent
 };

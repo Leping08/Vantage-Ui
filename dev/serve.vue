@@ -147,6 +147,19 @@
           </v-card>
         </div>
         <div class="m-4">
+          <v-card heading="Tabs">
+            <v-tabs v-model:activeTabId="tabid">
+              <v-tab :tabId="1">First tab</v-tab>
+              <v-tab :tabId="2">Second tab</v-tab>
+              <v-tab :tabId="3">Third tab</v-tab>
+
+              <v-tab-content :tabId="1">First content</v-tab-content>
+              <v-tab-content :tabId="2">Second content</v-tab-content>
+              <v-tab-content :tabId="3">Third content</v-tab-content>
+            </v-tabs>
+          </v-card>
+        </div>
+        <div class="m-4">
           <v-card heading="Stats" :padding="true" :headingBorder="true">
             <div class="flex w-full my-4">
               <v-stats
@@ -180,6 +193,7 @@ export default {
   name: "index",
   data() {
     return {
+      tabid: 1,
       input: "",
       radio: "Vue",
       checkBoxItems: [],
