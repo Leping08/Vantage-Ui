@@ -1,4 +1,5 @@
 import { h } from "vue";
+import theme from '../theme';
 
 const tab = {
   props: {
@@ -32,22 +33,29 @@ const tabContent = {
 
 const tabs = {
   props: {
-    activeTabId: Number,
-    required: false
+    modelValue: {
+      type: Number,
+      required: false
+    },
+    color: {
+      type: String,
+      required: false
+    }
   },
   render() {
     const elements = this.$slots.default();
+    const color = this.$props.color || theme.color;
     const tabs = elements
       .filter(elements => elements.type === tab)
       .map(tab => {
         return h(tab, {
           "data-qa": tab.props.tabId,
           class:
-            tab.props.tabId === this.$props.activeTabId
-              ? "border-b-2 border-blue-500 hover:text-blue-500 text-blue-500 focus:outline-none cursor-pointer"
+            tab.props.tabId === this.$props.modelValue
+              ? `border-b-2 border-${color}-500 hover:text-${color}-500 text-${color}-500 focus:outline-none cursor-pointer`
               : "border-b-2 border-transparent hover:border-gray-300 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:border-gray-300 cursor-pointer",
           onClick: () => {
-            this.$emit("update:activeTabId", tab.props.tabId);
+            this.$emit("update:modelValue", tab.props.tabId);
           }
         });
       });
@@ -55,7 +63,7 @@ const tabs = {
     //Working
     const content = elements.find(
       element =>
-        element.type === tabContent && element.props.tabId === this.activeTabId
+        element.type === tabContent && element.props.tabId === this.modelValue
     );
 
     return [

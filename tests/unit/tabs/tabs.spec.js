@@ -39,4 +39,14 @@ describe("Stats.vue", () => {
     expect(wrapper.html()).not.toContain("Second content");
     expect(wrapper.html()).toContain("Third content");
   });
+
+  it("changes color through the color prop", async () => {
+    const wrapper = mount(Tabs, {
+      props: {
+        color: 'red'
+      }
+    });
+
+    expect(wrapper.html()).toContain("red");
+  });
 });

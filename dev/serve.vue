@@ -148,7 +148,7 @@
         </div>
         <div class="m-4">
           <v-card heading="Tabs">
-            <v-tabs v-model:activeTabId="tabid">
+            <v-tabs v-model="tabid">
               <v-tab :tabId="1">First tab</v-tab>
               <v-tab :tabId="2">Second tab</v-tab>
               <v-tab :tabId="3">Third tab</v-tab>

@@ -1,5 +1,5 @@
 <template>
-  <v-tabs v-model:activeTabId="activeTab">
+  <v-tabs v-model="activeTab">
     <v-tab :tabId="1">First tab</v-tab>
     <v-tab :tabId="2">Second tab</v-tab>
     <v-tab :tabId="3">Third tab</v-tab>

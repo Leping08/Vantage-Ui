@@ -1,6 +1,6 @@
 {
   "name": "vantage-ui",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A vuejs uikit",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
@@ -20,7 +20,8 @@
   "unpkg": "dist/vantage-ui.min.js",
   "files": [
     "dist/*",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/**/*.js"
   ],
   "dependencies": {},
   "devDependencies": {
