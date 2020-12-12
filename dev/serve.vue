@@ -5,9 +5,9 @@
         <div class="container mx-auto">
           <div class="flex justify-between items-center">
             <div class="flex items-center">
-              <img src="./vantage-ui-logo.svg" class="h-24 p-6" />
+              <img src="./vantage-ui-logo-dark.svg" class="h-24 p-2" />
               <div
-                class="ml-2 font-lg text-4xl tracking-normal font-sans text-gray-500"
+                class="ml-2 font-lg text-4xl tracking-normal font-sans text-gray-800"
               >
                 Vantage UI
               </div>

@@ -1,5 +1,5 @@
 import { h } from "vue";
-import theme from '../theme';
+import theme from "../theme";
 
 const tab = {
   props: {
