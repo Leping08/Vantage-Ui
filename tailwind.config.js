@@ -1,8 +1,5 @@
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
+  darkMode: false,
   purge: {
     content: [
       './src/**/*.html',
@@ -11,12 +8,18 @@ module.exports = {
       './dev/*.vue',
     ],
     options: {
-      whitelist: [],
+      safelist: [],
     }
   },
   theme: {
     extend: {}
   },
-  variants: {},
-  plugins: [require("@tailwindcss/ui")]
+  variants: {
+    extend: {
+      backgroundColor: ['active'],
+    }
+  },
+  plugins: [
+    require('@tailwindcss/forms')
+  ]
 };

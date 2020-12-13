@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-start">
-    <div class="flex items-center h-5">
+    <div class="flex items-center">
       <input
         :value="value"
         v-model="radioValue"
@@ -8,7 +8,7 @@
         :name="label"
         type="checkbox"
         :class="
-          `form-checkbox h-4 w-4 text-${checkBoxColor}-600 transition duration-150 ease-in-out`
+          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 focus:ring-${checkBoxColor}-500 ${themeRounded}`
         "
       />
     </div>
@@ -45,6 +45,10 @@ export default {
     color: {
       type: String,
       required: false
+    },
+    rounded: {
+      type: String,
+      required: false
     }
   },
   computed: {
@@ -58,7 +62,10 @@ export default {
       set(value) {
         this.$emit("update:modelValue", value);
       }
-    }
+    },
+    themeRounded() {
+      return this.rounded || theme.rounded;
+    },
   }
 };
 </script>

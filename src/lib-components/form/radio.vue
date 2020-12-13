@@ -7,7 +7,7 @@
       :name="label"
       type="radio"
       :class="
-        `form-radio h-4 w-4 text-${radioColor}-600 transition duration-150 ease-in-out`
+        `h-4 w-4 text-${radioColor}-600 focus:ring-${radioColor}-500 border-gray-300`
       "
     />
     <label for="push_nothing" class="ml-3">

@@ -18,12 +18,12 @@ describe("Input.vue", () => {
   it("changes color via a prop", async () => {
     const wrapper = mount(Input, {
       props: {
-        color: "teal",
+        color: "red",
         modelValue: ""
       }
     });
 
-    expect(wrapper.html()).toContain("teal");
+    expect(wrapper.html()).toContain("red");
   });
 
   it("renders the placeholder with the prop", async () => {

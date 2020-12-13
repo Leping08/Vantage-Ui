@@ -10,12 +10,13 @@
       <input
         :id="label"
         :class="[
+          'appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full',
+          `${rounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500`,
           Object.values(validationObjects).filter(e => e.valid === true)
             .length === 1
-            ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red'
+            ? 'text-red-900 border-red-500'
             : 'text-gray-900'
         ]"
-        class="form-input block w-full pr-10 sm:text-sm sm:leading-5"
         :placeholder="placeholder"
         :aria-placeholder="placeholder"
         v-model="value"
@@ -79,6 +80,10 @@ export default {
     helpText: {
       type: String,
       required: false
+    },
+    color: {
+      type: String,
+      required: false
     }
   },
   created() {
@@ -137,6 +142,9 @@ export default {
     },
     rounded() {
       return theme.rounded || "";
+    },
+    themeColor() {
+      return this.color || theme.color;
     }
   }
 };
