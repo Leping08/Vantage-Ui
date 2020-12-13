@@ -1,6 +1,10 @@
-![Vantage Ui](./dev/vantage-ui-logo.svg)
+![Vantage Ui](./dev/vantage-ui-logo-dark.svg)
 
-Vantage UI is a set of Vue 3 compnents themed by Tailwind css
+Vantage UI is a set of Vue 3 components themed by Tailwind CSS.
+
+## Docs
+
+The full docs can be found at [https://vantageui.com/](https://vantageui.com/)
 
 ## Instlation
 
@@ -25,15 +29,3 @@ app.use(VantageUi, {
   rounded: 'rounded-lg'
 })
 ```
-
-<!-- ## Components
-
-- [x] Avatar
-- [x] Badge
-- [x] Button
-- [x] Card
-- [x] Conutdown
-- [x] Description List
-- [ ] Search Select
-- [ ] Modal
-- [x] Input -->
