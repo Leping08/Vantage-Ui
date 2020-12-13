@@ -1,4 +1,6 @@
-![Vantage Ui](./dev/vantage-ui-logo-dark.svg)
+<div style="text-align:center">
+  <img src="./dev/vantage-ui-logo-dark.svg" width="100">
+</div>
 
 Vantage UI is a set of Vue 3 components themed by Tailwind CSS.
 
@@ -9,7 +11,7 @@ The full docs can be found at [https://vantageui.com/](https://vantageui.com/)
 ## Instlation
 
 ``` bash
-$ npm install vantage-ui --save-dev
+$ npm install vantage-ui
 ```
 
 ```javascript
