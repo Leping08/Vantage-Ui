@@ -65,7 +65,7 @@ export default {
     },
     themeRounded() {
       return this.rounded || theme.rounded;
-    },
+    }
   }
 };
 </script>

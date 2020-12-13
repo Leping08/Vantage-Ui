@@ -60,7 +60,7 @@ describe("Input.vue", () => {
         label: "test",
         value: 123,
         modelValue: [],
-        rounded: 'rounded-lg'
+        rounded: "rounded-lg"
       }
     });
 
