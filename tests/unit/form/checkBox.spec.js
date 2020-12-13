@@ -53,4 +53,17 @@ describe("Input.vue", () => {
 
     expect(wrapper.html()).toContain("red");
   });
+
+  it("changes border radius through the rounded prop", async () => {
+    const wrapper = mount(CheckBox, {
+      props: {
+        label: "test",
+        value: 123,
+        modelValue: [],
+        rounded: "rounded-lg"
+      }
+    });
+
+    expect(wrapper.html()).toContain("rounded-lg");
+  });
 });

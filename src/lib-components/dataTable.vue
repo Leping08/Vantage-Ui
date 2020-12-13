@@ -1,7 +1,7 @@
 <template>
   <card :padding="false">
     <template v-slot:header>
-      <div class="flex">
+      <div class="flex items-center ">
         <div class="py-2 w-2/3" v-if="title">
           <div
             class="-ml-4 -mt-2 px-4 flex justify-between items-center flex-wrap sm:flex-no-wrap"

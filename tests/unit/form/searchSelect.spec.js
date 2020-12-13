@@ -87,7 +87,7 @@ describe("searchSelect.vue", () => {
     expect(wrapper.html()).toContain("teal");
   });
 
-  it("renders the color with the prop", async () => {
+  it("renders the error with the prop", async () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,

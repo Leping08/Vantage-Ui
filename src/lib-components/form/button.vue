@@ -1,17 +1,16 @@
 <template>
-  <span
-    :class="[fullWidth ? 'w-full' : '', `inline-flex ${shadow} ${rounded}`]"
+  <button
+    type="button"
+    :class="[
+      fullWidth ? 'flex justify-center w-full' : '',
+      `inline-flex items-center px-4 py-2 text-xs font-medium ${rounded} ${shadow} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-500`,
+      outline
+        ? `border border-${buttonColor}-500 text-${buttonColor}-500 bg-white hover:bg-gray-100 active:bg-gray-200`
+        : `text-white bg-${buttonColor}-600 active:bg-${buttonColor}-800 hover:bg-${buttonColor}-700`
+    ]"
   >
-    <button
-      type="button"
-      :class="[
-        fullWidth ? 'flex justify-center w-full' : '',
-        `inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium ${rounded} text-white bg-${buttonColor}-600 hover:bg-${buttonColor}-500 focus:outline-none focus:border-${buttonColor}-700 focus:shadow-outline-${buttonColor} active:bg-${buttonColor}-700 transition ease-in-out duration-150`
-      ]"
-    >
-      <slot>Button</slot>
-    </button>
-  </span>
+    <slot>Button</slot>
+  </button>
 </template>
 
 <script>
@@ -21,8 +20,12 @@ export default {
   props: {
     color: {
       type: String,
+      required: false
+    },
+    outline: {
+      type: Boolean,
       required: false,
-      default: "blue"
+      default: false
     },
     fullWidth: {
       type: Boolean,

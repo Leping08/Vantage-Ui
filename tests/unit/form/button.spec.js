@@ -2,7 +2,7 @@ import { mount } from "@vue/test-utils";
 import Button from "@/lib-components/form/button.vue";
 
 describe("Button.vue", () => {
-  it("renders the avatar with the slot content", async () => {
+  it("renders the button with the slot content", async () => {
     const wrapper = mount(Button, {
       slots: {
         default: "Testing"
@@ -20,5 +20,27 @@ describe("Button.vue", () => {
     });
 
     expect(wrapper.html()).toContain("teal");
+  });
+
+  it("changes to an outline button with the outline prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        color: "purple",
+        outline: true
+      }
+    });
+
+    expect(wrapper.html()).toContain("purple");
+    expect(wrapper.html()).toContain("border-purple-500");
+  });
+
+  it("changes to a full width using the fullWidth prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        fullWidth: true
+      }
+    });
+
+    expect(wrapper.html()).toContain("w-full");
   });
 });
