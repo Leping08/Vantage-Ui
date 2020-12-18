@@ -1,87 +1,176 @@
 <template>
-<div class="w-1/3">
-  <div class="flex">
-    <div class="flex-1">
-      <div class="flex">
-        <div class="flex items-center justify-between w-full">
-          <div @click="previousMonth()" class="mx-6 my-2 p-2 border rounded cursor-pointer">
-            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-            </svg>
-          </div>
-          <div class="flex-1 text-center py-2 text-gray-500">
-            {{ months[month] }} {{ year }}
-          </div>
-          <div @click="nextMonth()" class="mx-6 my-2 p-2 border rounded cursor-pointer">
-            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-            </svg>
+  <div class="w-1/3">
+    <div class="flex">
+      <div class="flex-1">
+        <div class="flex">
+          <div class="flex items-center justify-between w-full">
+            <div
+              @click="previousMonth()"
+              class="mx-6 my-2 p-2 border rounded cursor-pointer"
+            >
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+                />
+              </svg>
+            </div>
+            <div class="flex-1 text-center py-2 text-gray-500">
+              {{ months[month] }} {{ year }}
+            </div>
+            <div
+              @click="nextMonth()"
+              class="mx-6 my-2 p-2 border rounded cursor-pointer"
+            >
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="flex text-gray-400">
-        <div class="h-10 w-full flex items-center" v-for="day in daysOfTheWeek" :key="day">
-          <div class="mx-auto">
-            {{ day }}
+        <div class="flex text-gray-400">
+          <div
+            class="h-10 w-full flex items-center"
+            v-for="day in daysOfTheWeek"
+            :key="day"
+          >
+            <div class="mx-auto">
+              {{ day }}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="flex justify-items-center items-center cursor-pointer" v-for="week in calendar" :key="week">
-        <div 
-          :class="[
-            'w-full py-2 flex items-center my-1',
-            day.getTime() === (selectedDate ? selectedDate.getTime() : null) ? `text-white bg-${themeColor}-600` : '',
-            month === day.getMonth() ? '' : 'text-gray-400',
-            (now.getDate() === day.getDate() && now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth()) ? `bg-gray-200` : '',
-            ((startDate && endDate) && ((day.getTime() >= startDate.getTime()) && (day.getTime() <= endDate.getTime()))) ? `bg-${themeColor}-500 text-white` : '', 
-            (startDate ? (startDate.getDate() === day.getDate() && startDate.getFullYear() === day.getFullYear() && startDate.getMonth() === day.getMonth()) : false) ? `bg-${themeColor}-700 text-white rounded-l-3xl` : '',
-            (endDate ? (endDate.getDate() === day.getDate() && endDate.getFullYear() === day.getFullYear() && endDate.getMonth() === day.getMonth()) : false) ? `bg-${themeColor}-700 text-white  rounded-r-3xl` : '',
-            `hover:bg-${themeColor}-200`
-          ]"
-          @click="selectDate(day)" 
-          v-for="day in week" 
-          :key="day">
-          <div class="mx-auto">
-            {{ day.getDate() }}
+        <div
+          class="flex justify-items-center items-center cursor-pointer"
+          v-for="week in calendar"
+          :key="week"
+        >
+          <div
+            :class="[
+              'w-full py-2 flex items-center my-1',
+              day.getTime() === (selectedDate ? selectedDate.getTime() : null)
+                ? `text-white bg-${themeColor}-600`
+                : '',
+              month === day.getMonth() ? '' : 'text-gray-400',
+              now.getDate() === day.getDate() &&
+              now.getFullYear() === day.getFullYear() &&
+              now.getMonth() === day.getMonth()
+                ? `bg-gray-200`
+                : '',
+              startDate &&
+              endDate &&
+              day.getTime() >= startDate.getTime() &&
+              day.getTime() <= endDate.getTime()
+                ? `bg-${themeColor}-500 text-white`
+                : '',
+              (startDate
+              ? startDate.getDate() === day.getDate() &&
+                startDate.getFullYear() === day.getFullYear() &&
+                startDate.getMonth() === day.getMonth()
+              : false)
+                ? `bg-${themeColor}-700 text-white rounded-l-3xl`
+                : '',
+              (endDate
+              ? endDate.getDate() === day.getDate() &&
+                endDate.getFullYear() === day.getFullYear() &&
+                endDate.getMonth() === day.getMonth()
+              : false)
+                ? `bg-${themeColor}-700 text-white  rounded-r-3xl`
+                : '',
+              `hover:bg-${themeColor}-200`
+            ]"
+            @click="selectDate(day)"
+            v-for="day in week"
+            :key="day"
+          >
+            <div class="mx-auto">
+              {{ day.getDate() }}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex-initial border-l">
-      <div class="flex flex-col">
-        <div @click="selectToday()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          Today
-        </div>
-        <div @click="selectYesterday()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          Yesterday
-        </div>
-        <div @click="selectTomorrow()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          Tomorrow
-        </div>
-        <div @click="selectThisWeek()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          This Week
-        </div>
-        <div @click="selectThisMonth()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          This Month
-        </div>
-        <div @click="selectThisYear()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          This Year
-        </div>
-        <div @click="selectLastWeek()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          Last Week
-        </div>
-        <div @click="selectLastMonth()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          Last Month
-        </div>
-        <div @click="selectLastYear()" :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`">
-          Last Year
+      <div class="flex-initial border-l">
+        <div class="flex flex-col">
+          <div
+            @click="selectToday()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            Today
+          </div>
+          <div
+            @click="selectYesterday()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            Yesterday
+          </div>
+          <div
+            @click="selectTomorrow()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            Tomorrow
+          </div>
+          <div
+            @click="selectThisWeek()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            This Week
+          </div>
+          <div
+            @click="selectThisMonth()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            This Month
+          </div>
+          <div
+            @click="selectThisYear()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            This Year
+          </div>
+          <div
+            @click="selectLastWeek()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            Last Week
+          </div>
+          <div
+            @click="selectLastMonth()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            Last Month
+          </div>
+          <div
+            @click="selectLastYear()"
+            :class="
+              `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
+            "
+          >
+            Last Year
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <!-- <div>
     Start date {{ startDate }}
   </div>
@@ -91,7 +180,7 @@
 </template>
 
 <script>
-  /* eslint-disable */
+/* eslint-disable */
   import theme from "./../theme";
   export default {
     name: "DateRangePicker",

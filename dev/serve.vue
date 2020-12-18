@@ -49,7 +49,11 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Date Range Picker" :headingBorder="true" :padding="true">
+          <v-card
+            heading="Date Range Picker"
+            :headingBorder="true"
+            :padding="true"
+          >
             <v-date-range-picker />
           </v-card>
         </div>
