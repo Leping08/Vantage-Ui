@@ -7,6 +7,7 @@ import CheckBox from "./form/checkBox.vue";
 import Countdown from "./countdown.vue";
 import DataTable from "./dataTable.vue";
 import DescriptionList from "./descriptionList.vue";
+import DateRangePicker from "./form/dateRangePicker.vue";
 import Input from "./form/input.vue";
 import Radio from "./form/radio.vue";
 import Toggle from "./form/toggle.vue";
@@ -26,6 +27,7 @@ export {
   CheckBox as VCheckBox,
   Countdown as VCountdown,
   DataTable as VDataTable,
+  DateRangePicker as VDateRangePicker,
   DescriptionList as VDescriptionList,
   Input as VInput,
   Radio as VRadio,
