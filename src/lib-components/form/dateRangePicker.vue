@@ -6,7 +6,9 @@
           <div class="flex items-center justify-between w-full">
             <div
               @click="previousMonth()"
-              class="mx-6 my-2 p-2 border rounded cursor-pointer"
+              :class="
+                `mx-6 my-2 p-2 border border-gray-300 rounded cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
+              "
             >
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path
@@ -20,7 +22,9 @@
             </div>
             <div
               @click="nextMonth()"
-              class="mx-6 my-2 p-2 border rounded cursor-pointer"
+              :class="
+                `mx-6 my-2 p-2 border border-gray-300 rounded cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
+              "
             >
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path
@@ -32,7 +36,7 @@
           </div>
         </div>
 
-        <div class="flex text-gray-400">
+        <div class="flex text-gray-400 font-medium">
           <div
             class="h-10 w-full flex items-center"
             v-for="day in daysOfTheWeek"
@@ -93,7 +97,7 @@
           </div>
         </div>
       </div>
-      <div class="flex-initial border-l">
+      <div class="flex-initial border-l text-gray-500">
         <div class="flex flex-col">
           <div
             @click="selectToday()"
@@ -301,39 +305,46 @@
           calendar[row][col] = new Date(curDate.getTime())
         }
         
-        this.calendar = calendar;
+        this.calendar = calendar
+        this.displayCorrectMonth(date)
       },
       selectToday() {
         this.startDate = new Date()
         this.endDate = new Date()
+        this.updateCalendar(this.startDate)
       },
       selectYesterday() {
         //86400000 = one day 24 * 60 * 60 * 1000
         let yesterday = new Date(Date.now() - 86400000)
         this.startDate = yesterday
         this.endDate = yesterday
+        this.updateCalendar(this.startDate)
       },
       selectTomorrow() {
         //86400000 = one day 24 * 60 * 60 * 1000
         let yesterday = new Date(Date.now() + 86400000)
         this.startDate = yesterday
         this.endDate = yesterday
+        this.updateCalendar(this.startDate)
       },
       selectThisWeek() {
         var now = new Date;
         this.startDate = new Date(now.setDate(now.getDate() - now.getDay()));
         this.endDate = new Date(now.setDate(now.getDate() - now.getDay() + 6));
+        this.updateCalendar(this.startDate)
       },
       selectLastWeek() {
         //604800000 = one week 24 * 60 * 60 * 1000 * 7
         var sevenDaysAgo = new Date(Date.now() - 604800000);
         this.startDate = new Date(sevenDaysAgo.setDate(sevenDaysAgo.getDate() - sevenDaysAgo.getDay()));
         this.endDate = new Date(sevenDaysAgo.setDate(sevenDaysAgo.getDate() - sevenDaysAgo.getDay() + 6));
+        this.updateCalendar(this.startDate)
       },
       selectThisMonth() {
         var now = new Date;
         this.startDate = new Date(now.getFullYear(), now.getMonth(), 1);
         this.endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        this.updateCalendar(this.startDate)
       },
       selectLastMonth() {
         var now = new Date;
@@ -345,16 +356,19 @@
         }
         this.startDate = new Date(now.getFullYear(), (lastMonth - 1), 1);
         this.endDate = new Date(now.getFullYear(), lastMonth, 0);
+        this.updateCalendar(this.startDate)
       },
       selectThisYear() {
         var now = new Date;
         this.startDate = new Date(now.getFullYear(), 0);
         this.endDate = new Date(now.getFullYear(), 11, 31)
+        this.updateCalendar(this.startDate)
       },
       selectLastYear() {
         var now = new Date;
         this.startDate = new Date(now.getFullYear() - 1, 0);
         this.endDate = new Date(now.getFullYear() - 1, 11, 31)
+        this.updateCalendar(this.startDate)
       }
     },
     computed: {
