@@ -54,7 +54,10 @@
             :headingBorder="true"
             :padding="true"
           >
-            <v-date-range-picker />
+            <v-date-range-picker
+              v-model:start="startDate"
+              v-model:end="endDate"
+            />
           </v-card>
         </div>
         <div class="m-4">
@@ -203,6 +206,8 @@ export default {
   data() {
     return {
       tabid: 1,
+      startDate: null,
+      endDate: null,
       input: "",
       radio: "Vue",
       checkBoxItems: [],
