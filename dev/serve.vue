@@ -57,6 +57,7 @@
             <v-date-range-picker
               v-model:start="startDate"
               v-model:end="endDate"
+              position="right"
             />
           </v-card>
         </div>

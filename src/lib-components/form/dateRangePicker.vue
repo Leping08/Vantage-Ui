@@ -3,7 +3,7 @@
     <button
       @click="showPicker = true"
       :class="[
-        'h-10 appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full rounded-lg text-gray-600 text-left',
+        `h-10 appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
         showPicker ? 'border-indigo-500 ring-indigo-500' : ''
       ]"
     >
@@ -43,9 +43,10 @@
     leave-active-class="transform transition ease-in-out duration-300"
     leave-to-class="-translate-y-4 opacity-0"
   >
+  <div class="relative w-full">
     <div
       :class="
-        `w-4/5 md:w-1/2 lg:1/3 xl:w-1/3 border absolute bg-white z-20 ${themeShadow}`
+        `sm:w-9/12 md:w-7/12 lg:5/12 xl:w-4/12 border absolute top-0 ${position}-0 bg-white z-20 ${themeShadow} ${themeRounded}`
       "
       v-if="showPicker"
     >
@@ -56,7 +57,7 @@
               <div
                 @click="previousMonth()"
                 :class="
-                  `mx-6 my-2 p-2 border border-gray-300 rounded cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
+                  `mx-6 my-2 p-2 border border-gray-300 ${themeRounded} cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
                 "
               >
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -72,7 +73,7 @@
               <div
                 @click="nextMonth()"
                 :class="
-                  `mx-6 my-2 p-2 border border-gray-300 rounded cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
+                  `mx-6 my-2 p-2 border border-gray-300 ${themeRounded} cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
                 "
               >
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -140,7 +141,7 @@
               v-for="day in week"
               :key="day"
             >
-              <div class="mx-auto">
+              <div class="mx-auto" :qa-data="`${day.getMonth()+1}/${day.getDate()}`">
                 {{ day.getDate() }}
               </div>
             </div>
@@ -224,6 +225,7 @@
         </div>
       </div>
     </div>
+  </div>
   </transition>
 </template>
 
@@ -244,6 +246,11 @@ export default {
     color: {
       type: String,
       required: false
+    },
+    position: {
+      type: String,
+      required: false,
+      default: 'right'
     }
   },
   watch: {
@@ -475,6 +482,9 @@ export default {
     },
     themeShadow() {
       return theme.shadow || "";
+    },
+    themeRounded() {
+      return theme.rounded || "";
     }
   }
 };
