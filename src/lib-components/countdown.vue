@@ -2,7 +2,10 @@
   <div v-if="!expired">
     <div class="flex text-center">
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-days="days">
+        <div
+          :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`"
+          :qa-data-days="days"
+        >
           {{ days }}
         </div>
         <div
@@ -13,7 +16,10 @@
       </div>
       <div class="border-r my-5 border-gray-200"></div>
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-hours="hours">
+        <div
+          :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`"
+          :qa-data-hours="hours"
+        >
           {{ hours }}
         </div>
         <div
@@ -24,7 +30,10 @@
       </div>
       <div class="border-r my-5  border-gray-200"></div>
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-minutes="minutes">
+        <div
+          :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`"
+          :qa-data-minutes="minutes"
+        >
           {{ minutes }}
         </div>
         <div
@@ -35,7 +44,10 @@
       </div>
       <div class="border-r my-5  border-gray-200"></div>
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-seconds="seconds">
+        <div
+          :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`"
+          :qa-data-seconds="seconds"
+        >
           {{ seconds }}
         </div>
         <div
@@ -111,7 +123,7 @@ export default {
     setCountdownEnd() {
       //Clear any already going intervals
       clearInterval();
-      
+
       //Set the end time for use later
       this.end = new Date(this.time).getTime();
 

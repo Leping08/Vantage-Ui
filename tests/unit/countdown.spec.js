@@ -58,7 +58,6 @@ describe("Countdown.vue", () => {
   });
 
   it("updates the countdown when the time prop changes", async () => {
-
     let nextYear = new Date(new Date().getUTCFullYear() + 1, 1, 1);
     let Years2FromNow = new Date(new Date().getUTCFullYear() + 2, 1, 1);
 
@@ -74,10 +73,10 @@ describe("Countdown.vue", () => {
       }
     });
 
-    expect(wrapper.find('[qa-data-days]').html()).toContain(days);
+    expect(wrapper.find("[qa-data-days]").html()).toContain(days);
 
-    await wrapper.setProps({ time: Years2FromNow })
+    await wrapper.setProps({ time: Years2FromNow });
 
-    expect(wrapper.find('[qa-data-days]').html()).toContain(days2Years);
+    expect(wrapper.find("[qa-data-days]").html()).toContain(days2Years);
   });
 });
