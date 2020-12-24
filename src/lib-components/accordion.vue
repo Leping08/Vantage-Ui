@@ -24,7 +24,7 @@
                   -->
               <svg
                 :class="[item.show ? '-rotate-180' : 'rotate-0']"
-                class="h-6 w-6 transform"
+                class="h-6 w-6 transform duration-150 ease-in-out"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
