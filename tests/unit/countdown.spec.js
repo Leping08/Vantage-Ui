@@ -56,4 +56,28 @@ describe("Countdown.vue", () => {
 
     expect(wrapper.html()).toContain("Expired");
   });
+
+  it("updates the countdown when the time prop changes", async () => {
+
+    let nextYear = new Date(new Date().getUTCFullYear() + 1, 1, 1);
+    let Years2FromNow = new Date(new Date().getUTCFullYear() + 2, 1, 1);
+
+    let distance = nextYear - new Date().getTime();
+    let distance2Years = Years2FromNow - new Date().getTime();
+
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let days2Years = Math.floor(distance2Years / (1000 * 60 * 60 * 24));
+
+    const wrapper = mount(Countdown, {
+      props: {
+        time: nextYear
+      }
+    });
+
+    expect(wrapper.find('[qa-data-days]').html()).toContain(days);
+
+    await wrapper.setProps({ time: Years2FromNow })
+
+    expect(wrapper.find('[qa-data-days]').html()).toContain(days2Years);
+  });
 });

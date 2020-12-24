@@ -45,10 +45,6 @@ export default {
     color: {
       type: String,
       required: false
-    },
-    rounded: {
-      type: String,
-      required: false
     }
   },
   computed: {

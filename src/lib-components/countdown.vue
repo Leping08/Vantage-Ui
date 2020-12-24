@@ -2,7 +2,7 @@
   <div v-if="!expired">
     <div class="flex text-center">
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`">
+        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-days="days">
           {{ days }}
         </div>
         <div
@@ -13,7 +13,7 @@
       </div>
       <div class="border-r my-5 border-gray-200"></div>
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`">
+        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-hours="hours">
           {{ hours }}
         </div>
         <div
@@ -24,7 +24,7 @@
       </div>
       <div class="border-r my-5  border-gray-200"></div>
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`">
+        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-minutes="minutes">
           {{ minutes }}
         </div>
         <div
@@ -35,7 +35,7 @@
       </div>
       <div class="border-r my-5  border-gray-200"></div>
       <div class="p-2">
-        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`">
+        <div :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`" :qa-data-seconds="seconds">
           {{ seconds }}
         </div>
         <div
@@ -100,20 +100,22 @@ export default {
     }
   },
   created() {
-    //Set the end time for use later
-    this.end = new Date(this.time).getTime();
-
-    //TODO Dont duplicate the logic to check if the time has expired
-    // Dertmine the difference between now and the end time prop
-    this.distance = this.end - new Date().getTime();
-
-    //Check if the count down is finished
-    if (this.distance < 0) {
-      clearInterval();
-      this.expired = true;
+    this.setCountdownEnd();
+  },
+  watch: {
+    time() {
+      this.setCountdownEnd();
     }
+  },
+  methods: {
+    setCountdownEnd() {
+      //Clear any already going intervals
+      clearInterval();
+      
+      //Set the end time for use later
+      this.end = new Date(this.time).getTime();
 
-    setInterval(() => {
+      //TODO Dont duplicate the logic to check if the time has expired
       // Dertmine the difference between now and the end time prop
       this.distance = this.end - new Date().getTime();
 
@@ -122,7 +124,18 @@ export default {
         clearInterval();
         this.expired = true;
       }
-    }, 1000);
+
+      setInterval(() => {
+        // Dertmine the difference between now and the end time prop
+        this.distance = this.end - new Date().getTime();
+
+        //Check if the count down is finished
+        if (this.distance < 0) {
+          clearInterval();
+          this.expired = true;
+        }
+      }, 1000);
+    }
   }
 };
 </script>
