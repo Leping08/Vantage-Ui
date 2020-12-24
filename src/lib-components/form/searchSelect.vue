@@ -31,7 +31,7 @@
             'appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full',
             `${themeRounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500`,
             error
-              ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red'
+              ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-300'
               : 'text-gray-900'
           ]"
           :placeholder="placeholderText"

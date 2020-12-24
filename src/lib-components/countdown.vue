@@ -6,7 +6,7 @@
           {{ days }}
         </div>
         <div
-          class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500"
+          class="px-6 py-2 whitespace-nowrap text-sm leading-5 text-gray-500"
         >
           Days
         </div>
@@ -17,7 +17,7 @@
           {{ hours }}
         </div>
         <div
-          class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500"
+          class="px-6 py-2 whitespace-nowrap text-sm leading-5 text-gray-500"
         >
           Hours
         </div>
@@ -28,7 +28,7 @@
           {{ minutes }}
         </div>
         <div
-          class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500"
+          class="px-6 py-2 whitespace-nowrap text-sm leading-5 text-gray-500"
         >
           Minutes
         </div>
@@ -39,7 +39,7 @@
           {{ seconds }}
         </div>
         <div
-          class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-500"
+          class="px-6 py-2 whitespace-nowrap text-sm leading-5 text-gray-500"
         >
           Seconds
         </div>

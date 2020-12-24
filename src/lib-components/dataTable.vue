@@ -4,7 +4,7 @@
       <div class="flex items-center ">
         <div class="py-2 w-2/3" v-if="title">
           <div
-            class="-ml-4 -mt-2 px-4 flex justify-between items-center flex-wrap sm:flex-no-wrap"
+            class="-ml-4 -mt-2 px-4 flex justify-between items-center flex-wrap sm:flex-nowrap"
           >
             <div class="ml-4 mt-4">
               <h3 class="text-xl leading-6 font-medium text-gray-900">
@@ -70,7 +70,7 @@
             :class="index % 2 ? 'bg-gray-50' : 'bg-white'"
           >
             <td
-              class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
+              class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-gray-500"
               v-for="(value, name) in object"
               :key="name"
             >

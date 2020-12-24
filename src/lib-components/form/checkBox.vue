@@ -8,7 +8,7 @@
         :name="label"
         type="checkbox"
         :class="
-          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 focus:ring-${checkBoxColor}-500 ${themeRounded}`
+          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 focus:ring-${checkBoxColor}-500 rounded`
         "
       />
     </div>
@@ -62,9 +62,6 @@ export default {
       set(value) {
         this.$emit("update:modelValue", value);
       }
-    },
-    themeRounded() {
-      return this.rounded || theme.rounded;
     }
   }
 };
