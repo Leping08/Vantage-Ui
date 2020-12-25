@@ -120,15 +120,17 @@ export default {
     }
   },
   methods: {
+    //TODO figure out time zones
     setCountdownEnd() {
       //Clear any already going intervals
       clearInterval();
+      this.expired = false;
 
       //Set the end time for use later
       this.end = new Date(this.time).getTime();
 
-      //TODO Dont duplicate the logic to check if the time has expired
-      // Dertmine the difference between now and the end time prop
+      //TODO Don't duplicate the logic to check if the time has expired
+      //Determine the difference between now and the end time prop
       this.distance = this.end - new Date().getTime();
 
       //Check if the count down is finished
@@ -138,7 +140,7 @@ export default {
       }
 
       setInterval(() => {
-        // Dertmine the difference between now and the end time prop
+        //Determine the difference between now and the end time prop
         this.distance = this.end - new Date().getTime();
 
         //Check if the count down is finished
