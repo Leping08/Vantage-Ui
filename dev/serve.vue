@@ -35,7 +35,7 @@
       <div class="container mx-auto">
         <div class="m-4">
           <v-card heading="Accordion" :padding="false" :headingBorder="false">
-            <v-accordion :items="questionandAnswers"></v-accordion>
+            <v-accordion :items="questionsAndAnswers"></v-accordion>
           </v-card>
         </div>
         <div class="m-4">
@@ -107,7 +107,7 @@
             :padding="false"
             :headingBorder="true"
           >
-            <v-description-list :items="descriptListItems"></v-description-list>
+            <v-description-list :items="descriptionListItems"></v-description-list>
           </v-card>
         </div>
         <div class="m-4">
@@ -151,7 +151,16 @@
               v-model="searchSelected"
               :items="searchItems"
               placeholder="Search Color"
-            ></v-search-select>
+            >
+              <template v-slot:default="{ item }">
+                <div class="flex items-center">
+                  <div :class="`h-4 w-4 rounded-full bg-${item}-600 mr-2`"></div>
+                  <div :class="` hover:text-white text-${item}-600`">
+                     {{ item }}
+                  </div>
+                </div>
+              </template>
+            </v-search-select>
           </v-card>
         </div>
         <div class="m-4">
@@ -230,7 +239,7 @@ export default {
         "hgdsgrafds"
       ],
       toggle: false,
-      descriptListItems: [
+      descriptionListItems: [
         {
           key: "First Item",
           value: "$1500"
@@ -248,7 +257,7 @@ export default {
           value: "Number 4 is the best."
         }
       ],
-      questionandAnswers: [
+      questionsAndAnswers: [
         {
           key: "What's the best thing about Switzerland?",
           value: "I don't know, but the flag is a big plus."

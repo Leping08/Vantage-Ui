@@ -15,7 +15,7 @@
           Object.values(validationObjects).filter(e => e.valid === true)
             .length === 1
             ? 'text-red-900 border-red-500'
-            : 'text-gray-900'
+            : 'text-gray-700'
         ]"
         :placeholder="placeholder"
         :aria-placeholder="placeholder"

@@ -4,10 +4,9 @@
       <div
         v-for="(item, index) in items"
         :key="item"
-        class="px-4 py-5 sm:grid sm:grid-cols-3 sm:border-gray-200"
+        class="px-4 py-5 sm:grid sm:grid-cols-3"
         :class="[
-          index % 2 ? 'bg-gray-50' : 'bg-white',
-          border && index > 0 ? 'sm:border-t' : ''
+          index % 2 ? 'bg-gray-50' : 'bg-white'
         ]"
       >
         <dt class="text-sm leading-5 font-medium text-gray-500">
@@ -38,11 +37,6 @@ export default {
       type: String,
       required: false,
       default: "value"
-    },
-    border: {
-      type: Boolean,
-      required: false,
-      default: false
     }
   }
 };

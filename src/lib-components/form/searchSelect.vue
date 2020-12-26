@@ -88,9 +88,11 @@
                 class="select-none relative py-2 pl-3 pr-9 hover:text-white text-gray-900 cursor-pointer"
               >
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                <span class="font-normal block truncate">
-                  {{ itemText ? item[itemText] : item }}
-                </span>
+                <slot :item="item">
+                  <span class="font-normal block truncate">
+                    {{ itemText ? item[itemText] : item }}
+                  </span>
+                </slot>
 
                 <!--
               Checkmark, only display for selected option.

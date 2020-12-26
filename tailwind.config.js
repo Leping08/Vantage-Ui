@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   darkMode: false,
   purge: {
@@ -12,11 +14,13 @@ module.exports = {
     }
   },
   theme: {
-    extend: {}
+    extend: {
+      colors: colors
+    }
   },
   variants: {
     extend: {
-      backgroundColor: ['active'],
+      backgroundColor: ['active']
     }
   },
   plugins: [
