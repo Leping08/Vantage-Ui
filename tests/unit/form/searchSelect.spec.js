@@ -97,7 +97,7 @@ describe("searchSelect.vue", () => {
 
     expect(wrapper.html()).toContain("red");
   });
-  
+
   it("renders the scoped slot data", async () => {
     const wrapper = mount(SearchSelect, {
       slots: {
@@ -110,12 +110,12 @@ describe("searchSelect.vue", () => {
         `
       },
       props: {
-        items: itemsArray,
+        items: itemsArray
       }
     });
 
     await wrapper.find("input").trigger("click");
-    
-    expect(wrapper.html()).toContain("id=\"red\"");
+
+    expect(wrapper.html()).toContain('id="red"');
   });
 });

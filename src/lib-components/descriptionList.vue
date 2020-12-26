@@ -5,9 +5,7 @@
         v-for="(item, index) in items"
         :key="item"
         class="px-4 py-5 sm:grid sm:grid-cols-3"
-        :class="[
-          index % 2 ? 'bg-gray-50' : 'bg-white'
-        ]"
+        :class="[index % 2 ? 'bg-gray-50' : 'bg-white']"
       >
         <dt class="text-sm leading-5 font-medium text-gray-500">
           {{ item[itemKey] }}
