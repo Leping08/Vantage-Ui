@@ -130,4 +130,35 @@ describe("Input.vue", () => {
 
     expect(wrapper.html()).toContain("Invalid email address");
   });
+
+  it("validation rules can be dynamic and changed with the prop updating", async () => {
+    const wrapper = mount(Input, {
+      props: {
+        rules: ["min:3"],
+        label: "test",
+        modelValue: "a"
+      }
+    });
+
+    // By default it does not show vallidation messages
+    expect(wrapper.html()).not.toContain("must be 3 characters or more");
+
+    await wrapper.setProps({ modelValue: "ab" });
+
+    expect(wrapper.html()).toContain("must be 3 characters or more");
+
+    await wrapper.setProps({ rules: ["min:2"] });
+
+    await wrapper.setProps({ modelValue: "a" });
+    
+    expect(wrapper.html()).toContain("must be 2 characters or more");
+    
+    await wrapper.setProps({ rules: ["required"] });
+
+    expect(wrapper.html()).not.toContain("is required");
+    
+    await wrapper.setProps({ modelValue: "" });
+
+    expect(wrapper.html()).toContain("is required");
+  });
 });

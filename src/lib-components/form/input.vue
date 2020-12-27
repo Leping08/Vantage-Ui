@@ -88,22 +88,13 @@ export default {
   },
   created() {
     if (this.rules) {
-      //Check if the field is required
-      this.requiredCheck = this.rules.includes("required");
-
-      //Loop over the rules array and create the validationObjects
-      this.validationObjects = this.rules.map(rule => {
-        const sections = rule.split(":");
-        return {
-          name: sections[0],
-          args: sections[1] || [],
-          valid: true,
-          message: ""
-        };
-      });
+      this.setUpRules();
     }
   },
   watch: {
+    rules() {
+      this.setUpRules()
+    },
     value() {
       this.validationObjects.map(element => {
         //Call the function of the name of the validation object and input any args
@@ -129,6 +120,21 @@ export default {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       element.valid = re.test(String(this.modelValue).toLowerCase());
       element.message = `Invalid email address`;
+    },
+    setUpRules() {
+      //Check if the field is required
+      this.requiredCheck = this.rules.includes("required");
+
+      //Loop over the rules array and create the validationObjects
+      this.validationObjects = this.rules.map(rule => {
+        const sections = rule.split(":");
+        return {
+          name: sections[0],
+          args: sections[1] || [],
+          valid: true,
+          message: ""
+        };
+      });
     }
   },
   computed: {
