@@ -43,4 +43,18 @@ describe("Button.vue", () => {
 
     expect(wrapper.html()).toContain("w-full");
   });
+
+  it("changes button size with size prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        size: "lg"
+      }
+    });
+
+    expect(wrapper.html()).toContain("px-4 py-2");
+
+    await wrapper.setProps({ size: "xs" });
+
+    expect(wrapper.html()).toContain("px-2.5 py-1.5 ");
+  });
 });

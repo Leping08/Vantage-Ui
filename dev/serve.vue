@@ -63,7 +63,13 @@
         </div>
         <div class="m-4">
           <v-card heading="Button" :headingBorder="true" :padding="true">
-            <v-button>Submit Me</v-button>
+            <div class="p-2">
+              <v-button size="xs" class="m-2">Submit Me</v-button>
+              <v-button size="sm" class="m-2">Submit Me</v-button>
+              <v-button size="md" class="m-2">Submit Me</v-button>
+              <v-button size="lg" class="m-2">Submit Me</v-button>
+              <v-button size="xl" class="m-2">Submit Me</v-button>
+            </div>
           </v-card>
         </div>
         <div class="m-4">
