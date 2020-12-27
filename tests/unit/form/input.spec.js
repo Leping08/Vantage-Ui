@@ -150,13 +150,13 @@ describe("Input.vue", () => {
     await wrapper.setProps({ rules: ["min:2"] });
 
     await wrapper.setProps({ modelValue: "a" });
-    
+
     expect(wrapper.html()).toContain("must be 2 characters or more");
-    
+
     await wrapper.setProps({ rules: ["required"] });
 
     expect(wrapper.html()).not.toContain("is required");
-    
+
     await wrapper.setProps({ modelValue: "" });
 
     expect(wrapper.html()).toContain("is required");

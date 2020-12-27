@@ -93,7 +93,7 @@ export default {
   },
   watch: {
     rules() {
-      this.setUpRules()
+      this.setUpRules();
     },
     value() {
       this.validationObjects.map(element => {
