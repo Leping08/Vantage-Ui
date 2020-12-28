@@ -97,4 +97,36 @@ describe("Stats.vue", () => {
 
     expect(wrapper.html()).toContain("rounded");
   });
+
+  it("parses strings to floats", async () => {
+    const wrapper = mount(Stats, {
+      props: {
+        heading: "Users",
+        firstMetric: 9,
+        secondMetric: 34
+      }
+    });
+
+    expect(wrapper.html()).toContain("Decreased by");
+
+    await wrapper.setProps({
+      firstMetric: 10,
+      secondMetric: 34
+    });
+
+    expect(wrapper.html()).toContain("Decreased by");
+  });
+
+  it("will show no change and be gray", async () => {
+    const wrapper = mount(Stats, {
+      props: {
+        heading: "Users",
+        firstMetric: 9,
+        secondMetric: 9
+      }
+    });
+
+    expect(wrapper.html()).toContain("No change");
+    expect(wrapper.html()).toContain("gray-800");
+  });
 });

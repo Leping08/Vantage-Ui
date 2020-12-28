@@ -57,4 +57,14 @@ describe("Button.vue", () => {
 
     expect(wrapper.html()).toContain("px-2.5 py-1.5 ");
   });
+
+  it("changes how rounded the button is with the rounded prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        rounded: "rounded-full"
+      }
+    });
+
+    expect(wrapper.html()).toContain("rounded-full");
+  });
 });

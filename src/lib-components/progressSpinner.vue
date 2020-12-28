@@ -28,7 +28,7 @@ export default {
     size: {
       type: Number,
       required: false,
-      default: 6
+      default: 10
     },
     color: {
       type: String,

@@ -57,7 +57,7 @@ export default {
   },
   props: {
     modelValue: {
-      type: String,
+      type: [String, Number, Date],
       required: true
     },
     placeholder: {
