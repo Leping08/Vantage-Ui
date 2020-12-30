@@ -208,8 +208,10 @@ export default {
       //TODO Add move validation here
       if (this.itemText) {
         this.input = item[this.itemText];
+        this.oldInput = item[this.itemText];
       } else {
         this.input = item;
+        this.oldInput = item;
       }
       this.$emit("update:modelValue", item);
       this.selectedItem = item;
@@ -218,8 +220,10 @@ export default {
       });
     },
     blurFunc() {
-      if (!this.input) {
-        this.input = this.oldInput.toString();
+      if (!(this.oldInput === this.input)) {
+        if (this.oldInput) {
+          this.input = this.oldInput.toString();
+        }
       }
       setTimeout(() => {
         this.dropdownOpen = false;
@@ -227,7 +231,6 @@ export default {
     },
     focusFunc() {
       //TODO: Make sure this deals with object keys as the text
-      this.oldInput = this.input.toString();
       if (this.selectedItem) {
         this.placeholderText = this.selectedItem;
       }

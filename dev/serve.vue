@@ -231,7 +231,7 @@ export default {
       input: "",
       radio: "Vue",
       checkBoxItems: [],
-      searchSelected: "fffff",
+      searchSelected: "red",
       progressBarValue: 75,
       searchItems: [
         "gray",
