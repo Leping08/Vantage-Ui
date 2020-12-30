@@ -197,19 +197,19 @@
               <v-stats
                 class="m-2 flex-1"
                 heading="Users"
-                :first-metric="4"
-                :second-metric="1"
+                :first-metric="446"
+                :second-metric="345"
               ></v-stats>
               <v-stats
                 class="m-2 flex-1"
                 heading="Followers"
-                :first-metric="50.34"
-                :second-metric="3.29"
+                :first-metric="47"
+                :second-metric="50"
               ></v-stats>
               <v-stats
                 class="m-2 flex-1"
                 heading="Subscribers"
-                :first-metric="5"
+                :first-metric="10"
                 :second-metric="10"
               ></v-stats>
             </div>
@@ -231,7 +231,7 @@ export default {
       input: "",
       radio: "Vue",
       checkBoxItems: [],
-      searchSelected: "",
+      searchSelected: "fffff",
       progressBarValue: 75,
       searchItems: [
         "gray",

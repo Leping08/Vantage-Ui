@@ -35,7 +35,7 @@ const tabs = {
   props: {
     modelValue: {
       type: Number,
-      required: false
+      required: true
     },
     color: {
       type: String,

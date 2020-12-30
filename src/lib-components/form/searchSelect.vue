@@ -132,10 +132,15 @@ export default {
       loading: false,
       selectedItem: null,
       placeholderText: null,
-      input: ""
+      input: "",
+      oldInput: ""
     };
   },
   props: {
+    modelValue: {
+      type: String,
+      required: true
+    },
     label: {
       type: String,
       required: false,
@@ -164,15 +169,23 @@ export default {
     }
   },
   created() {
+    //TODO don't select something if the starting value can not be found
+    //Check to see if the user bound in a starting value and select it
+    if (this.modelValue) {
+      this.select(this.modelValue);
+    }
     this.placeholderText = this.placeholder;
   },
   watch: {
     input() {
       this.dropdownOpen = true;
+    },
+    placeholder() {
+      this.placeholderText = this.placeholder;
     }
   },
   methods: {
-    filtered: function() {
+    filtered() {
       if (!this.input) {
         return this.items;
       }
@@ -191,7 +204,8 @@ export default {
         });
       }
     },
-    select: function(item) {
+    select(item) {
+      //TODO Add move validation here
       if (this.itemText) {
         this.input = item[this.itemText];
       } else {
@@ -203,13 +217,17 @@ export default {
         this.dropdownOpen = false;
       });
     },
-    blurFunc: function() {
+    blurFunc() {
+      if (!this.input) {
+        this.input = this.oldInput.toString();
+      }
       setTimeout(() => {
         this.dropdownOpen = false;
-      }, 200);
+      }, 100);
     },
-    focusFunc: function() {
+    focusFunc() {
       //TODO: Make sure this deals with object keys as the text
+      this.oldInput = this.input.toString();
       if (this.selectedItem) {
         this.placeholderText = this.selectedItem;
       }

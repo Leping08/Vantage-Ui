@@ -7,7 +7,8 @@ describe("searchSelect.vue", () => {
   it("will show the dropdown when focused", async () => {
     const wrapper = mount(SearchSelect, {
       props: {
-        items: itemsArray
+        items: itemsArray,
+        modelValue: ""
       }
     });
 
@@ -21,7 +22,8 @@ describe("searchSelect.vue", () => {
   it("will show the dropdown when clicked", async () => {
     const wrapper = mount(SearchSelect, {
       props: {
-        items: itemsArray
+        items: itemsArray,
+        modelValue: ""
       }
     });
 
@@ -35,7 +37,8 @@ describe("searchSelect.vue", () => {
   it("will change the model value when something is selected", async () => {
     const wrapper = mount(SearchSelect, {
       props: {
-        items: itemsArray
+        items: itemsArray,
+        modelValue: ""
       }
     });
 
@@ -56,18 +59,24 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        placeholder: "testing placeholder"
+        placeholder: "testing placeholder",
+        modelValue: ""
       }
     });
 
     expect(wrapper.html()).toContain("testing placeholder");
+
+    await wrapper.setProps({ placeholder: "something else" });
+
+    expect(wrapper.html()).toContain("something else");
   });
 
   it("renders the label with the prop", async () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        label: "testing label"
+        label: "testing label",
+        modelValue: ""
       }
     });
 
@@ -78,7 +87,8 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        color: "teal"
+        color: "teal",
+        modelValue: ""
       }
     });
 
@@ -91,7 +101,8 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        error: "true"
+        error: "true",
+        modelValue: ""
       }
     });
 
@@ -110,12 +121,32 @@ describe("searchSelect.vue", () => {
         `
       },
       props: {
-        items: itemsArray
+        items: itemsArray,
+        modelValue: ""
       }
     });
 
     await wrapper.find("input").trigger("click");
 
     expect(wrapper.html()).toContain('id="red"');
+  });
+
+  it("keeps the old value if you don't select a new value", async () => {
+    const wrapper = mount(SearchSelect, {
+      props: {
+        items: itemsArray,
+        modelValue: "red"
+      }
+    });
+
+    expect(wrapper.emitted("update:modelValue")).toEqual([["red"]]);
+
+    await wrapper.find("input").trigger("click");
+
+    expect(wrapper.html()).toContain(itemsArray[0]);
+    expect(wrapper.html()).toContain(itemsArray[1]);
+    expect(wrapper.html()).toContain(itemsArray[2]);
+
+    expect(wrapper.emitted("update:modelValue")).toEqual([["red"]]);
   });
 });
