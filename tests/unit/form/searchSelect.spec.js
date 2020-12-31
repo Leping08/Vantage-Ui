@@ -97,18 +97,6 @@ describe("searchSelect.vue", () => {
     expect(wrapper.html()).toContain("teal");
   });
 
-  it("renders the error with the prop", async () => {
-    const wrapper = mount(SearchSelect, {
-      props: {
-        items: itemsArray,
-        error: "true",
-        modelValue: ""
-      }
-    });
-
-    expect(wrapper.html()).toContain("red");
-  });
-
   it("renders the scoped slot data", async () => {
     const wrapper = mount(SearchSelect, {
       slots: {
@@ -148,5 +136,39 @@ describe("searchSelect.vue", () => {
     expect(wrapper.html()).toContain(itemsArray[2]);
 
     expect(wrapper.emitted("update:modelValue")).toEqual([["red"]]);
+  });
+
+  it("allows the user to select the object key if the object key prop is used", async () => {
+    const object = [
+      {
+        name: "John",
+        age: 25
+      },
+      {
+        name: "Doe",
+        age: 25
+      }
+    ];
+
+    const wrapper = mount(SearchSelect, {
+      props: {
+        items: object,
+        itemKey: "name",
+        modelValue: ""
+      }
+    });
+
+    expect(wrapper.emitted("update:modelValue")).toEqual(undefined);
+
+    await wrapper.find("input").trigger("click");
+
+    expect(wrapper.html()).toContain(object[0].name);
+    expect(wrapper.html()).toContain(object[1].name);
+
+    expect(wrapper.emitted("update:modelValue")).toEqual(undefined);
+
+    await wrapper.find("#listbox-option-0").trigger("click");
+
+    expect(wrapper.emitted("update:modelValue")).toEqual([[object[0]]]);
   });
 });

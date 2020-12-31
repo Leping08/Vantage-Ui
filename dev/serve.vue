@@ -154,7 +154,11 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Search Select" :padding="true" :headingBorder="true">
+          <v-card
+            heading="Array Search Select"
+            :padding="true"
+            :headingBorder="true"
+          >
             <v-search-select
               v-model="searchSelected"
               :items="searchItems"
@@ -170,6 +174,21 @@
                   </div>
                 </div>
               </template>
+            </v-search-select>
+          </v-card>
+        </div>
+        <div class="m-4">
+          <v-card
+            heading="Object Search Select"
+            :padding="true"
+            :headingBorder="true"
+          >
+            <v-search-select
+              v-model="testSearchSelected"
+              :items="testObject"
+              item-key="name"
+              placeholder="Search Color"
+            >
             </v-search-select>
           </v-card>
         </div>
@@ -233,6 +252,24 @@ export default {
       checkBoxItems: [],
       searchSelected: "red",
       progressBarValue: 75,
+      testSearchSelected: "",
+      testObject: [
+        {
+          name: "derek",
+          age: 5,
+          occupations: ["accountant", "medic"]
+        },
+        {
+          name: "rj",
+          age: 10,
+          occupations: ["cop", "bk"]
+        },
+        {
+          name: "dylan",
+          age: 15,
+          occupations: ["accountant", "bk"]
+        }
+      ],
       searchItems: [
         "gray",
         "red",

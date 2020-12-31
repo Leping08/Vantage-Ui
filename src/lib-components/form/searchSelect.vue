@@ -29,10 +29,7 @@
           @blur="blurFunc()"
           :class="[
             'appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full',
-            `${themeRounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500`,
-            error
-              ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-300'
-              : 'text-gray-900'
+            `${themeRounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500 text-gray-700`
           ]"
           :placeholder="placeholderText"
         />
@@ -90,7 +87,7 @@
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
                 <slot :item="item">
                   <span class="font-normal block truncate">
-                    {{ itemText ? item[itemText] : item }}
+                    {{ itemKey ? item[itemKey] : item }}
                   </span>
                 </slot>
 
@@ -138,7 +135,7 @@ export default {
   },
   props: {
     modelValue: {
-      type: String,
+      type: [String, Object],
       required: true
     },
     label: {
@@ -151,15 +148,11 @@ export default {
       required: false,
       default: null
     },
-    error: {
-      type: String,
-      required: false
-    },
     items: {
       type: Array,
       required: true
     },
-    itemText: {
+    itemKey: {
       type: String,
       required: false
     },
@@ -190,12 +183,11 @@ export default {
         return this.items;
       }
       this.dropdownOpen = true;
-      if (this.itemText) {
+      if (this.itemKey) {
         return this.items.filter(item => {
           return (
-            item[this.itemText]
-              .toLowerCase()
-              .indexOf(this.input.toLowerCase()) > -1
+            item[this.itemKey].toLowerCase().indexOf(this.input.toLowerCase()) >
+            -1
           );
         });
       } else {
@@ -206,9 +198,9 @@ export default {
     },
     select(item) {
       //TODO Add move validation here
-      if (this.itemText) {
-        this.input = item[this.itemText];
-        this.oldInput = item[this.itemText];
+      if (this.itemKey) {
+        this.input = item[this.itemKey];
+        this.oldInput = item[this.itemKey];
       } else {
         this.input = item;
         this.oldInput = item;
@@ -230,9 +222,12 @@ export default {
       }, 100);
     },
     focusFunc() {
-      //TODO: Make sure this deals with object keys as the text
       if (this.selectedItem) {
-        this.placeholderText = this.selectedItem;
+        if (this.itemKey) {
+          this.placeholderText = this.selectedItem[this.itemKey];
+        } else {
+          this.placeholderText = this.selectedItem;
+        }
       }
       this.input = null;
       this.dropdownOpen = true;
