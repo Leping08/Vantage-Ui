@@ -15,7 +15,7 @@ describe("DateRangePicker.vue", () => {
       }
     });
 
-    await wrapper.find("#date-range-picker-button").trigger("click")
+    await wrapper.find("#date-range-picker-button").trigger("click");
 
     expect(wrapper.html()).toContain("teal");
   });
@@ -28,13 +28,13 @@ describe("DateRangePicker.vue", () => {
     });
 
     expect(wrapper.html()).toContain("text-left");
-    
+
     await wrapper.setProps({
-      position: 'right'
-    })
-    
+      position: "right"
+    });
+
     await wrapper.find("#date-range-picker-button").trigger("click");
-    
+
     expect(wrapper.html()).toContain("text-right");
   });
 });

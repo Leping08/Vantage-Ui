@@ -365,7 +365,7 @@ export default {
   created() {
     setInterval(() => {
       this.progressBarValue = Math.floor(Math.random() * 99) + 1;
-    }, 3000)
+    }, 3000);
   }
 };
 </script>
