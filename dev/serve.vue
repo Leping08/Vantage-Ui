@@ -58,6 +58,7 @@
               v-model:start="startDate"
               v-model:end="endDate"
               position="right"
+              color="red"
             />
           </v-card>
         </div>
@@ -141,7 +142,7 @@
         </div>
         <div class="m-4">
           <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
-            <v-progress-bar v-model="progressBarValue"></v-progress-bar>
+            <v-progress-bar :percent="progressBarValue"></v-progress-bar>
           </v-card>
         </div>
         <div class="m-4">
@@ -360,6 +361,11 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    setInterval(() => {
+      this.progressBarValue = Math.floor(Math.random() * 99) + 1;
+    }, 3000)
   }
 };
 </script>

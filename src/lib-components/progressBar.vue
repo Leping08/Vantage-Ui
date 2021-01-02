@@ -1,7 +1,7 @@
 <template>
   <div :class="`w-full bg-${barColor}-200 ${barRounded} h-${height}`">
     <div
-      :style="`width: ${value}%`"
+      :style="`width: ${percent}%`"
       :class="
         `bg-${barColor}-600 ${barRounded} h-${height} transition-all duration-1000 ease-in-out`
       "
@@ -14,7 +14,7 @@ import theme from "./theme";
 export default {
   name: "Progress Bar",
   props: {
-    modelValue: {
+    percent: {
       type: Number,
       required: true
     },
@@ -38,14 +38,6 @@ export default {
     },
     barRounded() {
       return this.rounded || theme.rounded;
-    },
-    value: {
-      get() {
-        return this.modelValue;
-      },
-      set(value) {
-        this.$emit("update:modelValue", value);
-      }
     }
   }
 };

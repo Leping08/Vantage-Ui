@@ -5,7 +5,7 @@
         <dt class="text-base leading-6 font-normal text-gray-900">
           {{ heading }}
         </dt>
-        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+        <dd class="mt-1 justify-between items-baseline md:block lg:flex">
           <div
             :class="
               `flex items-baseline text-2xl leading-8 font-semibold text-${statColor}-600`
@@ -19,7 +19,7 @@
               from {{ secondMetric }}
             </span>
           </div>
-          <div v-if="firstMetric && secondMetric">
+          <div class="" v-if="firstMetric && secondMetric">
             <div
               v-if="parseFloat(firstMetric) < parseFloat(secondMetric)"
               class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800 md:mt-2 lg:mt-0"

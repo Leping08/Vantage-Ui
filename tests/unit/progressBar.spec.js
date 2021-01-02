@@ -2,10 +2,10 @@ import { mount } from "@vue/test-utils";
 import ProgressBar from "@/lib-components/progressBar.vue";
 
 describe("ProgressBar.vue", () => {
-  it("renders progress at the percent through the model value prop", async () => {
+  it("renders progress at the percent through the percent prop", async () => {
     const wrapper = mount(ProgressBar, {
       props: {
-        modelValue: 47
+        percent: 47
       }
     });
 
@@ -15,7 +15,7 @@ describe("ProgressBar.vue", () => {
   it("changes color via a prop", async () => {
     const wrapper = mount(ProgressBar, {
       props: {
-        modelValue: 25,
+        percent: 25,
         color: "teal"
       }
     });
@@ -26,7 +26,7 @@ describe("ProgressBar.vue", () => {
   it("changes the rounded edge via a prop", async () => {
     const wrapper = mount(ProgressBar, {
       props: {
-        modelValue: 25,
+        percent: 25,
         rounded: "rounded-md"
       }
     });
@@ -37,14 +37,14 @@ describe("ProgressBar.vue", () => {
   it("changes progress when the model value changes", async () => {
     const wrapper = mount(ProgressBar, {
       props: {
-        modelValue: 25,
+        percent: 25,
         rounded: "rounded-md"
       }
     });
 
     expect(wrapper.html()).toContain(25);
 
-    await wrapper.setProps({ modelValue: 75 });
+    await wrapper.setProps({ percent: 75 });
 
     expect(wrapper.html()).toContain(75);
   });

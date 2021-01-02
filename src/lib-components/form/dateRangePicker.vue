@@ -1,12 +1,18 @@
 <template>
   <div>
     <button
+      id="date-range-picker-button"
       @click="showPicker = true"
       :class="[
-        `h-10 appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
-        showPicker ? 'border-indigo-500 ring-indigo-500' : ''
+        ` bg-white h-10 appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
+        showPicker ? `border-${color}-500 ring-${color}-500` : ''
       ]"
     >
+      <template v-if="!(startDate || endDate)">
+        <span class="text-gray-400">
+          Select Dates
+        </span>
+      </template>
       {{
         startDate
           ? monthsAbbreviations[startDate.getMonth()] +
