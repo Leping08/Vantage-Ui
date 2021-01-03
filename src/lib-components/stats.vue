@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white overflow-hidden" :class="[statShadow, statRounded]">
-    <div class="px-4 py-5 sm:p-6">
+    <div class="px-4 py-5 sm:p-6 w-full">
       <dl>
         <dt class="text-base leading-6 font-normal text-gray-900">
           {{ heading }}
