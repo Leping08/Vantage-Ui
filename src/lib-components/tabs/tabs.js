@@ -12,7 +12,7 @@ const tab = {
     return h(
       "div",
       {
-        class: "whitespace-nowrap ml-8 py-4 px-1 font-medium text-sm leading-5"
+        class: "whitespace-nowrap mx-2 py-4 px-1 font-medium text-sm leading-5"
       },
       h(this.$slots.default)
     );
