@@ -73,7 +73,9 @@
                     />
                   </svg>
                 </div>
-                <div class="flex-1 text-center py-2 text-sm leading-5 text-gray-500">
+                <div
+                  class="flex-1 text-center py-2 text-sm leading-5 text-gray-500"
+                >
                   {{ monthsFullNames[month] }} {{ year }}
                 </div>
                 <div
@@ -92,7 +94,9 @@
               </div>
             </div>
 
-            <div class="flex bg-gray-50 border-t border-b text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <div
+              class="flex bg-gray-50 border-t border-b text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+            >
               <div
                 class="h-10 w-full flex items-center"
                 v-for="day in daysOfTheWeek"
