@@ -5,7 +5,7 @@
     viewBox="0 0 24 24"
   >
     <circle
-      class="opacity-25"
+      :class="`text-${spinnerColor}-200`"
       cx="12"
       cy="12"
       r="10"
