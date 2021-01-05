@@ -5,7 +5,7 @@
       @click="showPicker = true"
       :class="[
         ` bg-white h-10 appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
-        showPicker ? `border-${color}-500 ring-${color}-500` : ''
+        showPicker ? `border-${themeColor}-500 ring-${themeColor}-500` : ''
       ]"
     >
       <template v-if="!(startDate || endDate)">
@@ -73,7 +73,7 @@
                     />
                   </svg>
                 </div>
-                <div class="flex-1 text-center py-2 text-gray-500">
+                <div class="flex-1 text-center py-2 text-sm leading-5 text-gray-500">
                   {{ monthsFullNames[month] }} {{ year }}
                 </div>
                 <div
@@ -92,7 +92,7 @@
               </div>
             </div>
 
-            <div class="flex text-gray-400 font-medium">
+            <div class="flex bg-gray-50 border-t border-b text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
               <div
                 class="h-10 w-full flex items-center"
                 v-for="day in daysOfTheWeek"
@@ -105,7 +105,7 @@
             </div>
 
             <div
-              class="flex justify-items-center items-center cursor-pointer"
+              class="flex justify-items-center items-center cursor-pointer text-sm leading-5"
               v-for="week in calendar"
               :key="week"
             >
@@ -157,7 +157,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-initial border-l text-gray-500">
+          <div class="flex-initial border-l text-sm leading-5 text-gray-500">
             <div class="flex flex-col">
               <div
                 @click="selectToday()"

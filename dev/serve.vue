@@ -58,7 +58,6 @@
               v-model:start="startDate"
               v-model:end="endDate"
               position="right"
-              color="red"
             />
           </v-card>
         </div>
