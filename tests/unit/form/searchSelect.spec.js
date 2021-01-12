@@ -184,7 +184,7 @@ describe("searchSelect.vue", () => {
 
     await wrapper.setProps({
       modelValue: "blue"
-    })
+    });
 
     expect(wrapper.html()).toContain("blue");
   });
