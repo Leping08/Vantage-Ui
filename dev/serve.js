@@ -9,6 +9,6 @@ const app = createApp(Index);
 
 app
   .use(VantageUi, {
-    color: "indigo"
+    color: "cyan"
   })
   .mount("#app");

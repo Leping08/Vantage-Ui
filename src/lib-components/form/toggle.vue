@@ -1,5 +1,4 @@
 <template>
-  <!-- This example requires Tailwind CSS v2.0+ -->
   <!-- On: "bg-indigo-600", Off: "bg-gray-200" -->
   <button
     type="button"

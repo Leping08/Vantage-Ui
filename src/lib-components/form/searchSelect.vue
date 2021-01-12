@@ -175,6 +175,9 @@ export default {
     },
     placeholder() {
       this.placeholderText = this.placeholder;
+    },
+    modelValue() {
+      this.select(this.modelValue);
     }
   },
   methods: {
@@ -197,7 +200,7 @@ export default {
       }
     },
     select(item) {
-      //TODO Add move validation here
+      //TODO Add more validation checking if the value exists in the items array
       if (this.itemKey) {
         this.input = item[this.itemKey];
         this.oldInput = item[this.itemKey];

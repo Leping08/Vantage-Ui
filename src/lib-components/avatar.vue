@@ -17,13 +17,11 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
-      example: "John Doe"
+      required: true
     },
     color: {
       type: String,
-      required: false,
-      example: "blue"
+      required: false
     }
   },
   computed: {

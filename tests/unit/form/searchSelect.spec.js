@@ -171,4 +171,21 @@ describe("searchSelect.vue", () => {
 
     expect(wrapper.emitted("update:modelValue")).toEqual([[object[0]]]);
   });
+
+  it("updates to the value in the items array if the model model value prop is updated outside the component", async () => {
+    const wrapper = mount(SearchSelect, {
+      props: {
+        items: itemsArray,
+        modelValue: "red"
+      }
+    });
+
+    expect(wrapper.emitted("update:modelValue")).toEqual([["red"]]);
+
+    await wrapper.setProps({
+      modelValue: "blue"
+    })
+
+    expect(wrapper.html()).toContain("blue");
+  });
 });
