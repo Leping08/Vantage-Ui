@@ -20,8 +20,8 @@ import Stats from "./stats.vue";
 import { Tab, Tabs, TabContent } from "./tabs/tabs.js";
 
 // Utils
-import Content from "./utils/content.js"
-import Safelist from "./utils/safelist.js"
+import Content from "./utils/content.js";
+import Safelist from "./utils/safelist.js";
 
 export {
   //Components
@@ -46,7 +46,6 @@ export {
   Tab as VTab,
   Tabs as VTabs,
   TabContent as VTabContent,
-
   //Utils
   Content,
   Safelist
