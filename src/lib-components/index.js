@@ -1,3 +1,4 @@
+//Components
 import Avatar from "./avatar.vue";
 import Accordion from "./accordion.vue";
 import Badge from "./badge.vue";
@@ -18,7 +19,12 @@ import ProgressSpinner from "./progressSpinner.vue";
 import Stats from "./stats.vue";
 import { Tab, Tabs, TabContent } from "./tabs/tabs.js";
 
+// Utils
+import Content from "./utils/content.js"
+import Safelist from "./utils/safelist.js"
+
 export {
+  //Components
   Accordion as VAccordion,
   Avatar as VAvatar,
   Badge as VBadge,
@@ -39,5 +45,9 @@ export {
   Stats as VStats,
   Tab as VTab,
   Tabs as VTabs,
-  TabContent as VTabContent
+  TabContent as VTabContent,
+
+  //Utils
+  Content,
+  Safelist
 };
