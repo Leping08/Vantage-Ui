@@ -128,4 +128,4 @@ module.exports = {
       ...rounded
     ];
   }
-}
+};

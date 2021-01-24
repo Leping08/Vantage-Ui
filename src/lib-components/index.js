@@ -41,5 +41,5 @@ export {
   Stats as VStats,
   Tab as VTab,
   Tabs as VTabs,
-  TabContent as VTabContent,
+  TabContent as VTabContent
 };
