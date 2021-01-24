@@ -1,6 +1,6 @@
 {
   "name": "vantage-ui",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A vuejs uikit",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
@@ -96,9 +96,10 @@
   "engines": {
     "node": ">=10"
   },
-  "gitHooks": {
-    "pre-commit": "npm run lint:fix"
-  },
+  "pre-commit": [
+    "lint:fix",
+    "git add"
+  ],
   "sideEffects": false,
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
