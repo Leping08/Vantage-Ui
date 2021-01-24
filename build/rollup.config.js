@@ -9,6 +9,7 @@ import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
 import PostCSS from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-copy';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
@@ -58,6 +59,18 @@ const baseConfig = {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       babelHelpers: 'runtime',
     },
+    copy: {
+      targets: [
+        {
+          dest: 'dist/',
+          src: `${path.resolve(projectRoot, 'src/lib-components/utils/content.js')}`
+        },
+        {
+          dest: 'dist/',
+          src: `${path.resolve(projectRoot, 'src/lib-components/utils/safelist.js')}`
+        }
+      ]
+    }
   },
 };
 
@@ -67,8 +80,7 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   'vue',
-  'vuex',
-  'tailwind'
+  'tailwindcss'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -107,6 +119,7 @@ if (!argv.format || argv.format === 'es') {
           ],
         ],
       }),
+      copy({...baseConfig.plugins.copy}),
       commonjs(),
     ],
   };
@@ -131,6 +144,7 @@ if (!argv.format || argv.format === 'cjs') {
       vue(baseConfig.plugins.vue),
       ...baseConfig.plugins.postVue,
       babel(baseConfig.plugins.babel),
+      copy({...baseConfig.plugins.copy}),
       commonjs(),
     ],
   };
@@ -155,6 +169,7 @@ if (!argv.format || argv.format === 'iife') {
       vue(baseConfig.plugins.vue),
       ...baseConfig.plugins.postVue,
       babel(baseConfig.plugins.babel),
+      copy({...baseConfig.plugins.copy}),
       commonjs(),
       terser({
         output: {

@@ -119,11 +119,13 @@ function heightAndWidths() {
   return classes;
 }
 
-export default function vantageSafelist(colors) {
-  return [
-    ...colorsClasses(colors),
-    ...heightAndWidths(),
-    ...shadows,
-    ...rounded
-  ];
+module.exports = {
+  vantageSafelist(colors) {
+    return [
+      ...colorsClasses(colors),
+      ...heightAndWidths(),
+      ...shadows,
+      ...rounded
+    ];
+  }
 }

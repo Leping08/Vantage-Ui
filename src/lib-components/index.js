@@ -19,10 +19,6 @@ import ProgressSpinner from "./progressSpinner.vue";
 import Stats from "./stats.vue";
 import { Tab, Tabs, TabContent } from "./tabs/tabs.js";
 
-// Utils
-import Content from "./utils/content.js";
-import Safelist from "./utils/safelist.js";
-
 export {
   //Components
   Accordion as VAccordion,
@@ -46,7 +42,4 @@ export {
   Tab as VTab,
   Tabs as VTabs,
   TabContent as VTabContent,
-  //Utils
-  Content,
-  Safelist
 };
