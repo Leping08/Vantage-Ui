@@ -96,10 +96,11 @@
   "engines": {
     "node": ">=10"
   },
-  "pre-commit": [
-    "lint:fix",
-    "git add"
-  ],
+  "gitHooks": {
+    "pre-commit": [
+      "npm run lint:fix && git add"
+    ]
+  },
   "sideEffects": false,
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
