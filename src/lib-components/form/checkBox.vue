@@ -8,7 +8,7 @@
         :name="label"
         type="checkbox"
         :class="
-          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 focus:ring-${checkBoxColor}-500 rounded`
+          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 focus:ring-${checkBoxColor}-600 rounded`
         "
       />
     </div>

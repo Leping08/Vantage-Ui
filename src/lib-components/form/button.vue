@@ -3,7 +3,7 @@
     type="button"
     :class="[
       fullWidth ? 'flex justify-center w-full' : '',
-      `inline-flex items-center ${buttonSize} ${buttonRounded} ${shadow} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-500`,
+      `inline-flex items-center ${buttonSize} ${buttonRounded} ${shadow} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-600`,
       outline
         ? `border border-${buttonColor}-500 text-${buttonColor}-500 bg-white hover:bg-gray-100 active:bg-gray-200`
         : `text-white bg-${buttonColor}-600 active:bg-${buttonColor}-800 hover:bg-${buttonColor}-700`

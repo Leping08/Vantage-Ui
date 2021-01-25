@@ -4,8 +4,8 @@
       id="date-range-picker-button"
       @click="showPicker = true"
       :class="[
-        ` bg-white h-10 appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
-        showPicker ? `border-${themeColor}-500 ring-${themeColor}-500` : ''
+        ` bg-white h-10 appearance-none block px-3 py-2 shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
+        showPicker ? `border-2 border-${themeColor}-500 ring-${themeColor}-500` : 'border'
       ]"
     >
       <template v-if="!(startDate || endDate)">
