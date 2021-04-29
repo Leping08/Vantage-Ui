@@ -29,11 +29,7 @@
         "
       />
     </div>
-    <p
-      v-if="helpText"
-      class="mt-2 text-sm text-gray-500"
-      id="email-description"
-    >
+    <p v-if="helpText" class="mt-2 text-sm text-gray-500">
       {{ helpText }}
     </p>
     <div v-for="error in validationObjects" :key="error">

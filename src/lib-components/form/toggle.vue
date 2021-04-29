@@ -5,8 +5,11 @@
     @click.prevent="value = !value"
     aria-pressed="false"
     :class="[
+      `relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200`,
       value ? `bg-${toggleColor}-600` : 'bg-gray-200',
-      `relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${toggleColor}-600`
+      ring
+        ? `focus:ring-2 focus:ring-offset-2 focus:ring-${toggleColor}-600`
+        : 'focus:outline-none focus:ring-0'
     ]"
   >
     <span class="sr-only">Use setting</span>
@@ -73,6 +76,11 @@ export default {
     color: {
       type: String,
       required: false
+    },
+    ring: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {

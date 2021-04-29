@@ -2,11 +2,14 @@
   <button
     type="button"
     :class="[
+      `inline-flex items-center ${buttonSize} ${buttonRounded} ${buttonShadow}`,
       fullWidth ? 'flex justify-center w-full' : '',
-      `inline-flex items-center ${buttonSize} ${buttonRounded} ${shadow} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-600`,
       outline
-        ? `border border-${buttonColor}-500 text-${buttonColor}-500 bg-white hover:bg-gray-100 active:bg-gray-200`
-        : `text-white bg-${buttonColor}-600 active:bg-${buttonColor}-800 hover:bg-${buttonColor}-700`
+        ? `border border-${buttonColor}-500 text-${buttonColor}-500 bg-white hover:bg-${buttonColor}-50 active:bg-${buttonColor}-100`
+        : `text-white bg-${buttonColor}-600 active:bg-${buttonColor}-800 hover:bg-${buttonColor}-700`,
+      ring
+        ? `focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-600`
+        : `focus:outline-none focus:ring-0`
     ]"
   >
     <slot>Button</slot>
@@ -40,6 +43,16 @@ export default {
     rounded: {
       type: String,
       required: false
+    },
+    shadow: {
+      type: String,
+      required: false,
+      default: "shadow"
+    },
+    ring: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -49,8 +62,8 @@ export default {
     buttonRounded() {
       return this.rounded || theme.rounded;
     },
-    shadow() {
-      return theme.shadow || "";
+    buttonShadow() {
+      return this.shadow || theme.shadow;
     },
     buttonSize() {
       if (this.size === "xs") return `px-2.5 py-1.5 text-xs font-medium`;

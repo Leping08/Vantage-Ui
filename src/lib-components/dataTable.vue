@@ -26,17 +26,16 @@
               :class="
                 `px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider`
               "
-              v-for="(heading, index) in headings"
+              v-for="(heading, headingIndex) in headings"
               :key="heading"
             >
               <div
-                @click="changeSort(index)"
-                class="flex items-center cursor-pointer"
+                @click="changeSort(headingIndex)"
+                :class="[heading.sortable ? 'cursor-pointer' : '']"
+                class="flex items-center"
               >
-                <div>
-                  {{ heading.name }}
-                </div>
-                <div>
+                {{ heading?.text }}
+                <div v-if="heading.sortable">
                   <template v-if="heading.direction === 'asc'">
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                       <path
@@ -65,22 +64,64 @@
         </thead>
         <tbody>
           <tr
-            v-for="(object, index) in searchFilter"
-            :key="object"
-            :class="index % 2 ? 'bg-gray-50' : 'bg-white'"
+            v-for="(item, itemIndex) in filteredItems"
+            :key="item"
+            :class="itemIndex % 2 ? 'bg-gray-50' : 'bg-white'"
           >
             <td
               class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-gray-500"
-              v-for="(value, name) in object"
-              :key="name"
+              v-for="header in headings"
+              :key="header"
             >
-              <slot :name="name" :item="value">
-                {{ value }}
+              <slot :name="header.value" :item="item[header.value]">
+                {{ item[header.value] }}
               </slot>
             </td>
           </tr>
         </tbody>
       </table>
+      <nav
+        class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6"
+        aria-label="Pagination"
+      >
+        <div class="hidden sm:block">
+          <p class="text-sm text-gray-600">
+            Showing
+            {{ " " }}
+            <span class="font-medium">{{ indexStart + 1 }}</span>
+            {{ " " }}
+            to
+            {{ " " }}
+            <span class="font-medium">{{ indexEnd }}</span>
+            {{ " " }}
+            of
+            {{ " " }}
+            <span class="font-medium">{{ itemsCopy.length }}</span>
+            {{ " " }}
+            results
+          </p>
+        </div>
+        <div class="flex-1 flex justify-between sm:justify-end">
+          <v-button
+            @click="decrementPage()"
+            :outline="true"
+            shadow="none"
+            size="sm"
+            class="mx-2"
+          >
+            Previous
+          </v-button>
+          <v-button
+            @click="incrementPage()"
+            :outline="true"
+            shadow="none"
+            size="sm"
+            class="mx-2"
+          >
+            Next
+          </v-button>
+        </div>
+      </nav>
     </div>
   </card>
 </template>
@@ -88,11 +129,13 @@
 <script>
 import themeInput from "./form/input.vue";
 import card from "./card.vue";
+import button from "./form/button.vue";
 export default {
   name: "DataTable",
   components: {
     themeInput,
-    card
+    card,
+    VButton: button
   },
   props: {
     title: {
@@ -107,26 +150,39 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    header: {
+      type: Array,
+      required: true
+    },
+    itemsPerPage: {
+      type: Number,
+      required: false,
+      default: 5
     }
   },
   data() {
     return {
       headings: [],
       itemsCopy: [],
-      searchText: ""
+      searchText: "",
+      pageIndex: 1
     };
   },
   created() {
     this.itemsCopy = this.items;
 
-    this.headings = Object.entries(this.itemsCopy[0]).map(item => {
+    this.headings = this.header.map(item => {
       return {
-        name: item[0],
-        align: "left",
-        direction: "asc"
+        text: item?.text ?? "",
+        value: item?.value ?? "",
+        align: item?.align ?? "left",
+        sortable: item?.sortable ?? false,
+        direction: item?.direction ?? "asc"
       };
     });
 
+    //TODO set the sorting to the first column that has a sort
     this.changeSort(0); //Set the default sorting to the first column
   },
   methods: {
@@ -134,16 +190,19 @@ export default {
       this.headings.forEach((item, forEachIndex) => {
         //Check if the current index in the loop is the index of the change sort call
         if (forEachIndex === index) {
-          if (this.headings[index].direction == "asc") {
-            this.headings[index].direction = "desc";
-            this.sortByColumn(index, "desc");
-            return;
-          } else if (this.headings[index].direction == "desc") {
-            this.headings[index].direction = "none";
-            this.sortByColumn(index, "none");
-          } else if (this.headings[index].direction == "none") {
-            this.headings[index].direction = "asc";
-            this.sortByColumn(index, "asc");
+          // Check if the heading being clicked is sortable
+          if (this.headings[index].sortable) {
+            if (this.headings[index].direction == "asc") {
+              this.headings[index].direction = "desc";
+              this.sortByColumn(index, "desc");
+              return;
+            } else if (this.headings[index].direction == "desc") {
+              this.headings[index].direction = "none";
+              this.sortByColumn(index, "none");
+            } else if (this.headings[index].direction == "none") {
+              this.headings[index].direction = "asc";
+              this.sortByColumn(index, "asc");
+            }
           }
         } else {
           //Set the rest of the index's to sort none
@@ -152,7 +211,7 @@ export default {
       });
     },
     sortByColumn(index, direction) {
-      const name = this.headings[index].name;
+      const name = this.headings[index].text;
 
       if (direction == "desc") {
         this.itemsCopy.sort((a, b) => (a[name] < b[name] ? 1 : -1));
@@ -161,10 +220,33 @@ export default {
       if (direction == "asc") {
         this.itemsCopy.sort((a, b) => (a[name] > b[name] ? 1 : -1));
       }
+    },
+    incrementPage() {
+      if (
+        this.pageIndex > 0 &&
+        this.pageIndex * this.itemsPerPage < this.itemsCopy.length
+      ) {
+        this.pageIndex++;
+      }
+    },
+    decrementPage() {
+      if (this.pageIndex > 1) {
+        this.pageIndex--;
+      }
     }
   },
   computed: {
-    searchFilter() {
+    indexStart() {
+      return this.pageIndex * this.itemsPerPage - this.itemsPerPage;
+    },
+    indexEnd() {
+      if (this.itemsCopy.length > this.pageIndex * this.itemsPerPage) {
+        return this.pageIndex * this.itemsPerPage;
+      } else {
+        return this.itemsCopy.length;
+      }
+    },
+    filteredItems() {
       const notUndef = element => element != undefined;
 
       return this.itemsCopy
@@ -186,7 +268,8 @@ export default {
             return row;
           }
         })
-        .filter(n => n); //Filter out any null rows left
+        .filter(n => n) //Filter out any null rows left
+        .slice(this.indexStart, this.indexEnd); //Get x number of element from the array
     }
   }
 };

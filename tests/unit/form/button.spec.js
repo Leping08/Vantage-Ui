@@ -67,4 +67,29 @@ describe("Button.vue", () => {
 
     expect(wrapper.html()).toContain("rounded-full");
   });
+
+  it("changes shadow from the shadow prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        shadow: "shadow-lg"
+      }
+    });
+
+    expect(wrapper.html()).toContain("shadow-lg");
+  });
+
+  it("shows the ring from the prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        color: "purple",
+        ring: true
+      }
+    });
+
+    expect(wrapper.html()).toContain("ring-2");
+
+    await wrapper.setProps({ ring: false });
+
+    expect(wrapper.html()).not.toContain("ring-2");
+  });
 });

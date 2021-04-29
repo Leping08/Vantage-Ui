@@ -123,6 +123,7 @@
             <v-check-box
               label="React"
               value="react"
+              :ring="true"
               v-model="checkBoxItems"
             ></v-check-box>
           </v-card>
@@ -135,11 +136,16 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-data-table :items="dataTableItems" title="Data Table">
+          <v-data-table
+            :items="dataTableItems"
+            :header="dataTableHeader"
+            :items-per-page="10"
+            title="Data Table"
+          >
             <template v-slot:price="{ item }">
-              <v-badge :color="item > 700 ? 'red' : 'green'"
-                >$ {{ item }}</v-badge
-              >
+              <v-badge :color="item > 700 ? 'red' : 'green'">
+                $ {{ item }}
+              </v-badge>
             </template>
           </v-data-table>
         </div>
@@ -166,8 +172,8 @@
         </div>
         <div class="m-4">
           <v-card heading="Radio" :padding="true" :headingBorder="true">
-            <v-radio label="Vue" value="vue" v-model="radio"></v-radio>
-            <v-radio label="React" value="react" v-model="radio"></v-radio>
+            <v-radio label="Vue" value="vue" v-model="radio" />
+            <v-radio label="React" value="react" :ring="true" v-model="radio" />
           </v-card>
         </div>
         <div class="m-4">
@@ -371,41 +377,68 @@ export default {
           value: "Because they're so good at it."
         }
       ],
+      dataTableHeader: [
+        {
+          text: "Title",
+          sortable: true,
+          direction: "asc",
+          value: "title"
+        },
+        {
+          text: "Instructor",
+          sortable: false,
+          direction: "asc",
+          value: "name"
+        },
+        {
+          text: "Price",
+          sortable: true,
+          direction: "asc",
+          value: "price"
+        }
+      ],
       dataTableItems: [
         {
           title: "Intro to CSS",
           name: "Derek",
-          price: 858
+          price: 858,
+          edit: ""
         },
         {
           title: "Backend API's",
           name: "Adam",
-          price: 112
+          price: 112,
+          edit: ""
         },
         {
           title: "Intro to JavaScript",
           name: "Chris",
-          price: 1280
+          price: 1280,
+          edit: ""
         },
         {
           title: "Learning SQL",
           name: "John",
-          price: 858
+          price: 858,
+          edit: ""
         },
         {
           title: "ASP",
           name: "Joe",
-          price: 1078
+          price: 1078,
+          edit: ""
         },
         {
           title: "Its GO time",
           name: "Lee",
-          price: 645
+          price: 645,
+          edit: ""
         },
         {
           title: "Rust 101",
           name: "Mac",
-          price: 90
+          price: 95,
+          edit: ""
         }
       ]
     };

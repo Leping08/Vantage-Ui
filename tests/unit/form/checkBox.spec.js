@@ -53,4 +53,22 @@ describe("Input.vue", () => {
 
     expect(wrapper.html()).toContain("red");
   });
+
+  it("shows the ring from the prop", async () => {
+    const wrapper = mount(CheckBox, {
+      props: {
+        label: "test",
+        value: 123,
+        color: "red",
+        ring: true,
+        modelValue: []
+      }
+    });
+
+    expect(wrapper.html()).toContain("ring-2");
+
+    await wrapper.setProps({ ring: false });
+
+    expect(wrapper.html()).not.toContain("ring-2");
+  });
 });

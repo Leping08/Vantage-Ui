@@ -6,9 +6,12 @@
       :id="label"
       :name="label"
       type="radio"
-      :class="
-        `h-4 w-4 text-${radioColor}-600 focus:ring-${radioColor}-600 border-gray-300`
-      "
+      :class="[
+        `h-4 w-4 text-${radioColor}-600 border-gray-300`,
+        ring
+          ? `focus:ring-${radioColor}-600 focus:ring-2`
+          : 'focus:ring-0 focus:outline-none'
+      ]"
     />
     <label for="push_nothing" class="ml-3">
       <span class="block text-sm leading-5 font-medium text-gray-700">{{
@@ -38,6 +41,11 @@ export default {
     color: {
       type: String,
       required: false
+    },
+    ring: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {

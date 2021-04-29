@@ -7,9 +7,12 @@
         :id="label"
         :name="label"
         type="checkbox"
-        :class="
-          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 focus:ring-${checkBoxColor}-600 rounded`
-        "
+        :class="[
+          `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 rounded`,
+          ring
+            ? `focus:ring-${checkBoxColor}-600 focus:ring-2`
+            : 'focus:ring-0 focus:outline-none'
+        ]"
       />
     </div>
     <div class="ml-3 text-sm leading-5">
@@ -45,6 +48,11 @@ export default {
     color: {
       type: String,
       required: false
+    },
+    ring: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {

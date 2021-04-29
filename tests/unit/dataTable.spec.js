@@ -2,6 +2,27 @@ import { mount } from "@vue/test-utils";
 import DataTable from "@/lib-components/dataTable.vue";
 
 describe("DataTable.vue", () => {
+  const header = [
+    {
+      text: "Title",
+      sortable: true,
+      direction: "asc",
+      value: "title"
+    },
+    {
+      text: "Instructor",
+      sortable: false,
+      direction: "asc",
+      value: "name"
+    },
+    {
+      text: "Price",
+      sortable: true,
+      direction: "asc",
+      value: "price"
+    }
+  ];
+
   const items = [
     {
       title: "Intro to CSS",
@@ -13,7 +34,7 @@ describe("DataTable.vue", () => {
       title: "Backend API's",
       name: "Adam",
       price: 112,
-      edit: ""
+      edit: "do not show"
     },
     {
       title: "Intro to JavaScript",
@@ -25,32 +46,33 @@ describe("DataTable.vue", () => {
       title: "Learning SQL",
       name: "John",
       price: 858,
-      edit: ""
+      edit: "do not show"
     },
     {
       title: "ASP",
       name: "Joe",
       price: 1078,
-      edit: ""
+      edit: "do not show"
     },
     {
       title: "Its GO time",
       name: "Lee",
       price: 645,
-      edit: ""
+      edit: "do not show"
     },
     {
       title: "Rust 101",
       name: "Mac",
       price: 95,
-      edit: ""
+      edit: "do not show"
     }
   ];
 
   it("renders with the items passed in through the items prop", async () => {
     const wrapper = mount(DataTable, {
       props: {
-        items: items
+        items: items,
+        header: header
       }
     });
 
@@ -69,6 +91,7 @@ describe("DataTable.vue", () => {
     const wrapper = mount(DataTable, {
       props: {
         items: items,
+        header: header,
         search: true
       }
     });
@@ -80,6 +103,7 @@ describe("DataTable.vue", () => {
     const wrapper = mount(DataTable, {
       props: {
         items: items,
+        header: header,
         search: false
       }
     });
@@ -91,6 +115,7 @@ describe("DataTable.vue", () => {
     const wrapper = mount(DataTable, {
       props: {
         items: items,
+        header: header,
         title: "Test Title"
       }
     });
@@ -102,6 +127,7 @@ describe("DataTable.vue", () => {
     const wrapper = mount(DataTable, {
       props: {
         items: items,
+        header: header,
         title: "Test Title"
       }
     });
@@ -130,6 +156,7 @@ describe("DataTable.vue", () => {
     const wrapper = mount(DataTable, {
       props: {
         items: items,
+        header: header,
         title: "Test Title"
       }
     });
@@ -138,24 +165,68 @@ describe("DataTable.vue", () => {
     //Set the search input to the exact 'In' string
     await input.setValue("In");
 
-    // Rust 101
-    expect(wrapper.html()).not.toContain(items[0].title);
-    expect(wrapper.html()).not.toContain(items[0].name);
-    expect(wrapper.html()).not.toContain(items[0].price);
+    // Intro to CSS
+    expect(wrapper.html()).toContain(items[0].title);
+    expect(wrapper.html()).toContain(items[0].name);
+    expect(wrapper.html()).toContain(items[0].price);
 
-    //Its GO time
-    expect(wrapper.html()).toContain(items[1].title);
-    expect(wrapper.html()).toContain(items[1].name);
-    expect(wrapper.html()).toContain(items[1].price);
+    //Backend API's
+    expect(wrapper.html()).not.toContain(items[1].title);
+    expect(wrapper.html()).not.toContain(items[1].name);
+    expect(wrapper.html()).not.toContain(items[1].price);
 
-    //ASP
-    expect(wrapper.html()).not.toContain(items[2].title);
-    expect(wrapper.html()).not.toContain(items[2].name);
-    expect(wrapper.html()).not.toContain(items[2].price);
+    //Intro to JavaScript
+    expect(wrapper.html()).toContain(items[2].title);
+    expect(wrapper.html()).toContain(items[2].name);
+    expect(wrapper.html()).toContain(items[2].price);
 
     //Learning SQL
     expect(wrapper.html()).toContain(items[3].title);
     expect(wrapper.html()).toContain(items[3].name);
     expect(wrapper.html()).toContain(items[3].price);
   });
+
+  it("uses the text key in the header", async () => {
+    const wrapper = mount(DataTable, {
+      props: {
+        items: items,
+        header: header,
+        title: "Test Title"
+      }
+    });
+
+    expect(wrapper.html()).toContain(header[0].text);
+  });
+
+  it("uses the value header key to show the value from the items in the table", async () => {
+    const wrapper = mount(DataTable, {
+      props: {
+        items: items,
+        header: header,
+        title: "Test Title"
+      }
+    });
+
+    expect(wrapper.html()).not.toContain("do not show");
+    expect(wrapper.html()).toContain(858);
+  });
+
+  it("only shows the number of times in the itemsPerPage prop", async () => {
+    const wrapper = mount(DataTable, {
+      props: {
+        items: items,
+        itemsPerPage: 2,
+        header: header,
+        searchable: false,
+        title: "Test Title"
+      }
+    });
+
+    //Make sure the table is showing 1 header tr tag and 2 row tr tags
+    expect(wrapper.findAll("tr")).toHaveLength(3);
+  });
+
+  //TODO add pagination tests
+  //TODO add test for next button
+  //TODO add test for previous button
 });
