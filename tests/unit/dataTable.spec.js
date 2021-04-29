@@ -227,6 +227,7 @@ describe("DataTable.vue", () => {
   });
 
   //TODO add pagination tests
+  //TODO add boolean to disable pagination
   //TODO add test for next button
   //TODO add test for previous button
 });
