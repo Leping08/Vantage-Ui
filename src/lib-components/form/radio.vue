@@ -7,10 +7,8 @@
       :name="label"
       type="radio"
       :class="[
-        `h-4 w-4 text-${radioColor}-600 border-gray-300`,
-        ring
-          ? `focus:ring-${radioColor}-600 focus:ring-2`
-          : 'focus:ring-0 focus:outline-none'
+        `h-4 w-4 text-${radioColor}-600 border-gray-300 focus:outline-none`,
+        ring ? `focus:ring-${radioColor}-600 focus:ring-2` : 'focus:ring-0'
       ]"
     />
     <label for="push_nothing" class="ml-3">

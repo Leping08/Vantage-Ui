@@ -2,14 +2,14 @@
   <button
     type="button"
     :class="[
-      `inline-flex items-center ${buttonSize} ${buttonRounded} ${buttonShadow}`,
+      `inline-flex items-center focus:outline-none ${buttonSize} ${buttonRounded} ${buttonShadow}`,
       fullWidth ? 'flex justify-center w-full' : '',
       outline
         ? `border border-${buttonColor}-500 text-${buttonColor}-500 bg-white hover:bg-${buttonColor}-50 active:bg-${buttonColor}-100`
         : `text-white bg-${buttonColor}-600 active:bg-${buttonColor}-800 hover:bg-${buttonColor}-700`,
       ring
         ? `focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-600`
-        : `focus:outline-none focus:ring-0`
+        : `focus:ring-0`
     ]"
   >
     <slot>Button</slot>
