@@ -34,7 +34,7 @@
                 :class="[heading.sortable ? 'cursor-pointer' : '']"
                 class="flex items-center"
               >
-                {{ heading?.text }}
+                {{ heading.text }}
                 <div v-if="heading.sortable">
                   <template v-if="heading.direction === 'asc'">
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -174,11 +174,11 @@ export default {
 
     this.headings = this.header.map(item => {
       return {
-        text: item?.text ?? "",
-        value: item?.value ?? "",
-        align: item?.align ?? "left",
-        sortable: item?.sortable ?? false,
-        direction: item?.direction ?? "asc"
+        text: item.text ?? "",
+        value: item.value ?? "",
+        align: item.align ?? "left",
+        sortable: item.sortable ?? false,
+        direction: item.direction ?? "asc"
       };
     });
 
