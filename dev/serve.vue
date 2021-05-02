@@ -385,10 +385,16 @@ export default {
           value: "races"
         },
         {
-          text: "Name",
+          text: "Race Name",
           sortable: false,
           direction: "asc",
           value: "races.0.name"
+        },
+        {
+          text: "Points",
+          sortable: true,
+          direction: "asc",
+          value: "points"
         }
         // {
         //   text: "Title",
@@ -409,44 +415,38 @@ export default {
         //   value: "price"
         // }
       ],
-      users:  [
+      users: [
         {
-          "id": 1,
-          "name": "Derek Schmitt",
-          "email": "derek@deltavcreative.com",
-          "email_verified_at": "2021-04-06T17:02:43.000000Z",
-          "two_factor_secret": null,
-          "two_factor_recovery_codes": null,
-          "created_at": "2021-04-06T17:02:43.000000Z",
-          "updated_at": "2021-04-06T17:02:43.000000Z",
-          "races": [
+          id: 1,
+          name: "Joe Bob",
+          email: "test@testing.com",
+          created_at: "2021-04-06T17:02:43.000000Z",
+          updated_at: "2021-04-06T17:02:43.000000Z",
+          races: [
             {
-              'name': 'first'
+              name: "first"
             },
             {
-              'name': 'second'
+              name: "second"
             }
           ],
-          "points": 14
+          points: 14
         },
         {
-          "id": 2,
-          "name": "Mike Rowell",
-          "email": "bergnaum.nola@example.com",
-          "email_verified_at": "2021-04-06T17:02:43.000000Z",
-          "two_factor_secret": null,
-          "two_factor_recovery_codes": null,
-          "created_at": "2021-04-06T17:02:43.000000Z",
-          "updated_at": "2021-04-06T17:02:43.000000Z",
-          "races": [
+          id: 2,
+          name: "John Doe",
+          email: "test@testing.com",
+          created_at: "2021-04-06T17:02:43.000000Z",
+          updated_at: "2021-04-06T17:02:43.000000Z",
+          races: [
             {
-              'name': 'first'
+              name: "first"
             },
             {
-              'name': 'second'
+              name: "second"
             }
           ],
-          "points": 13
+          points: 13
         }
       ],
       dataTableItems: [

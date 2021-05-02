@@ -234,9 +234,9 @@ export default {
         this.pageIndex--;
       }
     },
-    resolve(path, obj=self, separator='.') {
-      var properties = Array.isArray(path) ? path : path.split(separator)
-      return properties.reduce((prev, curr) => prev && prev[curr], obj)
+    resolve(path, obj = self, separator = ".") {
+      var properties = Array.isArray(path) ? path : path.split(separator);
+      return properties.reduce((prev, curr) => prev && prev[curr], obj);
     }
   },
   computed: {
@@ -251,14 +251,21 @@ export default {
       }
     },
     filteredItems() {
-      return this.itemsCopy
-        //filter over all the rows
-        .filter(row => {
-          //return if the string of the row contains the search text
-          return (JSON.stringify(row).toString().toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
-        })
-        .filter(row => row) //Filter out any null rows left
-        .slice(this.indexStart, this.indexEnd); //Get x number of element from the array
+      return (
+        this.itemsCopy
+          //filter over all the rows
+          .filter(row => {
+            //return if the string of the row contains the search text
+            return (
+              JSON.stringify(row)
+                .toString()
+                .toLowerCase()
+                .indexOf(this.searchText.toLowerCase()) > -1
+            );
+          })
+          .filter(row => row) //Filter out any null rows left
+          .slice(this.indexStart, this.indexEnd)
+      ); //Get x number of element from the array
     }
   }
 };
