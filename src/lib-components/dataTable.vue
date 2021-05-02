@@ -73,8 +73,8 @@
               v-for="header in headings"
               :key="header"
             >
-              <slot :name="header.value" :item="item[header.value]">
-                {{ item[header.value] }}
+              <slot :name="header.value" :item="resolve(header.value, item)">
+                {{ resolve(header.value, item) }}
               </slot>
             </td>
           </tr>
@@ -233,6 +233,10 @@ export default {
       if (this.pageIndex > 1) {
         this.pageIndex--;
       }
+    },
+    resolve(path, obj=self, separator='.') {
+      var properties = Array.isArray(path) ? path : path.split(separator)
+      return properties.reduce((prev, curr) => prev && prev[curr], obj)
     }
   },
   computed: {
@@ -247,28 +251,13 @@ export default {
       }
     },
     filteredItems() {
-      const notUndef = element => element != undefined;
-
       return this.itemsCopy
-        .map(row => {
-          const array = Object.entries(row).map(([key, value]) => {
-            //Search the value string
-            if (
-              value
-                .toString()
-                .toLowerCase()
-                .indexOf(this.searchText.toLowerCase()) > -1
-            ) {
-              return [key, value];
-            }
-          });
-
-          //Remove any objects that returned null from the Object.entries(row).map
-          if (array.some(notUndef)) {
-            return row;
-          }
+        //filter over all the rows
+        .filter(row => {
+          //return if the string of the row contains the search text
+          return (JSON.stringify(row).toString().toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
         })
-        .filter(n => n) //Filter out any null rows left
+        .filter(row => row) //Filter out any null rows left
         .slice(this.indexStart, this.indexEnd); //Get x number of element from the array
     }
   }

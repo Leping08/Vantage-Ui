@@ -137,7 +137,7 @@
         </div>
         <div class="m-4">
           <v-data-table
-            :items="dataTableItems"
+            :items="users"
             :header="dataTableHeader"
             :items-per-page="10"
             title="Data Table"
@@ -379,22 +379,74 @@ export default {
       ],
       dataTableHeader: [
         {
-          text: "Title",
+          text: "Points",
           sortable: true,
           direction: "asc",
-          value: "title"
+          value: "races"
         },
         {
-          text: "Instructor",
+          text: "Name",
           sortable: false,
           direction: "asc",
-          value: "name"
+          value: "races.0.name"
+        }
+        // {
+        //   text: "Title",
+        //   sortable: true,
+        //   direction: "asc",
+        //   value: "title"
+        // },
+        // {
+        //   text: "Instructor",
+        //   sortable: false,
+        //   direction: "asc",
+        //   value: "name"
+        // },
+        // {
+        //   text: "Price",
+        //   sortable: true,
+        //   direction: "asc",
+        //   value: "price"
+        // }
+      ],
+      users:  [
+        {
+          "id": 1,
+          "name": "Derek Schmitt",
+          "email": "derek@deltavcreative.com",
+          "email_verified_at": "2021-04-06T17:02:43.000000Z",
+          "two_factor_secret": null,
+          "two_factor_recovery_codes": null,
+          "created_at": "2021-04-06T17:02:43.000000Z",
+          "updated_at": "2021-04-06T17:02:43.000000Z",
+          "races": [
+            {
+              'name': 'first'
+            },
+            {
+              'name': 'second'
+            }
+          ],
+          "points": 14
         },
         {
-          text: "Price",
-          sortable: true,
-          direction: "asc",
-          value: "price"
+          "id": 2,
+          "name": "Mike Rowell",
+          "email": "bergnaum.nola@example.com",
+          "email_verified_at": "2021-04-06T17:02:43.000000Z",
+          "two_factor_secret": null,
+          "two_factor_recovery_codes": null,
+          "created_at": "2021-04-06T17:02:43.000000Z",
+          "updated_at": "2021-04-06T17:02:43.000000Z",
+          "races": [
+            {
+              'name': 'first'
+            },
+            {
+              'name': 'second'
+            }
+          ],
+          "points": 13
         }
       ],
       dataTableItems: [
