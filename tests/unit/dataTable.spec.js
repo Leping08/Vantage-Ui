@@ -277,10 +277,10 @@ describe("DataTable.vue", () => {
       }
     });
 
-    wrapper.findAll("tr")[2].trigger('click')
+    wrapper.findAll("tr")[2].trigger("click");
 
     // assert event has been emitted
-    expect(wrapper.emitted()['click-row']).toBeTruthy();
+    expect(wrapper.emitted()["click-row"]).toBeTruthy();
   });
 
   it("keeps the header in sync when the header prop changes", async () => {

@@ -67,7 +67,7 @@
             v-for="(item, itemIndex) in filteredItems"
             :key="item"
             :class="itemIndex % 2 ? 'bg-gray-50' : 'bg-white'"
-            @click="emitClickEvent(item)"            
+            @click="emitClickEvent(item)"
           >
             <td
               class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-gray-500"
@@ -160,7 +160,7 @@ export default {
       type: Number,
       required: false,
       default: 5
-    },
+    }
   },
   data() {
     return {
@@ -170,9 +170,7 @@ export default {
       pageIndex: 1
     };
   },
-  emits: [
-    'click-row',
-  ],
+  emits: ["click-row"],
   created() {
     this.itemsCopy = this.items;
     this.setHeader();
@@ -248,7 +246,7 @@ export default {
       return properties.reduce((prev, curr) => prev && prev[curr], obj);
     },
     emitClickEvent(item) {
-      this.$emit('click-row', item);
+      this.$emit("click-row", item);
     },
     setHeader() {
       this.headings = this.header.map(item => {

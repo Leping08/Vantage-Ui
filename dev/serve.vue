@@ -503,7 +503,7 @@ export default {
   },
   methods: {
     testClick(value) {
-      console.log(value)
+      console.log(value);
     }
   }
 };
