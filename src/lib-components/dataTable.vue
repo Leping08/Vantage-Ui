@@ -67,6 +67,7 @@
             v-for="(item, itemIndex) in filteredItems"
             :key="item"
             :class="itemIndex % 2 ? 'bg-gray-50' : 'bg-white'"
+            @click="emitClickEvent(item)"            
           >
             <td
               class="px-6 py-4 whitespace-nowrap text-sm leading-5 text-gray-500"
@@ -159,7 +160,7 @@ export default {
       type: Number,
       required: false,
       default: 5
-    }
+    },
   },
   data() {
     return {
@@ -169,21 +170,29 @@ export default {
       pageIndex: 1
     };
   },
+  emits: [
+    'click-row',
+  ],
   created() {
     this.itemsCopy = this.items;
-
-    this.headings = this.header.map(item => {
-      return {
-        text: item.text ?? "",
-        value: item.value ?? "",
-        align: item.align ?? "left",
-        sortable: item.sortable ?? false,
-        direction: item.direction ?? "asc"
-      };
-    });
+    this.setHeader();
 
     //TODO set the sorting to the first column that has a sort
     this.changeSort(0); //Set the default sorting to the first column
+  },
+  watch: {
+    items: {
+      handler(newItems) {
+        this.itemsCopy = newItems;
+      },
+      deep: true
+    },
+    header: {
+      handler() {
+        this.setHeader();
+      },
+      deep: true
+    }
   },
   methods: {
     changeSort(index) {
@@ -237,6 +246,20 @@ export default {
     resolve(path, obj = self, separator = ".") {
       var properties = Array.isArray(path) ? path : path.split(separator);
       return properties.reduce((prev, curr) => prev && prev[curr], obj);
+    },
+    emitClickEvent(item) {
+      this.$emit('click-row', item);
+    },
+    setHeader() {
+      this.headings = this.header.map(item => {
+        return {
+          text: item.text ?? "",
+          value: item.value ?? "",
+          align: item.align ?? "left",
+          sortable: item.sortable ?? false,
+          direction: item.direction ?? "asc"
+        };
+      });
     }
   },
   computed: {

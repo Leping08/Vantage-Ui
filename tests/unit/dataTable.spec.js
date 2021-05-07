@@ -28,42 +28,49 @@ describe("DataTable.vue", () => {
       title: "Intro to CSS",
       name: "Derek",
       price: 858,
+      test: "Testing data",
       edit: ""
     },
     {
       title: "Backend API's",
       name: "Adam",
       price: 112,
+      test: "Wow",
       edit: "do not show"
     },
     {
       title: "Intro to JavaScript",
       name: "Chris",
       price: 1280,
+      test: "Wow",
       edit: ""
     },
     {
       title: "Learning SQL",
       name: "John",
       price: 858,
+      test: "Wow",
       edit: "do not show"
     },
     {
       title: "ASP",
       name: "Joe",
       price: 1078,
+      test: "Wow",
       edit: "do not show"
     },
     {
       title: "Its GO time",
       name: "Lee",
       price: 645,
+      test: "Wow",
       edit: "do not show"
     },
     {
       title: "Rust 101",
       name: "Mac",
       price: 95,
+      test: "Wow",
       edit: "do not show"
     }
   ];
@@ -224,6 +231,101 @@ describe("DataTable.vue", () => {
 
     //Make sure the table is showing 1 header tr tag and 2 row tr tags
     expect(wrapper.findAll("tr")).toHaveLength(3);
+  });
+
+  it("keeps the items in sync when the items prop changes", async () => {
+    const wrapper = mount(DataTable, {
+      props: {
+        items: items,
+        itemsPerPage: 20,
+        header: header,
+        searchable: false,
+        title: "Test Title"
+      }
+    });
+
+    expect(wrapper.html()).not.toContain("Testing 123");
+
+    const testItems = [
+      {
+        title: "Testing 123",
+        name: "test",
+        price: 95,
+        edit: "nothing"
+      }
+    ];
+
+    await wrapper.setProps({
+      items: testItems,
+      itemsPerPage: 20,
+      header: header,
+      searchable: false,
+      title: "Test Title"
+    });
+
+    expect(wrapper.html()).toContain("Testing 123");
+  });
+
+  it("emits a click-row event on the row being clicked", async () => {
+    const wrapper = mount(DataTable, {
+      props: {
+        items: items,
+        itemsPerPage: 20,
+        header: header,
+        searchable: false,
+        title: "Test Title"
+      }
+    });
+
+    wrapper.findAll("tr")[2].trigger('click')
+
+    // assert event has been emitted
+    expect(wrapper.emitted()['click-row']).toBeTruthy();
+  });
+
+  it("keeps the header in sync when the header prop changes", async () => {
+    const wrapper = mount(DataTable, {
+      props: {
+        items: items,
+        itemsPerPage: 20,
+        header: header,
+        searchable: false,
+        title: "Test Title"
+      }
+    });
+
+    expect(wrapper.html()).not.toContain("Testing data");
+
+    const newHeader = [
+      {
+        text: "Title",
+        sortable: true,
+        direction: "asc",
+        value: "title"
+      },
+      {
+        text: "Instructor",
+        sortable: false,
+        direction: "asc",
+        value: "name"
+      },
+      {
+        text: "Test",
+        sortable: true,
+        direction: "asc",
+        value: "test"
+      }
+    ];
+
+    await wrapper.setProps({
+      items: items,
+      itemsPerPage: 20,
+      header: newHeader,
+      searchable: false,
+      title: "Test Title"
+    });
+
+    expect(wrapper.html()).toContain("Testing data");
   });
 
   //TODO add pagination tests

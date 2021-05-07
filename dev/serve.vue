@@ -141,6 +141,7 @@
             :header="dataTableHeader"
             :items-per-page="10"
             title="Data Table"
+            @click-row="testClick"
           >
             <template v-slot:price="{ item }">
               <v-badge :color="item > 700 ? 'red' : 'green'">
@@ -499,6 +500,11 @@ export default {
     setInterval(() => {
       this.progressBarValue = Math.floor(Math.random() * 99) + 1;
     }, 3000);
+  },
+  methods: {
+    testClick(value) {
+      console.log(value)
+    }
   }
 };
 </script>
