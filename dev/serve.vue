@@ -161,10 +161,12 @@
         <div class="m-4">
           <v-card heading="Input" padding border>
             <v-input
-              placeholder="Full Name"
-              label="Name"
-              v-model="input"
-              :rules="['max:255', 'required', 'min:2']"
+              v-model="email"
+              color="blue"
+              label="Email"
+              placeholder="email@gmail.com"
+              :rules="['min:4', 'max:255', 'required', 'email']"
+              type="text"
             ></v-input>
           </v-card>
         </div>
@@ -284,7 +286,8 @@ export default {
       tabid: 1,
       startDate: null,
       endDate: null,
-      input: "",
+      email: "",
+      inputValidated: false,
       radio: "Vue",
       checkBoxItems: [],
       searchSelected: "red",

@@ -49,8 +49,12 @@ export default {
     return {
       validationObjects: [],
       requiredCheck: false
-    };
+    }
   },
+  emits: [
+    'update:modelValue',
+    'update:validated'
+  ],
   props: {
     modelValue: {
       type: [String, Number, Date],
@@ -140,6 +144,14 @@ export default {
       },
       set(value) {
         this.$emit("update:modelValue", value);
+      }
+    },
+    validated: {
+      get() {
+        return this.validationObjects.every(object => object.valid);
+      },
+      set(value) {
+        this.$emit('update:validated', value)
       }
     },
     rounded() {
