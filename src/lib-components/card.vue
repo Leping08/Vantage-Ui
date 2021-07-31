@@ -44,12 +44,12 @@ export default {
     padding: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
     },
     border: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
     }
   },
   computed: {

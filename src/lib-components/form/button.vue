@@ -9,7 +9,8 @@
         : `text-white bg-${buttonColor}-600 active:bg-${buttonColor}-800 hover:bg-${buttonColor}-700`,
       ring
         ? `focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-600`
-        : `focus:ring-0`
+        : `focus:ring-0`,
+      disabled ? 'cursor-not-allowed' : ''
     ]"
   >
     <slot>Button</slot>
@@ -53,11 +54,16 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
     buttonColor() {
-      return this.color || theme.color;
+      return this.disabled ? "gray" : this.color || theme.color;
     },
     buttonRounded() {
       return this.rounded || theme.rounded;

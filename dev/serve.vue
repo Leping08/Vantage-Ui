@@ -70,26 +70,22 @@
       </div>
       <div class="container mx-auto">
         <div class="m-4">
-          <v-card heading="Accordion" :padding="false" :headingBorder="false">
+          <v-card heading="Accordion">
             <v-accordion :items="questionsAndAnswers"></v-accordion>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Avatar" :headingBorder="true" :padding="true">
+          <v-card heading="Avatar" border padding>
             <v-avatar name="John Doe"></v-avatar>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Badge" :headingBorder="true" :padding="true">
+          <v-card heading="Badge" border padding>
             <v-badge>This is the badge</v-badge>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card
-            heading="Date Range Picker"
-            :headingBorder="true"
-            :padding="true"
-          >
+          <v-card heading="Date Range Picker" border padding>
             <v-date-range-picker
               v-model:start="startDate"
               v-model:end="endDate"
@@ -98,9 +94,14 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Button" :headingBorder="true" :padding="true">
+          <v-card heading="Button" border padding>
             <div class="p-2">
+              <v-button size="xs" disabled class="m-2">disabled</v-button>
               <v-button size="xs" class="m-2">Submit Me</v-button>
+              <v-button size="xs" disabled outline class="m-2"
+                >disabled outline</v-button
+              >
+              <v-button size="xs" outline class="m-2">Submit Me</v-button>
               <v-button size="sm" class="m-2">Submit Me</v-button>
               <v-button size="md" class="m-2">Submit Me</v-button>
               <v-button size="lg" class="m-2">Submit Me</v-button>
@@ -109,12 +110,12 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Card" :headingBorder="true" :padding="true">
+          <v-card heading="Card" border padding>
             This is a card content.
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Checkbox" :padding="true" :headingBorder="true">
+          <v-card heading="Checkbox" border padding>
             <v-check-box
               label="Vue"
               value="vue"
@@ -129,7 +130,7 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Countdown" :headingBorder="true">
+          <v-card heading="Countdown" border>
             <v-countdown
               :time="new Date(new Date().getUTCFullYear() + 1, 1, 1)"
             ></v-countdown>
@@ -151,18 +152,14 @@
           </v-data-table>
         </div>
         <div class="m-4">
-          <v-card
-            heading="Description List"
-            :padding="false"
-            :headingBorder="true"
-          >
+          <v-card heading="Description List" border>
             <v-description-list
               :items="descriptionListItems"
             ></v-description-list>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Input" :padding="true" :headingBorder="true">
+          <v-card heading="Input" padding border>
             <v-input
               placeholder="Full Name"
               label="Name"
@@ -172,36 +169,28 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Radio" :padding="true" :headingBorder="true">
+          <v-card heading="Radio" padding border>
             <v-radio label="Vue" value="vue" v-model="radio" />
             <v-radio label="React" value="react" :ring="true" v-model="radio" />
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Ping" :padding="true" :headingBorder="true">
+          <v-card heading="Ping" padding border>
             <v-ping color="pink"></v-ping>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Progress Bar" :padding="true" :headingBorder="true">
+          <v-card heading="Progress Bar" padding border>
             <v-progress-bar :percent="progressBarValue"></v-progress-bar>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card
-            heading="Progress Spinner"
-            :padding="true"
-            :headingBorder="true"
-          >
+          <v-card heading="Progress Spinner" padding border>
             <v-progress-spinner :size="8" />
           </v-card>
         </div>
         <div class="m-4">
-          <v-card
-            heading="Array Search Select"
-            :padding="true"
-            :headingBorder="true"
-          >
+          <v-card heading="Array Search Select" padding border>
             <v-search-select
               v-model="searchSelected"
               :items="searchItems"
@@ -221,11 +210,7 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card
-            heading="Object Search Select"
-            :padding="true"
-            :headingBorder="true"
-          >
+          <v-card heading="Object Search Select" padding border>
             <v-search-select
               v-model="testSearchSelected"
               :items="testObject"
@@ -235,7 +220,7 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Accordion" :padding="true" :headingBorder="false">
+          <v-card heading="Accordion" padding border>
             <v-search-select
               v-model="testSearchSelected"
               :items="testObject"
@@ -245,12 +230,12 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Toggle" :padding="true" :headingBorder="true">
+          <v-card heading="Toggle" padding border>
             <v-toggle v-model="toggle"></v-toggle>
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Tabs">
+          <v-card heading="Tabs" padding border>
             <v-tabs v-model="tabid">
               <v-tab :tabId="1">First tab</v-tab>
               <v-tab :tabId="2">Second tab</v-tab>
@@ -263,7 +248,7 @@
           </v-card>
         </div>
         <div class="m-4">
-          <v-card heading="Stats" :padding="true" :headingBorder="true">
+          <v-card heading="Stats" padding border>
             <div class="flex w-full my-4">
               <v-stats
                 class="m-2 flex-1"

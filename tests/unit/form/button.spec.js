@@ -92,4 +92,14 @@ describe("Button.vue", () => {
 
     expect(wrapper.html()).not.toContain("ring-2");
   });
+
+  it("can be disabled through the disabled prop", async () => {
+    const wrapper = mount(Button, {
+      props: {
+        disabled: true
+      }
+    });
+
+    expect(wrapper.html()).toContain("cursor-not-allowed");
+  });
 });
