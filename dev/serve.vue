@@ -162,6 +162,7 @@
           <v-card heading="Input" padding border>
             <v-input
               v-model="email"
+              v-model:validated="inputValidated"
               color="blue"
               label="Email"
               placeholder="email@gmail.com"

@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       validationObjects: [],
-      requiredCheck: false
+      requiredCheck: false,
+      validated: false
     };
   },
   emits: ["update:modelValue", "update:validated"],
@@ -97,6 +98,7 @@ export default {
         //Call the function of the name of the validation object and input any args
         return this[element.name](element);
       });
+      this.updateValidated();
     }
   },
   methods: {
@@ -132,6 +134,10 @@ export default {
           message: ""
         };
       });
+    },
+    updateValidated() {
+      this.validated = this.validationObjects.every(object => object.valid);
+      this.$emit("update:validated", this.validated);
     }
   },
   computed: {
@@ -141,14 +147,6 @@ export default {
       },
       set(value) {
         this.$emit("update:modelValue", value);
-      }
-    },
-    validated: {
-      get() {
-        return this.validationObjects.every(object => object.valid);
-      },
-      set(value) {
-        this.$emit("update:validated", value);
       }
     },
     rounded() {
