@@ -167,23 +167,23 @@ describe("Input.vue", () => {
       props: {
         rules: ["email"],
         label: "test",
-        modelValue: "",
+        modelValue: ""
       }
     });
 
     //Set the model value to a so validation will run on the input
     await wrapper.setProps({ modelValue: "a" });
 
-    expect(wrapper.emitted()).toHaveProperty('update:validated')
+    expect(wrapper.emitted()).toHaveProperty("update:validated");
 
-    expect(wrapper.emitted()['update:validated']).toBeTruthy()
+    expect(wrapper.emitted()["update:validated"]).toBeTruthy();
 
     await wrapper.setProps({ modelValue: "notanemail" });
-    
-    expect(wrapper.emitted()['update:validated'][1][0]).toBeFalsy()
-    
+
+    expect(wrapper.emitted()["update:validated"][1][0]).toBeFalsy();
+
     await wrapper.setProps({ modelValue: "testing@gmail.com" });
 
-    expect(wrapper.emitted()['update:validated']).toBeTruthy()
+    expect(wrapper.emitted()["update:validated"]).toBeTruthy();
   });
 });
