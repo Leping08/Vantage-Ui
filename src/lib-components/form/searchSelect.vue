@@ -24,6 +24,7 @@
           v-model="input"
           :id="label"
           type="text"
+          autocomplete="off"
           @focus="focusFunc()"
           @click="focusFunc()"
           @blur="blurFunc()"
