@@ -11,8 +11,8 @@ describe("ProgressBar.vue", () => {
   it("changes color via a prop", async () => {
     const wrapper = mount(ProgressSpinner, {
       props: {
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     expect(wrapper.html()).toContain("teal");
@@ -21,8 +21,8 @@ describe("ProgressBar.vue", () => {
   it("changes size via a prop", async () => {
     const wrapper = mount(ProgressSpinner, {
       props: {
-        size: 4
-      }
+        size: 4,
+      },
     });
 
     expect(wrapper.html()).toContain("h-4 w-4");

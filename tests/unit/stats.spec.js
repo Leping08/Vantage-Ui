@@ -6,8 +6,8 @@ describe("Stats.vue", () => {
     const wrapper = mount(Stats, {
       props: {
         heading: "Users",
-        firstMetric: 50
-      }
+        firstMetric: 50,
+      },
     });
 
     expect(wrapper.html()).toContain("Users");
@@ -17,8 +17,8 @@ describe("Stats.vue", () => {
     const wrapper = mount(Stats, {
       props: {
         heading: "Users",
-        firstMetric: 50
-      }
+        firstMetric: 50,
+      },
     });
 
     expect(wrapper.html()).toContain(50);
@@ -29,8 +29,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 1,
-        secondMetric: 4
-      }
+        secondMetric: 4,
+      },
     });
 
     expect(wrapper.html()).toContain(1);
@@ -43,8 +43,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 1,
-        secondMetric: 4
-      }
+        secondMetric: 4,
+      },
     });
 
     expect(wrapper.html()).toContain("75 %");
@@ -55,8 +55,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 4,
-        secondMetric: 1
-      }
+        secondMetric: 1,
+      },
     });
 
     expect(wrapper.html()).toContain("300 %");
@@ -67,8 +67,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 50,
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("red");
@@ -79,8 +79,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 50,
-        shadow: "shadow"
-      }
+        shadow: "shadow",
+      },
     });
 
     expect(wrapper.html()).toContain("shadow");
@@ -91,8 +91,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 50,
-        rounded: "rounded"
-      }
+        rounded: "rounded",
+      },
     });
 
     expect(wrapper.html()).toContain("rounded");
@@ -103,15 +103,15 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 9,
-        secondMetric: 34
-      }
+        secondMetric: 34,
+      },
     });
 
     expect(wrapper.html()).toContain("Decreased by");
 
     await wrapper.setProps({
       firstMetric: 10,
-      secondMetric: 34
+      secondMetric: 34,
     });
 
     expect(wrapper.html()).toContain("Decreased by");
@@ -122,8 +122,8 @@ describe("Stats.vue", () => {
       props: {
         heading: "Users",
         firstMetric: 9,
-        secondMetric: 9
-      }
+        secondMetric: 9,
+      },
     });
 
     expect(wrapper.html()).toContain("No change");

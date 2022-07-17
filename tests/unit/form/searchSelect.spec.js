@@ -8,8 +8,8 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     await wrapper.find("input").trigger("focus");
@@ -23,8 +23,8 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     await wrapper.find("input").trigger("click");
@@ -38,8 +38,8 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     await wrapper.find("input").trigger("click");
@@ -60,8 +60,8 @@ describe("searchSelect.vue", () => {
       props: {
         items: itemsArray,
         placeholder: "testing placeholder",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("testing placeholder");
@@ -76,8 +76,8 @@ describe("searchSelect.vue", () => {
       props: {
         items: itemsArray,
         label: "testing label",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("testing label");
@@ -88,8 +88,8 @@ describe("searchSelect.vue", () => {
       props: {
         items: itemsArray,
         color: "teal",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     await wrapper.find("input").trigger("click");
@@ -106,12 +106,12 @@ describe("searchSelect.vue", () => {
             {{ item.item }}
           </div>
         </template>
-        `
+        `,
       },
       props: {
         items: itemsArray,
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     await wrapper.find("input").trigger("click");
@@ -143,20 +143,20 @@ describe("searchSelect.vue", () => {
     const object = [
       {
         name: "John",
-        age: 25
+        age: 25,
       },
       {
         name: "Doe",
-        age: 25
-      }
+        age: 25,
+      },
     ];
 
     const wrapper = mount(SearchSelect, {
       props: {
         items: object,
         itemKey: "name",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.emitted("update:modelValue")).toEqual(undefined);
@@ -177,14 +177,14 @@ describe("searchSelect.vue", () => {
     const wrapper = mount(SearchSelect, {
       props: {
         items: itemsArray,
-        modelValue: "red"
-      }
+        modelValue: "red",
+      },
     });
 
     expect(wrapper.emitted("update:modelValue")).toEqual([["red"]]);
 
     await wrapper.setProps({
-      modelValue: "blue"
+      modelValue: "blue",
     });
 
     expect(wrapper.html()).toContain("blue");

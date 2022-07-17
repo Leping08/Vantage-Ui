@@ -35,22 +35,22 @@ export default {
   props: {
     heading: {
       type: String,
-      required: false
+      required: false,
     },
     subheading: {
       type: String,
-      required: false
+      required: false,
     },
     padding: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     border: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     shadow() {
@@ -58,7 +58,7 @@ export default {
     },
     rounded() {
       return theme.rounded || "";
-    }
-  }
+    },
+  },
 };
 </script>

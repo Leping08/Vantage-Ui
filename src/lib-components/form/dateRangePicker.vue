@@ -7,13 +7,11 @@
         ` bg-white h-10 appearance-none block px-3 py-2 shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full ${themeRounded} text-gray-600 text-${position}`,
         showPicker
           ? `border-2 border-${themeColor}-500 ring-${themeColor}-500`
-          : 'border'
+          : 'border',
       ]"
     >
       <template v-if="!(startDate || endDate)">
-        <span class="text-gray-400">
-          Select Dates
-        </span>
+        <span class="text-gray-400"> Select Dates </span>
       </template>
       {{
         startDate
@@ -53,9 +51,7 @@
   >
     <div class="relative w-full">
       <div
-        :class="
-          `sm:w-9/12 md:w-7/12 lg:5/12 xl:w-4/12 border absolute top-0 ${position}-0 bg-white z-20 ${themeShadow} ${themeRounded}`
-        "
+        :class="`sm:w-9/12 md:w-7/12 lg:5/12 xl:w-4/12 border absolute top-0 ${position}-0 bg-white z-20 ${themeShadow} ${themeRounded}`"
         v-if="showPicker"
       >
         <div class="flex">
@@ -64,11 +60,9 @@
               <div class="flex items-center justify-between w-full">
                 <div
                   @click="previousMonth()"
-                  :class="
-                    `mx-6 my-2 p-2 border border-gray-300 ${themeRounded} cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
-                  "
+                  :class="`mx-6 my-2 p-2 border border-gray-300 ${themeRounded} cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`"
                 >
-                  <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                  <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
                       d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
@@ -82,11 +76,9 @@
                 </div>
                 <div
                   @click="nextMonth()"
-                  :class="
-                    `mx-6 my-2 p-2 border border-gray-300 ${themeRounded} cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`
-                  "
+                  :class="`mx-6 my-2 p-2 border border-gray-300 ${themeRounded} cursor-pointer hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white`"
                 >
-                  <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                  <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
                       d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
@@ -134,21 +126,25 @@
                   day.getTime() <= endDate.getTime()
                     ? `bg-${themeColor}-500 text-white`
                     : '',
-                  (startDate
-                  ? startDate.getDate() === day.getDate() &&
-                    startDate.getFullYear() === day.getFullYear() &&
-                    startDate.getMonth() === day.getMonth()
-                  : false)
+                  (
+                    startDate
+                      ? startDate.getDate() === day.getDate() &&
+                        startDate.getFullYear() === day.getFullYear() &&
+                        startDate.getMonth() === day.getMonth()
+                      : false
+                  )
                     ? `bg-${themeColor}-700 text-white rounded-l-3xl`
                     : '',
-                  (endDate
-                  ? endDate.getDate() === day.getDate() &&
-                    endDate.getFullYear() === day.getFullYear() &&
-                    endDate.getMonth() === day.getMonth()
-                  : false)
+                  (
+                    endDate
+                      ? endDate.getDate() === day.getDate() &&
+                        endDate.getFullYear() === day.getFullYear() &&
+                        endDate.getMonth() === day.getMonth()
+                      : false
+                  )
                     ? `bg-${themeColor}-700 text-white rounded-r-3xl`
                     : '',
-                  `hover:bg-${themeColor}-200`
+                  `hover:bg-${themeColor}-200`,
                 ]"
                 @click="selectDate(day)"
                 v-for="day in week"
@@ -167,73 +163,55 @@
             <div class="flex flex-col">
               <div
                 @click="selectToday()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 Today
               </div>
               <div
                 @click="selectYesterday()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 Yesterday
               </div>
               <div
                 @click="selectTomorrow()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 Tomorrow
               </div>
               <div
                 @click="selectThisWeek()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 This Week
               </div>
               <div
                 @click="selectThisMonth()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 This Month
               </div>
               <div
                 @click="selectThisYear()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 This Year
               </div>
               <div
                 @click="selectLastWeek()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 Last Week
               </div>
               <div
                 @click="selectLastMonth()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 Last Month
               </div>
               <div
                 @click="selectLastYear()"
-                :class="
-                  `p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`
-                "
+                :class="`p-2 hover:bg-${themeColor}-500 active:bg-${themeColor}-600 hover:text-white cursor-pointer`"
               >
                 Last Year
               </div>
@@ -253,21 +231,21 @@ export default {
   props: {
     start: {
       type: Date,
-      required: false
+      required: false,
     },
     end: {
       type: Date,
-      required: false
+      required: false,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     position: {
       type: String,
       required: false,
-      default: "right"
-    }
+      default: "right",
+    },
   },
   watch: {
     startDate(newDate) {
@@ -275,7 +253,7 @@ export default {
     },
     endDate(newDate) {
       this.$emit("update:end", newDate);
-    }
+    },
   },
   data() {
     return {
@@ -299,7 +277,7 @@ export default {
         "Sept",
         "Oct",
         "Nov",
-        "Dec"
+        "Dec",
       ],
       monthsFullNames: [
         "January",
@@ -313,9 +291,9 @@ export default {
         "September",
         "October",
         "November",
-        "December"
+        "December",
       ],
-      daysOfTheWeek: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+      daysOfTheWeek: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
     };
   },
   created() {
@@ -490,7 +468,7 @@ export default {
       this.startDate = new Date(now.getFullYear() - 1, 0);
       this.endDate = new Date(now.getFullYear() - 1, 11, 31);
       this.updateCalendar(this.startDate);
-    }
+    },
   },
   computed: {
     themeColor() {
@@ -501,7 +479,7 @@ export default {
     },
     themeRounded() {
       return theme.rounded || "";
-    }
-  }
+    },
+  },
 };
 </script>

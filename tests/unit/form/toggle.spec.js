@@ -6,8 +6,8 @@ describe("Toggle.vue", () => {
     const wrapper = mount(Toggle, {
       props: {
         modelValue: false,
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     await wrapper.find("span:nth-child(2)").trigger("click");
@@ -19,8 +19,8 @@ describe("Toggle.vue", () => {
     const wrapper = mount(Toggle, {
       props: {
         modelValue: true,
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     await wrapper.find("span:nth-child(2)").trigger("click");
@@ -32,8 +32,8 @@ describe("Toggle.vue", () => {
     const wrapper = mount(Toggle, {
       props: {
         modelValue: true,
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("red");
@@ -44,8 +44,8 @@ describe("Toggle.vue", () => {
       props: {
         modelValue: true,
         color: "red",
-        ring: true
-      }
+        ring: true,
+      },
     });
 
     expect(wrapper.html()).toContain("ring-2");

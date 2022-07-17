@@ -24,18 +24,18 @@ export default {
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     itemKey: {
       type: String,
       required: false,
-      default: "key"
+      default: "key",
     },
     itemValue: {
       type: String,
       required: false,
-      default: "value"
-    }
-  }
+      default: "value",
+    },
+  },
 };
 </script>

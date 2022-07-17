@@ -5,8 +5,8 @@ describe("ProgressBar.vue", () => {
   it("renders progress at the percent through the percent prop", async () => {
     const wrapper = mount(ProgressBar, {
       props: {
-        percent: 47
-      }
+        percent: 47,
+      },
     });
 
     expect(wrapper.html()).toContain(47);
@@ -16,8 +16,8 @@ describe("ProgressBar.vue", () => {
     const wrapper = mount(ProgressBar, {
       props: {
         percent: 25,
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     expect(wrapper.html()).toContain("teal");
@@ -27,8 +27,8 @@ describe("ProgressBar.vue", () => {
     const wrapper = mount(ProgressBar, {
       props: {
         percent: 25,
-        rounded: "rounded-md"
-      }
+        rounded: "rounded-md",
+      },
     });
 
     expect(wrapper.html()).toContain("rounded-md");
@@ -38,8 +38,8 @@ describe("ProgressBar.vue", () => {
     const wrapper = mount(ProgressBar, {
       props: {
         percent: 25,
-        rounded: "rounded-md"
-      }
+        rounded: "rounded-md",
+      },
     });
 
     expect(wrapper.html()).toContain(25);

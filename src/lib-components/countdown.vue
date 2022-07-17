@@ -28,7 +28,7 @@
           Hours
         </div>
       </div>
-      <div class="border-r my-5  border-gray-200"></div>
+      <div class="border-r my-5 border-gray-200"></div>
       <div class="p-2">
         <div
           :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`"
@@ -42,7 +42,7 @@
           Minutes
         </div>
       </div>
-      <div class="border-r my-5  border-gray-200"></div>
+      <div class="border-r my-5 border-gray-200"></div>
       <div class="p-2">
         <div
           :class="`text-2xl leading-8 font-semibold text-${timerColor}-600`"
@@ -73,23 +73,23 @@ export default {
   props: {
     time: {
       type: Date,
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     expiredMessage: {
       type: String,
       default: "Expired",
-      required: false
-    }
+      required: false,
+    },
   },
   data() {
     return {
       end: null,
       distance: null,
-      expired: false
+      expired: false,
     };
   },
   computed: {
@@ -109,7 +109,7 @@ export default {
     },
     timerColor() {
       return this.color || theme.color;
-    }
+    },
   },
   created() {
     this.setCountdownEnd();
@@ -117,7 +117,7 @@ export default {
   watch: {
     time() {
       this.setCountdownEnd();
-    }
+    },
   },
   methods: {
     //TODO figure out time zones
@@ -149,7 +149,7 @@ export default {
           this.expired = true;
         }
       }, 1000);
-    }
-  }
+    },
+  },
 };
 </script>

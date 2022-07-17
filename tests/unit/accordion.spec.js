@@ -7,27 +7,27 @@ describe("Avatar.vue", () => {
       key: "First",
       value: 10000,
       differentKeyName: "First different key",
-      differentValueName: 12345
+      differentValueName: 12345,
     },
     {
       key: "Second",
       value: "Testing value",
       differentKeyName: "Second different key",
-      differentValueName: "Testing different value"
+      differentValueName: "Testing different value",
     },
     {
       key: "Third",
       value: "$30000",
       differentKeyName: "Second different key",
-      differentValueName: "$40000"
-    }
+      differentValueName: "$40000",
+    },
   ];
 
   it("renders the items keys using the default key and value", async () => {
     const wrapper = mount(Accordion, {
       props: {
-        items: testItems
-      }
+        items: testItems,
+      },
     });
 
     expect(wrapper.html()).toContain(testItems[0].key);
@@ -38,8 +38,8 @@ describe("Avatar.vue", () => {
   it("renders the items values after they are clicked", async () => {
     const wrapper = mount(Accordion, {
       props: {
-        items: testItems
-      }
+        items: testItems,
+      },
     });
 
     expect(wrapper.html()).not.toContain(testItems[0].value);
@@ -59,8 +59,8 @@ describe("Avatar.vue", () => {
     const wrapper = mount(Accordion, {
       props: {
         items: testItems,
-        itemKey: "differentKeyName"
-      }
+        itemKey: "differentKeyName",
+      },
     });
 
     expect(wrapper.html()).toContain(testItems[0].differentKeyName);
@@ -72,8 +72,8 @@ describe("Avatar.vue", () => {
     const wrapper = mount(Accordion, {
       props: {
         items: testItems,
-        itemValue: "differentValueName"
-      }
+        itemValue: "differentValueName",
+      },
     });
 
     expect(wrapper.html()).not.toContain(testItems[0].differentValueName);

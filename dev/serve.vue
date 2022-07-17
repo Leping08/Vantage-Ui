@@ -296,24 +296,24 @@ export default {
       testSearchSelected: {
         name: "John",
         age: 5,
-        occupations: ["accountant", "medic"]
+        occupations: ["accountant", "medic"],
       },
       testObject: [
         {
           name: "John",
           age: 5,
-          occupations: ["accountant", "medic"]
+          occupations: ["accountant", "medic"],
         },
         {
           name: "Jack",
           age: 10,
-          occupations: ["cop", "bk"]
+          occupations: ["cop", "bk"],
         },
         {
           name: "Jill",
           age: 15,
-          occupations: ["accountant", "bk"]
-        }
+          occupations: ["accountant", "bk"],
+        },
       ],
       searchItems: [
         "gray",
@@ -328,64 +328,64 @@ export default {
         "pink",
         "fdsfdsa",
         "gfdsgfds",
-        "hgdsgrafds"
+        "hgdsgrafds",
       ],
       toggle: false,
       descriptionListItems: [
         {
           key: "First Item",
-          value: "$1500"
+          value: "$1500",
         },
         {
           key: "Second Item",
-          value: "150 Subscribers"
+          value: "150 Subscribers",
         },
         {
           key: "Third Item",
-          value: "Hail Dale"
+          value: "Hail Dale",
         },
         {
           key: "Fourth Item",
-          value: "Number 4 is the best."
-        }
+          value: "Number 4 is the best.",
+        },
       ],
       questionsAndAnswers: [
         {
           key: "What's the best thing about Switzerland?",
-          value: "I don't know, but the flag is a big plus."
+          value: "I don't know, but the flag is a big plus.",
         },
         {
           key: "How do you make holy water?",
-          value: "You boil the hell out of it."
+          value: "You boil the hell out of it.",
         },
         {
           key: "What do you call someone with no body and no nose?",
-          value: "Nobody knows."
+          value: "Nobody knows.",
         },
         {
           key: "Why do you never see elephants hiding in trees?",
-          value: "Because they're so good at it."
-        }
+          value: "Because they're so good at it.",
+        },
       ],
       dataTableHeader: [
         {
           text: "Points",
           sortable: true,
           direction: "asc",
-          value: "races"
+          value: "races",
         },
         {
           text: "Race Name",
           sortable: false,
           direction: "asc",
-          value: "races.0.name"
+          value: "races.0.name",
         },
         {
           text: "Points",
           sortable: true,
           direction: "asc",
-          value: "points"
-        }
+          value: "points",
+        },
         // {
         //   text: "Title",
         //   sortable: true,
@@ -414,13 +414,13 @@ export default {
           updated_at: "2021-04-06T17:02:43.000000Z",
           races: [
             {
-              name: "first"
+              name: "first",
             },
             {
-              name: "second"
-            }
+              name: "second",
+            },
           ],
-          points: 14
+          points: 14,
         },
         {
           id: 2,
@@ -430,59 +430,59 @@ export default {
           updated_at: "2021-04-06T17:02:43.000000Z",
           races: [
             {
-              name: "first"
+              name: "first",
             },
             {
-              name: "second"
-            }
+              name: "second",
+            },
           ],
-          points: 13
-        }
+          points: 13,
+        },
       ],
       dataTableItems: [
         {
           title: "Intro to CSS",
           name: "Derek",
           price: 858,
-          edit: ""
+          edit: "",
         },
         {
           title: "Backend API's",
           name: "Adam",
           price: 112,
-          edit: ""
+          edit: "",
         },
         {
           title: "Intro to JavaScript",
           name: "Chris",
           price: 1280,
-          edit: ""
+          edit: "",
         },
         {
           title: "Learning SQL",
           name: "John",
           price: 858,
-          edit: ""
+          edit: "",
         },
         {
           title: "ASP",
           name: "Joe",
           price: 1078,
-          edit: ""
+          edit: "",
         },
         {
           title: "Its GO time",
           name: "Lee",
           price: 645,
-          edit: ""
+          edit: "",
         },
         {
           title: "Rust 101",
           name: "Mac",
           price: 95,
-          edit: ""
-        }
-      ]
+          edit: "",
+        },
+      ],
     };
   },
   created() {
@@ -493,7 +493,7 @@ export default {
   methods: {
     testClick(value) {
       console.log(value);
-    }
-  }
+    },
+  },
 };
 </script>

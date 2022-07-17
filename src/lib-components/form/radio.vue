@@ -8,7 +8,7 @@
       type="radio"
       :class="[
         `h-4 w-4 text-${radioColor}-600 border-gray-300 focus:outline-none`,
-        ring ? `focus:ring-${radioColor}-600 focus:ring-2` : 'focus:ring-0'
+        ring ? `focus:ring-${radioColor}-600 focus:ring-2` : 'focus:ring-0',
       ]"
     />
     <label for="push_nothing" class="ml-3">
@@ -26,25 +26,25 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      required: true,
     },
     modelValue: {
       type: String,
-      required: true
+      required: true,
     },
     value: {
       type: [String, Number, Boolean, Array, Object, Date],
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     ring: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     radioColor() {
@@ -56,8 +56,8 @@ export default {
       },
       set(value) {
         this.$emit("update:modelValue", value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

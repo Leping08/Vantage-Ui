@@ -1,7 +1,7 @@
 const theme = {
   color: "blue",
   shadow: "shadow-md",
-  rounded: "rounded-lg"
+  rounded: "rounded-lg",
 };
 
 export default theme;

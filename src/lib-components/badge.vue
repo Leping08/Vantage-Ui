@@ -1,8 +1,6 @@
 <template>
   <span
-    :class="
-      `inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-${badgeColor}-200 text-${badgeColor}-800`
-    "
+    :class="`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-${badgeColor}-200 text-${badgeColor}-800`"
   >
     <slot>Badge</slot>
   </span>
@@ -15,13 +13,13 @@ export default {
   props: {
     color: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   computed: {
     badgeColor() {
       return this.color || theme.color;
-    }
-  }
+    },
+  },
 };
 </script>

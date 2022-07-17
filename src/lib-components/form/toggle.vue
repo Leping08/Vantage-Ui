@@ -9,7 +9,7 @@
       value ? `bg-${toggleColor}-600` : 'bg-gray-200',
       ring
         ? `focus:ring-2 focus:ring-offset-2 focus:ring-${toggleColor}-600`
-        : 'focus:ring-0'
+        : 'focus:ring-0',
     ]"
   >
     <span class="sr-only">Use setting</span>
@@ -17,7 +17,7 @@
     <span
       :class="[
         value ? 'translate-x-5' : 'translate-x-0',
-        'relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200'
+        'relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200',
       ]"
     >
       <!-- On: "opacity-0 ease-out duration-100", Off: "opacity-100 ease-in duration-200" -->
@@ -26,7 +26,7 @@
           value
             ? 'opacity-0 ease-out duration-100'
             : 'opacity-100 ease-in duration-200',
-          'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity'
+          'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity',
         ]"
         aria-hidden="true"
       >
@@ -46,7 +46,7 @@
           value
             ? 'opacity-100 ease-in duration-200'
             : 'opacity-0 ease-out duration-100',
-          'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity'
+          'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity',
         ]"
         aria-hidden="true"
       >
@@ -71,17 +71,17 @@ export default {
   props: {
     modelValue: {
       type: Boolean,
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     ring: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     value: {
@@ -90,11 +90,11 @@ export default {
       },
       set(value) {
         this.$emit("update:modelValue", value);
-      }
+      },
     },
     toggleColor() {
       return this.color || theme.color;
-    }
-  }
+    },
+  },
 };
 </script>

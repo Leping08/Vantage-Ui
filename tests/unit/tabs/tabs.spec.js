@@ -43,8 +43,8 @@ describe("Stats.vue", () => {
   it("changes color through the color prop", async () => {
     const wrapper = mount(Tabs, {
       props: {
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("red");

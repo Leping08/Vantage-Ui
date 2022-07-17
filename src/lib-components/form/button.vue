@@ -10,7 +10,7 @@
       ring
         ? `focus:ring-2 focus:ring-offset-2 focus:ring-${buttonColor}-600`
         : `focus:ring-0`,
-      disabled ? 'cursor-not-allowed' : ''
+      disabled ? 'cursor-not-allowed' : '',
     ]"
   >
     <slot>Button</slot>
@@ -24,42 +24,42 @@ export default {
   props: {
     color: {
       type: String,
-      required: false
+      required: false,
     },
     outline: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     fullWidth: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     size: {
       type: String,
       required: false,
-      default: "md"
+      default: "md",
     },
     rounded: {
       type: String,
-      required: false
+      required: false,
     },
     shadow: {
       type: String,
       required: false,
-      default: "shadow"
+      default: "shadow",
     },
     ring: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     buttonColor() {
@@ -79,7 +79,7 @@ export default {
       else if (this.size === "lg") return `px-4 py-2 text-base font-medium`;
       else if (this.size === "xl") return `px-6 py-3 text-base font-medium`;
       else return `px-4 py-2 text-md font-medium`;
-    }
-  }
+    },
+  },
 };
 </script>

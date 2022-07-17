@@ -55,23 +55,23 @@ export default {
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     itemKey: {
       type: String,
-      required: false
+      required: false,
     },
     itemValue: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   created() {
     if (this.items.length) {
-      this.items.map(item => {
+      this.items.map((item) => {
         item.show = false;
       });
     }
-  }
+  },
 };
 </script>

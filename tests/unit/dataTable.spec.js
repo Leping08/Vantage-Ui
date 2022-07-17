@@ -7,20 +7,20 @@ describe("DataTable.vue", () => {
       text: "Title",
       sortable: true,
       direction: "asc",
-      value: "title"
+      value: "title",
     },
     {
       text: "Instructor",
       sortable: false,
       direction: "asc",
-      value: "name"
+      value: "name",
     },
     {
       text: "Price",
       sortable: true,
       direction: "asc",
-      value: "price"
-    }
+      value: "price",
+    },
   ];
 
   const items = [
@@ -29,58 +29,58 @@ describe("DataTable.vue", () => {
       name: "Derek",
       price: 858,
       test: "Testing data",
-      edit: ""
+      edit: "",
     },
     {
       title: "Backend API's",
       name: "Adam",
       price: 112,
       test: "Wow",
-      edit: "do not show"
+      edit: "do not show",
     },
     {
       title: "Intro to JavaScript",
       name: "Chris",
       price: 1280,
       test: "Wow",
-      edit: ""
+      edit: "",
     },
     {
       title: "Learning SQL",
       name: "John",
       price: 858,
       test: "Wow",
-      edit: "do not show"
+      edit: "do not show",
     },
     {
       title: "ASP",
       name: "Joe",
       price: 1078,
       test: "Wow",
-      edit: "do not show"
+      edit: "do not show",
     },
     {
       title: "Its GO time",
       name: "Lee",
       price: 645,
       test: "Wow",
-      edit: "do not show"
+      edit: "do not show",
     },
     {
       title: "Rust 101",
       name: "Mac",
       price: 95,
       test: "Wow",
-      edit: "do not show"
-    }
+      edit: "do not show",
+    },
   ];
 
   it("renders with the items passed in through the items prop", async () => {
     const wrapper = mount(DataTable, {
       props: {
         items: items,
-        header: header
-      }
+        header: header,
+      },
     });
 
     expect(wrapper.html()).toContain(items[0].title);
@@ -99,8 +99,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        search: true
-      }
+        search: true,
+      },
     });
 
     expect(wrapper.html()).toContain("Search");
@@ -111,8 +111,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        search: false
-      }
+        search: false,
+      },
     });
 
     expect(wrapper.html()).not.toContain("Search");
@@ -123,8 +123,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     expect(wrapper.html()).toContain("Test Title");
@@ -135,8 +135,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     const input = wrapper.find("input");
@@ -164,8 +164,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     const input = wrapper.find("input");
@@ -198,8 +198,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     expect(wrapper.html()).toContain(header[0].text);
@@ -210,8 +210,8 @@ describe("DataTable.vue", () => {
       props: {
         items: items,
         header: header,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     expect(wrapper.html()).not.toContain("do not show");
@@ -225,8 +225,8 @@ describe("DataTable.vue", () => {
         itemsPerPage: 2,
         header: header,
         searchable: false,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     //Make sure the table is showing 1 header tr tag and 2 row tr tags
@@ -240,8 +240,8 @@ describe("DataTable.vue", () => {
         itemsPerPage: 20,
         header: header,
         searchable: false,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     expect(wrapper.html()).not.toContain("Testing 123");
@@ -251,8 +251,8 @@ describe("DataTable.vue", () => {
         title: "Testing 123",
         name: "test",
         price: 95,
-        edit: "nothing"
-      }
+        edit: "nothing",
+      },
     ];
 
     await wrapper.setProps({
@@ -260,7 +260,7 @@ describe("DataTable.vue", () => {
       itemsPerPage: 20,
       header: header,
       searchable: false,
-      title: "Test Title"
+      title: "Test Title",
     });
 
     expect(wrapper.html()).toContain("Testing 123");
@@ -273,8 +273,8 @@ describe("DataTable.vue", () => {
         itemsPerPage: 20,
         header: header,
         searchable: false,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     wrapper.findAll("tr")[2].trigger("click");
@@ -290,8 +290,8 @@ describe("DataTable.vue", () => {
         itemsPerPage: 20,
         header: header,
         searchable: false,
-        title: "Test Title"
-      }
+        title: "Test Title",
+      },
     });
 
     expect(wrapper.html()).not.toContain("Testing data");
@@ -301,20 +301,20 @@ describe("DataTable.vue", () => {
         text: "Title",
         sortable: true,
         direction: "asc",
-        value: "title"
+        value: "title",
       },
       {
         text: "Instructor",
         sortable: false,
         direction: "asc",
-        value: "name"
+        value: "name",
       },
       {
         text: "Test",
         sortable: true,
         direction: "asc",
-        value: "test"
-      }
+        value: "test",
+      },
     ];
 
     await wrapper.setProps({
@@ -322,7 +322,7 @@ describe("DataTable.vue", () => {
       itemsPerPage: 20,
       header: newHeader,
       searchable: false,
-      title: "Test Title"
+      title: "Test Title",
     });
 
     expect(wrapper.html()).toContain("Testing data");

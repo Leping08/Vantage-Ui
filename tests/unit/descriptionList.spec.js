@@ -6,26 +6,26 @@ describe("DescriptionList.vue", () => {
     const items = [
       {
         key: "First Item",
-        value: "$1500"
+        value: "$1500",
       },
       {
         key: "Second Item",
-        value: "150 Subscribers"
+        value: "150 Subscribers",
       },
       {
         key: "Third Item",
-        value: "Hail Dale"
+        value: "Hail Dale",
       },
       {
         key: "Fourth Item",
-        value: "Number 4 is the best."
-      }
+        value: "Number 4 is the best.",
+      },
     ];
 
     const wrapper = mount(DescriptionList, {
       props: {
-        items: items
-      }
+        items: items,
+      },
     });
 
     expect(wrapper.html()).toContain(items[0].key);
@@ -42,15 +42,15 @@ describe("DescriptionList.vue", () => {
     const items = [
       {
         newKeyName: "Testing",
-        value: 56
-      }
+        value: 56,
+      },
     ];
 
     const wrapper = mount(DescriptionList, {
       props: {
         items: items,
-        itemKey: "newKeyName"
-      }
+        itemKey: "newKeyName",
+      },
     });
 
     expect(wrapper.html()).toContain(items[0].newKeyName);
@@ -61,15 +61,15 @@ describe("DescriptionList.vue", () => {
     const items = [
       {
         key: "Testing",
-        newValueName: 56
-      }
+        newValueName: 56,
+      },
     ];
 
     const wrapper = mount(DescriptionList, {
       props: {
         items: items,
-        itemValue: "newValueName"
-      }
+        itemValue: "newValueName",
+      },
     });
 
     expect(wrapper.html()).toContain(items[0].key);

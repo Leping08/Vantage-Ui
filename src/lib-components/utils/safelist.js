@@ -11,7 +11,7 @@ const shadows = [
   "shadow-xl",
   "shadow-2xl",
   "shadow-inner",
-  "shadow-none"
+  "shadow-none",
 ];
 const rounded = [
   "rounded-none",
@@ -22,7 +22,7 @@ const rounded = [
   "rounded-xl",
   "rounded-2xl",
   "rounded-3xl",
-  "rounded-full"
+  "rounded-full",
 ];
 
 function colorsClasses(inputColors = "*") {
@@ -33,7 +33,7 @@ function colorsClasses(inputColors = "*") {
   }
 
   if (Array.isArray(inputColors)) {
-    colorNames = Object.keys(colors).filter(function(val) {
+    colorNames = Object.keys(colors).filter(function (val) {
       return inputColors.indexOf(val) != -1;
     });
   }
@@ -41,8 +41,8 @@ function colorsClasses(inputColors = "*") {
   const numbers = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
   const classes = [];
 
-  colorNames.map(color => {
-    numbers.map(number => {
+  colorNames.map((color) => {
+    numbers.map((number) => {
       //Background color
       classes.push(`bg-${color}-${number}`);
       classes.push(`hover:bg-${color}-${number}`);
@@ -75,43 +75,11 @@ function colorsClasses(inputColors = "*") {
 function heightAndWidths() {
   const classes = [];
   const heights = [
-    0,
-    0.5,
-    1,
-    1.5,
-    2,
-    2.5,
-    3,
-    3.5,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    14,
-    16,
-    20,
-    24,
-    28,
-    32,
-    36,
-    40,
-    44,
-    48,
-    52,
-    56,
-    60,
-    64,
-    72,
-    80,
-    96
+    0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 20,
+    24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96,
   ];
 
-  heights.map(number => {
+  heights.map((number) => {
     classes.push(`h-${number}`);
     classes.push(`w-${number}`);
   });
@@ -125,7 +93,7 @@ module.exports = {
       ...colorsClasses(colors),
       ...heightAndWidths(),
       ...shadows,
-      ...rounded
+      ...rounded,
     ];
-  }
+  },
 };

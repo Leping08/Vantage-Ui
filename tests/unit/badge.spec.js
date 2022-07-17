@@ -5,11 +5,11 @@ describe("Badge.vue", () => {
   it("renders the badge with the slot content", async () => {
     const wrapper = mount(Badge, {
       slots: {
-        default: "John"
+        default: "John",
       },
       props: {
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("John");
@@ -18,11 +18,11 @@ describe("Badge.vue", () => {
   it("changes color via a prop", async () => {
     const wrapper = mount(Badge, {
       slots: {
-        default: "John"
+        default: "John",
       },
       props: {
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     expect(wrapper.html()).toContain("teal");

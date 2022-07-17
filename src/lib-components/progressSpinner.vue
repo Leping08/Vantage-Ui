@@ -28,17 +28,17 @@ export default {
     size: {
       type: Number,
       required: false,
-      default: 10
+      default: 10,
     },
     color: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   computed: {
     spinnerColor() {
       return this.color || theme.color;
-    }
-  }
+    },
+  },
 };
 </script>

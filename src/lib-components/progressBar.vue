@@ -2,9 +2,7 @@
   <div :class="`w-full bg-${barColor}-200 ${barRounded} h-${height}`">
     <div
       :style="`width: ${percent}%`"
-      :class="
-        `bg-${barColor}-600 ${barRounded} h-${height} transition-all duration-1000 ease-in-out`
-      "
+      :class="`bg-${barColor}-600 ${barRounded} h-${height} transition-all duration-1000 ease-in-out`"
     ></div>
   </div>
 </template>
@@ -16,21 +14,21 @@ export default {
   props: {
     percent: {
       type: Number,
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     rounded: {
       type: String,
-      required: false
+      required: false,
     },
     height: {
       type: Number,
       required: false,
-      default: 4
-    }
+      default: 4,
+    },
   },
   computed: {
     barColor() {
@@ -38,7 +36,7 @@ export default {
     },
     barRounded() {
       return this.rounded || theme.rounded;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -11,8 +11,8 @@ describe("Ping.vue", () => {
   it("changes the color through the color prop", async () => {
     const wrapper = mount(Ping, {
       props: {
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("red");
@@ -21,8 +21,8 @@ describe("Ping.vue", () => {
   it("changes the size through the size prop", async () => {
     const wrapper = mount(Ping, {
       props: {
-        size: 4
-      }
+        size: 4,
+      },
     });
 
     expect(wrapper.html()).toContain(4);

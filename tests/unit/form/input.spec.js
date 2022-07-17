@@ -5,8 +5,8 @@ describe("Input.vue", () => {
   it("shows the input data in the input and updates the v-model data", async () => {
     const wrapper = mount(Input, {
       props: {
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     const input = wrapper.find("input");
@@ -19,8 +19,8 @@ describe("Input.vue", () => {
     const wrapper = mount(Input, {
       props: {
         color: "red",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("red");
@@ -30,8 +30,8 @@ describe("Input.vue", () => {
     const wrapper = mount(Input, {
       props: {
         placeholder: "testing placeholder",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("testing placeholder");
@@ -41,8 +41,8 @@ describe("Input.vue", () => {
     const wrapper = mount(Input, {
       props: {
         label: "testing label",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("testing label");
@@ -52,8 +52,8 @@ describe("Input.vue", () => {
     const wrapper = mount(Input, {
       props: {
         helpText: "help text label",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("help text label");
@@ -64,8 +64,8 @@ describe("Input.vue", () => {
       props: {
         rules: ["min:3"],
         label: "test",
-        modelValue: "a"
-      }
+        modelValue: "a",
+      },
     });
 
     // By default it does not show vallidation messages
@@ -85,8 +85,8 @@ describe("Input.vue", () => {
       props: {
         rules: ["max:2"],
         label: "test",
-        modelValue: "a"
-      }
+        modelValue: "a",
+      },
     });
 
     // By default it does not show vallidation messages
@@ -106,8 +106,8 @@ describe("Input.vue", () => {
       props: {
         rules: ["required"],
         label: "test",
-        modelValue: "a"
-      }
+        modelValue: "a",
+      },
     });
 
     expect(wrapper.html()).not.toContain("is required");
@@ -122,8 +122,8 @@ describe("Input.vue", () => {
       props: {
         rules: ["email"],
         label: "test",
-        modelValue: "a"
-      }
+        modelValue: "a",
+      },
     });
 
     await wrapper.setProps({ modelValue: "abc" });
@@ -136,8 +136,8 @@ describe("Input.vue", () => {
       props: {
         rules: ["min:3"],
         label: "test",
-        modelValue: "a"
-      }
+        modelValue: "a",
+      },
     });
 
     // By default it does not show vallidation messages
@@ -167,8 +167,8 @@ describe("Input.vue", () => {
       props: {
         rules: ["email"],
         label: "test",
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     //Set the model value to a so validation will run on the input

@@ -7,9 +7,7 @@
         </dt>
         <dd class="mt-1 justify-between items-baseline md:block lg:flex">
           <div
-            :class="
-              `flex items-baseline text-2xl leading-8 font-semibold text-${statColor}-600`
-            "
+            :class="`flex items-baseline text-2xl leading-8 font-semibold text-${statColor}-600`"
           >
             {{ firstMetric }}
             <span
@@ -35,9 +33,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span class="sr-only">
-                Decreased by
-              </span>
+              <span class="sr-only"> Decreased by </span>
               {{ percentChange }} %
             </div>
             <div
@@ -55,18 +51,14 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span class="sr-only">
-                Increased by
-              </span>
+              <span class="sr-only"> Increased by </span>
               {{ percentChange }} %
             </div>
             <div
               v-if="parseFloat(firstMetric) === parseFloat(secondMetric)"
               class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-gray-100 text-gray-800 md:mt-2 lg:mt-0"
             >
-              <span class="sr-only">
-                No change
-              </span>
+              <span class="sr-only"> No change </span>
               {{ percentChange }} %
             </div>
           </div>
@@ -83,28 +75,28 @@ export default {
   props: {
     heading: {
       type: String,
-      required: true
+      required: true,
     },
     firstMetric: {
       type: Number,
-      required: true
+      required: true,
     },
     secondMetric: {
       type: Number,
-      required: false
+      required: false,
     },
     rounded: {
       type: String,
-      required: false
+      required: false,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     shadow: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   computed: {
     percentChange() {
@@ -122,7 +114,7 @@ export default {
     },
     statShadow() {
       return this.shadow || theme.shadow;
-    }
-  }
+    },
+  },
 };
 </script>

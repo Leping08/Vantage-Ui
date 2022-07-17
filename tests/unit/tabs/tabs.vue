@@ -14,19 +14,19 @@
 import {
   Tab as VTab,
   Tabs as VTabs,
-  TabContent as VTabContent
+  TabContent as VTabContent,
 } from "@/lib-components/tabs/tabs.js";
 
 export default {
   components: {
     VTab,
     VTabs,
-    VTabContent
+    VTabContent,
   },
   data() {
     return {
-      activeTab: 1
+      activeTab: 1,
     };
-  }
+  },
 };
 </script>

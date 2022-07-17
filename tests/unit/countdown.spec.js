@@ -5,8 +5,8 @@ describe("Countdown.vue", () => {
   it("shows NaN when a time is not given", async () => {
     const wrapper = mount(Countdown, {
       props: {
-        time: null
-      }
+        time: null,
+      },
     });
 
     expect(wrapper.html()).not.toContain("Na");
@@ -16,8 +16,8 @@ describe("Countdown.vue", () => {
     const wrapper = mount(Countdown, {
       props: {
         time: new Date(new Date().getUTCFullYear() + 1, 1, 1),
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("red");
@@ -27,8 +27,8 @@ describe("Countdown.vue", () => {
     const wrapper = mount(Countdown, {
       props: {
         time: new Date(new Date().getUTCFullYear() - 1, 1, 1),
-        expiredMessage: "Testing"
-      }
+        expiredMessage: "Testing",
+      },
     });
 
     expect(wrapper.html()).toContain("Testing");
@@ -39,8 +39,8 @@ describe("Countdown.vue", () => {
     const wrapper = mount(Countdown, {
       props: {
         time: new Date(new Date().getUTCFullYear() + 1, 1, 1),
-        expiredMessage: "Testing"
-      }
+        expiredMessage: "Testing",
+      },
     });
 
     expect(wrapper.html()).not.toContain("Testing");
@@ -50,8 +50,8 @@ describe("Countdown.vue", () => {
   it("has Expired as the default message for a timer that has expired", async () => {
     const wrapper = mount(Countdown, {
       props: {
-        time: new Date(new Date().getUTCFullYear() - 1, 1, 1)
-      }
+        time: new Date(new Date().getUTCFullYear() - 1, 1, 1),
+      },
     });
 
     expect(wrapper.html()).toContain("Expired");
@@ -69,8 +69,8 @@ describe("Countdown.vue", () => {
 
     const wrapper = mount(Countdown, {
       props: {
-        time: nextYear
-      }
+        time: nextYear,
+      },
     });
 
     expect(wrapper.find("[qa-data-days]").html()).toContain(days);

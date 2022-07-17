@@ -6,8 +6,8 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      }
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
     });
 
     expect(wrapper.html()).toContain(
@@ -19,11 +19,11 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       props: {
-        heading: "Heading Text"
-      }
+        heading: "Heading Text",
+      },
     });
 
     expect(wrapper.html()).toContain("Heading Text");
@@ -33,11 +33,11 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       props: {
-        subheading: "Subheading Text"
-      }
+        subheading: "Subheading Text",
+      },
     });
 
     expect(wrapper.html()).toContain("Subheading Text");
@@ -47,11 +47,11 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       props: {
-        padding: true
-      }
+        padding: true,
+      },
     });
 
     expect(wrapper.html()).toContain("p-4");
@@ -61,11 +61,11 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       props: {
-        padding: false
-      }
+        padding: false,
+      },
     });
 
     expect(wrapper.html()).not.toContain("p-4");
@@ -75,11 +75,11 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       props: {
-        border: true
-      }
+        border: true,
+      },
     });
 
     expect(wrapper.html()).toContain("border-t");
@@ -89,11 +89,11 @@ describe("Card.vue", () => {
     const wrapper = mount(Card, {
       slots: {
         default:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       props: {
-        border: false
-      }
+        border: false,
+      },
     });
 
     expect(wrapper.html()).not.toContain("border-t");

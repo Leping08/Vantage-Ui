@@ -5,8 +5,8 @@ describe("Avatar.vue", () => {
   it("renders the avatar with name prop", async () => {
     const wrapper = mount(Avatar, {
       props: {
-        name: "John Doe"
-      }
+        name: "John Doe",
+      },
     });
 
     expect(wrapper.html()).toContain("JD");
@@ -16,8 +16,8 @@ describe("Avatar.vue", () => {
     const wrapper = mount(Avatar, {
       props: {
         color: "teal",
-        name: "John Doe"
-      }
+        name: "John Doe",
+      },
     });
 
     expect(wrapper.html()).toContain("teal");

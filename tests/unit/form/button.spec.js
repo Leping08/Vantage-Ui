@@ -5,8 +5,8 @@ describe("Button.vue", () => {
   it("renders the button with the slot content", async () => {
     const wrapper = mount(Button, {
       slots: {
-        default: "Testing"
-      }
+        default: "Testing",
+      },
     });
 
     expect(wrapper.html()).toContain("Testing");
@@ -15,8 +15,8 @@ describe("Button.vue", () => {
   it("changes color via a prop", async () => {
     const wrapper = mount(Button, {
       props: {
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     expect(wrapper.html()).toContain("teal");
@@ -26,8 +26,8 @@ describe("Button.vue", () => {
     const wrapper = mount(Button, {
       props: {
         color: "purple",
-        outline: true
-      }
+        outline: true,
+      },
     });
 
     expect(wrapper.html()).toContain("purple");
@@ -37,8 +37,8 @@ describe("Button.vue", () => {
   it("changes to a full width using the fullWidth prop", async () => {
     const wrapper = mount(Button, {
       props: {
-        fullWidth: true
-      }
+        fullWidth: true,
+      },
     });
 
     expect(wrapper.html()).toContain("w-full");
@@ -47,8 +47,8 @@ describe("Button.vue", () => {
   it("changes button size with size prop", async () => {
     const wrapper = mount(Button, {
       props: {
-        size: "lg"
-      }
+        size: "lg",
+      },
     });
 
     expect(wrapper.html()).toContain("px-4 py-2");
@@ -61,8 +61,8 @@ describe("Button.vue", () => {
   it("changes how rounded the button is with the rounded prop", async () => {
     const wrapper = mount(Button, {
       props: {
-        rounded: "rounded-full"
-      }
+        rounded: "rounded-full",
+      },
     });
 
     expect(wrapper.html()).toContain("rounded-full");
@@ -71,8 +71,8 @@ describe("Button.vue", () => {
   it("changes shadow from the shadow prop", async () => {
     const wrapper = mount(Button, {
       props: {
-        shadow: "shadow-lg"
-      }
+        shadow: "shadow-lg",
+      },
     });
 
     expect(wrapper.html()).toContain("shadow-lg");
@@ -82,8 +82,8 @@ describe("Button.vue", () => {
     const wrapper = mount(Button, {
       props: {
         color: "purple",
-        ring: true
-      }
+        ring: true,
+      },
     });
 
     expect(wrapper.html()).toContain("ring-2");
@@ -96,8 +96,8 @@ describe("Button.vue", () => {
   it("can be disabled through the disabled prop", async () => {
     const wrapper = mount(Button, {
       props: {
-        disabled: true
-      }
+        disabled: true,
+      },
     });
 
     expect(wrapper.html()).toContain("cursor-not-allowed");

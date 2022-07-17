@@ -1,7 +1,7 @@
 <template>
   <card :padding="false">
     <template v-slot:header>
-      <div class="flex items-center ">
+      <div class="flex items-center">
         <div class="py-2 w-2/3" v-if="title">
           <div
             class="-ml-4 -mt-2 px-4 flex justify-between items-center flex-wrap sm:flex-nowrap"
@@ -23,9 +23,7 @@
         <thead>
           <tr>
             <th
-              :class="
-                `px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider`
-              "
+              :class="`px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider`"
               v-for="(heading, headingIndex) in headings"
               :key="heading"
             >
@@ -37,7 +35,7 @@
                 {{ heading.text }}
                 <div v-if="heading.sortable">
                   <template v-if="heading.direction === 'asc'">
-                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
                         d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
@@ -45,7 +43,7 @@
                     </svg>
                   </template>
                   <template v-if="heading.direction === 'desc'">
-                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
                         d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
@@ -53,7 +51,7 @@
                     </svg>
                   </template>
                   <template v-if="heading.direction === 'none'">
-                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
                       <path fill="currentColor" />
                     </svg>
                   </template>
@@ -136,38 +134,38 @@ export default {
   components: {
     themeInput,
     card,
-    VButton: button
+    VButton: button,
   },
   props: {
     title: {
       type: String,
-      required: false
+      required: false,
     },
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     search: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     header: {
       type: Array,
-      required: true
+      required: true,
     },
     itemsPerPage: {
       type: Number,
       required: false,
-      default: 5
-    }
+      default: 5,
+    },
   },
   data() {
     return {
       headings: [],
       itemsCopy: [],
       searchText: "",
-      pageIndex: 1
+      pageIndex: 1,
     };
   },
   emits: ["click-row"],
@@ -183,14 +181,14 @@ export default {
       handler(newItems) {
         this.itemsCopy = newItems;
       },
-      deep: true
+      deep: true,
     },
     header: {
       handler() {
         this.setHeader();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     changeSort(index) {
@@ -249,16 +247,16 @@ export default {
       this.$emit("click-row", item);
     },
     setHeader() {
-      this.headings = this.header.map(item => {
+      this.headings = this.header.map((item) => {
         return {
           text: item.text ?? "",
           value: item.value ?? "",
           align: item.align ?? "left",
           sortable: item.sortable ?? false,
-          direction: item.direction ?? "asc"
+          direction: item.direction ?? "asc",
         };
       });
-    }
+    },
   },
   computed: {
     indexStart() {
@@ -275,7 +273,7 @@ export default {
       return (
         this.itemsCopy
           //filter over all the rows
-          .filter(row => {
+          .filter((row) => {
             //return if the string of the row contains the search text
             return (
               JSON.stringify(row)
@@ -284,10 +282,10 @@ export default {
                 .indexOf(this.searchText.toLowerCase()) > -1
             );
           })
-          .filter(row => row) //Filter out any null rows left
+          .filter((row) => row) //Filter out any null rows left
           .slice(this.indexStart, this.indexEnd)
       ); //Get x number of element from the array
-    }
-  }
+    },
+  },
 };
 </script>

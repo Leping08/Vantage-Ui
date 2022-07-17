@@ -10,9 +10,9 @@
         <svg
           :class="[
             dropdownOpen ? 'rotate-180' : 'rotate-0',
-            `absolute right-0 mr-2  text-gray-600 transform duration-150 ease-in-out`
+            `absolute right-0 mr-2  text-gray-600 transform duration-150 ease-in-out`,
           ]"
-          style="width:24px;height:24px"
+          style="width: 24px; height: 24px"
           viewBox="0 0 24 24"
         >
           <path
@@ -30,7 +30,7 @@
           @blur="blurFunc()"
           :class="[
             'appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full',
-            `${themeRounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500 text-gray-700`
+            `${themeRounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500 text-gray-700`,
           ]"
           :placeholder="placeholderText"
         />
@@ -46,9 +46,7 @@
       >
         <div
           v-if="dropdownOpen"
-          :class="
-            `absolute mt-1 w-full ${themeRounded} bg-white shadow-lg z-10 max-h-56 overflow-auto`
-          "
+          :class="`absolute mt-1 w-full ${themeRounded} bg-white shadow-lg z-10 max-h-56 overflow-auto`"
         >
           <transition-group
             enter-from-class="-translate-y-4 opacity-0"
@@ -79,7 +77,7 @@
                   item === selectedItem
                     ? `text-gray-900 font-bold bg-${themeColor}-200`
                     : '',
-                  `hover:bg-${themeColor}-600`
+                  `hover:bg-${themeColor}-600`,
                 ]"
                 :id="`listbox-option-${index}`"
                 role="option"
@@ -131,36 +129,36 @@ export default {
       selectedItem: null,
       placeholderText: null,
       input: "",
-      oldInput: ""
+      oldInput: "",
     };
   },
   props: {
     modelValue: {
       type: [String, Object],
-      required: true
+      required: true,
     },
     label: {
       type: String,
       required: false,
-      default: null
+      default: null,
     },
     placeholder: {
       type: String,
       required: false,
-      default: null
+      default: null,
     },
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     itemKey: {
       type: String,
-      required: false
+      required: false,
     },
     color: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   created() {
     //TODO don't select something if the starting value can not be found
@@ -179,7 +177,7 @@ export default {
     },
     modelValue() {
       this.select(this.modelValue);
-    }
+    },
   },
   methods: {
     filtered() {
@@ -188,14 +186,14 @@ export default {
       }
       this.dropdownOpen = true;
       if (this.itemKey) {
-        return this.items.filter(item => {
+        return this.items.filter((item) => {
           return (
             item[this.itemKey].toLowerCase().indexOf(this.input.toLowerCase()) >
             -1
           );
         });
       } else {
-        return this.items.filter(item => {
+        return this.items.filter((item) => {
           return item.toLowerCase().indexOf(this.input.toLowerCase()) > -1;
         });
       }
@@ -235,7 +233,7 @@ export default {
       }
       this.input = null;
       this.dropdownOpen = true;
-    }
+    },
   },
   computed: {
     themeColor() {
@@ -243,7 +241,7 @@ export default {
     },
     themeRounded() {
       return theme.rounded || "";
-    }
-  }
+    },
+  },
 };
 </script>

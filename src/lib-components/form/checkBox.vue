@@ -9,7 +9,9 @@
         type="checkbox"
         :class="[
           `h-4 w-4 border border-gray-300 text-${checkBoxColor}-600 rounded focus:outline-none`,
-          ring ? `focus:ring-${checkBoxColor}-600 focus:ring-2` : 'focus:ring-0'
+          ring
+            ? `focus:ring-${checkBoxColor}-600 focus:ring-2`
+            : 'focus:ring-0',
         ]"
       />
     </div>
@@ -29,29 +31,29 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      required: true,
     },
     subTitle: {
       type: String,
-      required: false
+      required: false,
     },
     modelValue: {
       type: Array,
-      required: true
+      required: true,
     },
     value: {
       type: [String, Number, Boolean, Array, Object, Date],
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      required: false
+      required: false,
     },
     ring: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     checkBoxColor() {
@@ -63,8 +65,8 @@ export default {
       },
       set(value) {
         this.$emit("update:modelValue", value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

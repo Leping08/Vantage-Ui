@@ -12,10 +12,10 @@
         :class="[
           'appearance-none block px-3 py-2 shadow-sm border border-gray-300 placeholder-gray-400 focus:outline-none sm:text-sm w-full',
           `${rounded} focus:ring-${themeColor}-500 focus:border-${themeColor}-500`,
-          Object.values(validationObjects).filter(e => e.valid === true)
+          Object.values(validationObjects).filter((e) => e.valid === true)
             .length === 1
             ? 'text-red-900 border-red-500'
-            : 'text-gray-700'
+            : 'text-gray-700',
         ]"
         :placeholder="placeholder"
         :aria-placeholder="placeholder"
@@ -24,7 +24,7 @@
         :type="type"
         :required="requiredCheck"
         :aria-invalid="
-          Object.values(validationObjects).filter(e => e.valid === true)
+          Object.values(validationObjects).filter((e) => e.valid === true)
             .length === 1
         "
       />
@@ -49,40 +49,40 @@ export default {
     return {
       validationObjects: [],
       requiredCheck: false,
-      validated: false
+      validated: false,
     };
   },
   emits: ["update:modelValue", "update:validated"],
   props: {
     modelValue: {
       type: [String, Number, Date],
-      required: true
+      required: true,
     },
     placeholder: {
       type: String,
-      required: false
+      required: false,
     },
     label: {
       type: String,
-      required: false
+      required: false,
     },
     rules: {
       type: Array,
-      required: false
+      required: false,
     },
     type: {
       type: String,
       required: false,
-      default: "text"
+      default: "text",
     },
     helpText: {
       type: String,
-      required: false
+      required: false,
     },
     color: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   created() {
     if (this.rules) {
@@ -94,12 +94,12 @@ export default {
       this.setUpRules();
     },
     value() {
-      this.validationObjects.map(element => {
+      this.validationObjects.map((element) => {
         //Call the function of the name of the validation object and input any args
         return this[element.name](element);
       });
       this.updateValidated();
-    }
+    },
   },
   methods: {
     min(element) {
@@ -125,20 +125,20 @@ export default {
       this.requiredCheck = this.rules.includes("required");
 
       //Loop over the rules array and create the validationObjects
-      this.validationObjects = this.rules.map(rule => {
+      this.validationObjects = this.rules.map((rule) => {
         const sections = rule.split(":");
         return {
           name: sections[0],
           args: sections[1] || [],
           valid: true,
-          message: ""
+          message: "",
         };
       });
     },
     updateValidated() {
-      this.validated = this.validationObjects.every(object => object.valid);
+      this.validated = this.validationObjects.every((object) => object.valid);
       this.$emit("update:validated", this.validated);
-    }
+    },
   },
   computed: {
     value: {
@@ -147,14 +147,14 @@ export default {
       },
       set(value) {
         this.$emit("update:modelValue", value);
-      }
+      },
     },
     rounded() {
       return theme.rounded || "";
     },
     themeColor() {
       return this.color || theme.color;
-    }
-  }
+    },
+  },
 };
 </script>

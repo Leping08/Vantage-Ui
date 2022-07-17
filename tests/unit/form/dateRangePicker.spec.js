@@ -11,8 +11,8 @@ describe("DateRangePicker.vue", () => {
   it("changes color via a prop", async () => {
     const wrapper = mount(DateRangePicker, {
       props: {
-        color: "teal"
-      }
+        color: "teal",
+      },
     });
 
     await wrapper.find("#date-range-picker-button").trigger("click");
@@ -23,14 +23,14 @@ describe("DateRangePicker.vue", () => {
   it("changes sides via the position prop", async () => {
     const wrapper = mount(DateRangePicker, {
       props: {
-        position: "left"
-      }
+        position: "left",
+      },
     });
 
     expect(wrapper.html()).toContain("text-left");
 
     await wrapper.setProps({
-      position: "right"
+      position: "right",
     });
 
     await wrapper.find("#date-range-picker-button").trigger("click");

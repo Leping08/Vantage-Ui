@@ -7,8 +7,8 @@ describe("Input.vue", () => {
       props: {
         label: "test",
         value: 123,
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     expect(wrapper.html()).toContain("test");
@@ -19,8 +19,8 @@ describe("Input.vue", () => {
       props: {
         label: "test",
         value: 123,
-        modelValue: ""
-      }
+        modelValue: "",
+      },
     });
 
     await wrapper.find("input").trigger("click");
@@ -34,8 +34,8 @@ describe("Input.vue", () => {
         label: "test",
         value: 123,
         modelValue: "",
-        color: "red"
-      }
+        color: "red",
+      },
     });
 
     expect(wrapper.html()).toContain("red");
@@ -48,8 +48,8 @@ describe("Input.vue", () => {
         value: 123,
         modelValue: "",
         color: "red",
-        ring: true
-      }
+        ring: true,
+      },
     });
 
     expect(wrapper.html()).toContain("ring-2");
