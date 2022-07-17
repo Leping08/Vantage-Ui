@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-start">
+  <div class="flex items-center">
     <div class="flex items-center">
       <input
         :value="value"
